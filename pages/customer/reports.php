@@ -178,7 +178,7 @@
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                 <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
-                </span> Talep Oluşturma Formu
+                </span> Destek Talepleriniz
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -188,24 +188,84 @@
               </nav>
             </div>
 
-            <div class="col-12 grid-margin stretch-card">
+
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <form class="forms-sample">
-                      <div class="form-group">
-                        <label for="exampleInputName1">Firma Adı </label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Firma Adı ">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Servis İstediğiniz Tarih</label>
-                        <input type="date" class="form-control" id="exampleInputEmail3" placeholder="Servis İstediğiniz Tarih">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleTextarea1">Talep Açıklaması</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                      </div>
-                      <button type="submit" class="btn btn-gradient-primary me-2">Oluştur</button>
-                    </form>
+                    </p>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th> # </th>
+                          <th> Talep Eden   </th>
+                          <th> Talep Açıklaması  </th>
+                          <th> Talep Tarihi  </th>
+                          <th> Talep Durumu </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td> 1 </td>
+                          <td> Test Mikroes </td>
+                          <td>
+                           
+                          </td>
+                          <td> 18.06.2022 </td>
+                          <td><label class="badge badge-danger">Pending</label> </td>
+                        </tr>
+                        <tr>
+                          <td> 2 </td>
+                          <td> Test Mikroes </td>
+                          <td>
+                                 </td>
+                          <td> 18.06.2022 </td>
+                          <td> <label class="badge badge-warning">In progress</label> </td>
+                        </tr>
+                        <tr>
+                          <td> 3 </td>
+                          <td> Test Mikroes </td>
+                          <td>
+                            
+                          </td>
+                          <td>18.06.2022 </td>
+                          <td> <label class="badge badge-info">Fixed</label> </td>
+                        </tr>
+                        <tr>
+                          <td> 4 </td>
+                          <td> Test Mikroes </td>
+                          <td>
+                            
+                          </td>
+                          <td>18.06.2022 </td>
+                          <td> <label class="badge badge-success">Completed</label></td>
+                        </tr>
+                        <tr>
+                          <td> 5 </td>
+                          <td> Test Mikroes </td>
+                          <td>
+                           
+                          </td>
+                          <td>18.06.2022 </td>
+                          <td> <label class="badge badge-warning">In progress</label> </td>
+                        </tr>
+                        <tr>
+                          <td> 6 </td>
+                          <td> Test Mikroes </td>
+                          <td>
+                          </td>
+                          <td> 18.06.2022 </td>
+                          <td> <label class="badge badge-success">Completed</label></td>
+                        </tr>
+                        <tr>
+                          <td> 7 </td>
+                          <td> Test Mikroes </td>
+                          <td>
+                          </td>
+                          <td>18.06.2022 </td>
+                          <td> <label class="badge badge-info">Fixed</label> </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
