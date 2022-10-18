@@ -1,10 +1,4 @@
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_popup.php")
-
-    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['someAction']))
-    {
-      select();
-    }
-?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_popup.html");?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -96,9 +90,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
-                    <form action="theSamePage.php" method="post">
-    <input type="submit" name="someAction" value="GO" />
-</form>
+                    <<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#success_tic">Open Modal</button>
                     <!--Takvim -->
                   </div>
                 </div>
