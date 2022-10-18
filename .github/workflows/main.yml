@@ -13,4 +13,4 @@ jobs:
       with:
         server: 212.58.20.15
         username: mikroes_v2
-        password: ${{ secrets.ftp_password }}
+        password: ${{ secrets.ftp_pass }}
