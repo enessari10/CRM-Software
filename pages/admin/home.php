@@ -92,18 +92,10 @@
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
                     <div class="dialog" data-role="dialog" id="demoDialog1">
-    <div class="dialog-title">Use Windows location service?</div>
-    <div class="dialog-content">
-        Bassus abactors ducunt ad triticum.
-        A fraternal form of manifestation is the bliss.
-    </div>
-    <div class="dialog-actions">
-        <button class="button js-dialog-close">Disagree</button>
-        <button class="button primary js-dialog-close">Agree</button>
-    </div>
-</div>
-<button class="button primary"
-    onclick="Metro.dialog.open('#demoDialog1')">Open dialog</button>
+                    <button class="button info"
+    onclick="openDemoDialogActions()">Open dialog</button>
+
+
                     <!--Takvim -->
                   </div>
                 </div>
@@ -141,7 +133,30 @@
     <script src="/assets/js/todolist.js"></script>
     <script src="/assets/js/popup.js"></script>
     <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
-
+    <script>
+    function openDemoDialogActions(){
+        Metro.dialog.create({
+            title: "Use Windows location service?",
+            content: "<div>Bassus abactors ducunt ad triticum...</div>",
+            actions: [
+                {
+                    caption: "Agree",
+                    cls: "js-dialog-close alert",
+                    onclick: function(){
+                        alert("You clicked Agree action");
+                    }
+                },
+                {
+                    caption: "Disagree",
+                    cls: "js-dialog-close",
+                    onclick: function(){
+                        alert("You clicked Disagree action");
+                    }
+                }
+            ]
+        });
+    }
+</script>
     <!-- End custom js for this page -->
   </body>
   
