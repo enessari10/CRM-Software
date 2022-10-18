@@ -177,7 +177,7 @@
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
+                <a href="home.php" style="color:white;"><i class="mdi mdi-home"></i></a>
                 </span> Destek Talepleriniz
               </h3>
               <nav aria-label="breadcrumb">
