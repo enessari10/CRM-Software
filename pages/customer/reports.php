@@ -246,7 +246,7 @@
                            
                           </td>
                           <td>18.06.2022 </td>
-                          <td> <label class="badge badge-warning">In progress</label> </td>
+                          <td> <label class="badge badge-warning">İNCELENİYOR</label> </td>
                         </tr>
                         <tr>
                           <td> 6 </td>
@@ -254,7 +254,7 @@
                           <td>
                           </td>
                           <td> 18.06.2022 </td>
-                          <td> <label class="badge badge-success">Completed</label></td>
+                          <td> <label class="badge badge-success">RAPOR OLUŞTURULDU </label></td>
                         </tr>
                         <tr>
                           <td> 7 </td>
@@ -262,7 +262,7 @@
                           <td>
                           </td>
                           <td>18.06.2022 </td>
-                          <td> <label class="badge badge-info">Fixed</label> </td>
+                          <td> <label class="badge badge-info">İNCELENİYOR</label> </td>
                         </tr>
                       </tbody>
                     </table>
