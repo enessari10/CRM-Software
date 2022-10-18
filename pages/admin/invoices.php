@@ -178,9 +178,7 @@
               <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
                             <a href="" style="color:white;"><i class="mdi mdi-plus-circle-outline"></i></a>
                           </button>  
-              <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
-                </span> Fatura Edilecekler
+               Fatura Edilecekler
               </h3>
               
               <nav aria-label="breadcrumb">
