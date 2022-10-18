@@ -177,7 +177,7 @@
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <i class="mdi mdi-home"></i>
+                <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
                 </span> Talep Oluşturma Formu
               </h3>
               <nav aria-label="breadcrumb">
@@ -191,7 +191,6 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Talep Oluşturma Formu</h4> <br>
                     <form class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputName1">Firma Adı </label>
