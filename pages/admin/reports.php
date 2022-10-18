@@ -208,7 +208,7 @@
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
                           <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon" data-bs-toggle="dropdown"><i class="mdi mdi-internet-explorer"></i></button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Detay gör</a>
                               </div>
@@ -220,7 +220,7 @@
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
                           <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon" data-bs-toggle="dropdown"><i class="mdi mdi-internet-explorer"></i></button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Detay gör</a>
                               </div>
@@ -232,7 +232,7 @@
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
                           <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon" data-bs-toggle="dropdown"><i class="mdi mdi-internet-explorer"></i></button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Detay gör</a>
                               </div>
@@ -244,7 +244,7 @@
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
                           <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon" data-bs-toggle="dropdown"><i class="mdi mdi-internet-explorer"></i></button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Detay gör</a>
                               </div>
@@ -256,7 +256,7 @@
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
                           <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                              <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon" data-bs-toggle="dropdown"><i class="mdi mdi-internet-explorer"></i></button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Detay gör</a>
                               </div>
@@ -268,7 +268,7 @@
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
                           <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <button type="button" class="btn btn-gradient-dark btn-rounded btn-icon" data-bs-toggle="dropdown"><i class="mdi mdi-internet-explorer"></i></button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Detay gör</a>
                               </div>
