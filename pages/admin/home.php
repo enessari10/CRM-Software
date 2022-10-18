@@ -90,24 +90,25 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#success_tic">Open Modal</button>
-                    <a href="" onclick="openModal()">Open a Modal by jQuery</a>
-                    <div class="ui modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Modal Title
+                    <a class="item register">Register</a>
+
+              <div class="ui basic modal">
+  <div class="ui icon header">
+    <i class="archive icon"></i>
+    Archive Old Messages
   </div>
-  <div class="image content">
-    <div class="image">
-      An image can appear on left or an icon
-    </div>
-    <div class="description">
-      A description can appear on the right
-    </div>
+  <div class="content">
+    <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
   </div>
   <div class="actions">
-    <div class="ui button">Cancel</div>
-    <div class="ui button">OK</div>
+    <div class="ui red basic cancel inverted button">
+      <i class="remove icon"></i>
+      No
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Yes
+    </div>
   </div>
 </div>
                     <!--Takvim -->
@@ -146,11 +147,13 @@
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
     <script src="/assets/js/popup.js"></script>
-    <script type="text/javascript">
-    function openModal(){
-  $('.ui.modal').modal();
-}       
-</script>
+    <script>
+            $(document).ready(function(){
+                $('.register').click(function(){
+                    $('.ui.basic.modal').modal('show');
+                });
+            });
+        </script>
     <!-- End custom js for this page -->
   </body>
   
