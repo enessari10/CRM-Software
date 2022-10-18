@@ -14,3 +14,6 @@ jobs:
         server: ftp.mikroes.com
         username: mikroes_v2
         password: s39l$4s4S
+        port: 21
+        protocol: ftp
+        security: strict
