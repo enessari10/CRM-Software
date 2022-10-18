@@ -91,7 +91,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
-                    <a href="<?php openPopup('Test Başlık', 'Açıklama yazısı', 'home.php') ?>">Tıkla</a>
+                    <a href="<?php openPopup('Test Başlık', 'Açıklama yazısı', 'home.php'); ?>">Tıkla</a>
                     <!--Takvim -->
                   </div>
                 </div>

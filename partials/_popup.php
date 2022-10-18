@@ -3,7 +3,7 @@
 <?php 
 
 function openPopup($headerText, $descriptionText, $url) {
-    echo '
+    return '
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +16,8 @@ function openPopup($headerText, $descriptionText, $url) {
 </head>
 <body>
     <div class="container">
-  <h2>'$headerText'</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
+  <h2>'.$headerText.'</h2>
+ 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -31,10 +29,10 @@ function openPopup($headerText, $descriptionText, $url) {
           <h4 class="modal-title">Modal Header</h4>
         </div>
         <div class="modal-body">
-          <p>'$descriptionText'</p>
+          <p>'.$descriptionText.'</p>
         </div>
         <div class="modal-footer">
-          <a href="'$url'"  class="btn btn-default" data-dismiss="modal" >Kapat</a>
+          <a href="'.$url.'"  class="btn btn-default" data-dismiss="modal" >Kapat</a>
         </div>
       </div>
       
