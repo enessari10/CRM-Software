@@ -91,8 +91,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
-                    <a href="<?php openPopup('Test Başlık', 'Açıklama yazısı', 'home.php'); ?>">Tıkla</a>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="<?php openPopup('Test Başlık', 'Açıklama yazısı', 'home.php'); ?>">Open Modal</button>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" id="myModal1">Open Modal</button>
                     <!--Takvim -->
                   </div>
                 </div>
@@ -127,6 +126,8 @@
     <!-- Custom js for this page -->
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
+    <script src="/assets/js/popup.js"></script>
+
     <!-- End custom js for this page -->
   </body>
 </html>
