@@ -1,4 +1,10 @@
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_popup.html");?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_popup.php");
+
+if (isset($_GET['search']))
+    {
+        popup();
+    }
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -91,7 +97,9 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
-                    <<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#success_tic">Open Modal</button>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#success_tic">Open Modal</button>
+                    <a href="?search">Search</a>
+
                     <!--Takvim -->
                   </div>
                 </div>
