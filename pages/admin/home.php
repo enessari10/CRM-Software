@@ -2,9 +2,6 @@
 <html lang="tr">
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
-<!-- Compressed CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
@@ -92,16 +89,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
-                    <p><a data-open="exampleModal1">Click me for a modal</a></p>
-                    <div class="reveal" id="exampleModal1" data-reveal>
-      <h1>Awesome. I Have It.</h1>
-      <p class="lead">Your couch. It is mine.</p>
-      <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-      <button class="close-button" data-close aria-label="Close reveal" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
+                    
                     <!--Takvim -->
                   </div>
                 </div>
