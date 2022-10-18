@@ -1,10 +1,3 @@
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_popup.php");
-
-if (isset($_GET['search']))
-    {
-        popup();
-    }
-?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -98,8 +91,26 @@ if (isset($_GET['search']))
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#success_tic">Open Modal</button>
-                    <a href="?search">Search</a>
+                    <a href="" onclick="openModal()">Open a Modal by jQuery</a>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
                     <!--Takvim -->
                   </div>
                 </div>
@@ -136,7 +147,11 @@ if (isset($_GET['search']))
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
     <script src="/assets/js/popup.js"></script>
-
+    <script type="text/javascript">
+    function openModal(){
+$('#myModal').modal();
+}       
+</script>
     <!-- End custom js for this page -->
   </body>
   
