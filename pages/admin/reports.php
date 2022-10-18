@@ -207,54 +207,84 @@
                           <td> 10.10.2022 </td>
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
-                          <td> <button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
-                            <i class="mdi mdi-map-marker"></i>
-                          </button></td>
+                          <td> 
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item">Detay gör</a>
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> 10.10.2022 </td>
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
-                          <td> <button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
-                            <i class="mdi mdi-map-marker"></i>
-                          </button></td>
+                          <td> 
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item">Detay gör</a>
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> 10.10.2022 </td>
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
-                          <td> <button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
-                            <i class="mdi mdi-map-marker"></i>
-                          </button></td>
+                          <td> 
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item">Detay gör</a>
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> 10.10.2022 </td>
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
-                          <td> <button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
-                            <i class="mdi mdi-map-marker"></i>
-                          </button></td>
+                          <td> 
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item">Detay gör</a>
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> 10.10.2022 </td>
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
-                          <td> <button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
-                            <i class="mdi mdi-map-marker"></i>
-                          </button></td>
+                          <td> 
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item">Detay gör</a>
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> 10.10.2022 </td>
                           <td> 10.10.2022 </td>
                           <td> Enes </td>
-                          <td> <button type="button" class="btn btn-gradient-success btn-rounded btn-icon">
-                            <i class="mdi mdi-map-marker"></i>
-                          </button></td>
+                          <td> 
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item">Detay gör</a>
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
