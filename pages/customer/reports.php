@@ -211,7 +211,7 @@
                            
                           </td>
                           <td> 18.06.2022 </td>
-                          <td><label class="badge badge-danger">Pending</label> </td>
+                          <td><label class="badge badge-danger">REDDEDİLDİ</label> </td>
                         </tr>
                         <tr>
                           <td> 2 </td>
@@ -219,7 +219,7 @@
                           <td>
                                  </td>
                           <td> 18.06.2022 </td>
-                          <td> <label class="badge badge-warning">In progress</label> </td>
+                          <td> <label class="badge badge-warning">İNCELENİYOR</label> </td>
                         </tr>
                         <tr>
                           <td> 3 </td>
@@ -228,7 +228,7 @@
                             
                           </td>
                           <td>18.06.2022 </td>
-                          <td> <label class="badge badge-info">Fixed</label> </td>
+                          <td> <label class="badge badge-info">PROGRAMA ALINDI </label> </td>
                         </tr>
                         <tr>
                           <td> 4 </td>
@@ -237,7 +237,7 @@
                             
                           </td>
                           <td>18.06.2022 </td>
-                          <td> <label class="badge badge-success">Completed</label></td>
+                          <td> <label class="badge badge-success">RAPOR OLUŞTURULDU</label></td>
                         </tr>
                         <tr>
                           <td> 5 </td>
