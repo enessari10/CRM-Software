@@ -207,78 +207,80 @@
                           <td> Deneme </td>
                           <td> 10.10.2022 </td>
                           <td> <label class="badge badge-danger">Pending</label> </td>
-                          <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <td>       <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Durum değiştir</a>
                                 <a class="dropdown-item">Sil</a>
                               </div>
-                            </div> </td>
+                            </div></td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> Deneme </td>
                           <td> 10.10.2022 </td>
                           <td> <label class="badge badge-danger">Pending</label> </td>
-                          <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <td>       <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Durum değiştir</a>
                                 <a class="dropdown-item">Sil</a>
                               </div>
-                            </div> </td>
+                            </div></td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> Deneme </td>
                           <td> 10.10.2022 </td>
                           <td> <label class="badge badge-danger">Pending</label> </td>
-                          <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <td>       <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Durum değiştir</a>
                                 <a class="dropdown-item">Sil</a>
                               </div>
-                            </div> </td>
+                            </div></td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> Deneme </td>
                           <td> 10.10.2022 </td>
                           <td> <label class="badge badge-danger">Pending</label> </td>
-                          <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <td>       <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Durum değiştir</a>
                                 <a class="dropdown-item">Sil</a>
                               </div>
-                            </div> </td>
+                            </div></td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> Deneme </td>
                           <td> 10.10.2022 </td>
                           <td> <label class="badge badge-danger">Pending</label> </td>
-                          <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <td>       <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Durum değiştir</a>
                                 <a class="dropdown-item">Sil</a>
                               </div>
-                            </div> </td>
+                            </div></td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
                           <td> Deneme </td>
                           <td> 10.10.2022 </td>
                           <td> <label class="badge badge-danger">Pending</label> </td>
-                          <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-success btn-icon-text" data-bs-toggle="dropdown">İşlem Seç</button>
+                          <td> 
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item">Durum değiştir</a>
                                 <a class="dropdown-item">Sil</a>
                               </div>
-                            </div> </td>
+                            </div>
+                             </td>
                         </tr>
                       </tbody>
                     </table>
