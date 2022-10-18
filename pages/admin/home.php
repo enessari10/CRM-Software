@@ -132,7 +132,8 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
-                    <a href="<?php popup(); ?>">TIKLA </a>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="<?php popup(); ?>">Open Modal</button>
+
                     <!--Takvim -->
                   </div>
                 </div>
