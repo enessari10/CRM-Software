@@ -92,6 +92,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
                     <a href="<?php openPopup('Test Başlık', 'Açıklama yazısı', 'home.php'); ?>">Tıkla</a>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
                     <!--Takvim -->
                   </div>
                 </div>
