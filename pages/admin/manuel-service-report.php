@@ -208,7 +208,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Servis Zamanı</label>
-                        <input type="datetime-local" class="form-control" id="tarih" placeholder="Servis Zamanı">
+                        <input type="date" class="form-control" id="tarih" placeholder="Servis Zamanı">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Personel Bilgisi</label>
@@ -216,7 +216,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Rapor Açıklaması</label>
-                        <textarea class="form-control" id="reportDescription" rows="4"></textarea>
+                        <textarea class="form-control" id="reportDescription" rows="4" placeholder="Rapor açıklama"></textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary me-2">Rapor Oluştur</button>
                     </form>
