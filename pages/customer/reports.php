@@ -196,7 +196,7 @@
                     <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th> # </th>
+                          <th> ID </th>
                           <th> Talep Eden   </th>
                           <th> Talep Açıklaması  </th>
                           <th> Talep Tarihi  </th>
