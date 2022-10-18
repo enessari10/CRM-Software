@@ -11,6 +11,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        server: ftp.mikroes.com
-        username: v2_mikroes
-        password: ${{ secrets.PROD_FTP_PASSWORD }}
+        server: 212.58.20.15
+        username: ${{ secrets.ftp_user }}
+        password: ${{ secrets.ftp_pass }}
