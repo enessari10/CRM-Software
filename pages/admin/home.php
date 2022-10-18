@@ -90,27 +90,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
-                    <a class="item register">Register</a>
-
-              <div class="ui basic modal">
-  <div class="ui icon header">
-    <i class="archive icon"></i>
-    Archive Old Messages
-  </div>
-  <div class="content">
-    <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-  </div>
-  <div class="actions">
-    <div class="ui red basic cancel inverted button">
-      <i class="remove icon"></i>
-      No
-    </div>
-    <div class="ui green ok inverted button">
-      <i class="checkmark icon"></i>
-      Yes
-    </div>
-  </div>
-</div>
+                    
                     <!--Takvim -->
                   </div>
                 </div>
@@ -147,13 +127,7 @@
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
     <script src="/assets/js/popup.js"></script>
-    <script>
-            $(document).ready(function(){
-                $('.register').click(function(){
-                    $('.ui.basic.modal').modal('show');
-                });
-            });
-        </script>
+   
     <!-- End custom js for this page -->
   </body>
   
