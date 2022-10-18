@@ -176,8 +176,8 @@
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <a href=""><i class="mdi mdi-home"></i></a>
-                </span> CRM Müşteri Paneli
+                  <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
+                </span> Manuel Servis Raporu Oluşturma
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -190,7 +190,7 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Manuel Servis Raporu Oluşturma</h4>
+                    <h4 class="card-title"></h4>
                     <form class="forms-sample">
                     <div class="form-group">
                       <label for="exampleFormControlSelect2">Firma Adı</label>
