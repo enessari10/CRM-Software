@@ -187,30 +187,84 @@
               </nav>
             </div>
             <div class="row">
-            <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Manuel Talep Oluşturma</h4>
-                    <form class="forms-sample">
-                      <div class="form-group">
-                        <label for="exampleInputName1">Talep Başlığı</label>
-                        <input type="text" class="form-control" id="baslik" placeholder="Talep Başlığı">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputEmail3">Talep İçeriği</label>
-                        <input type="tex" class="form-control" id="aciklama" placeholder="Talep İçeriği">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword4">Tarih / Zaman</label>
-                        <input type="datetime-local" class="form-control" id="tarih" placeholder="Tarih">
-                      </div>
-                      <button type="submit" class="btn btn-gradient-primary me-2">Talep Oluştur</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+            <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th> Talep Eden </th>
+                          <th> Talep Açıklaması </th>
+                          <th> Talep Tarihi </th>
+                          <th> Talep Durumu </th>
+                          <th> İşlem </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td> 1 </td>
+                          <td> Herman Beck </td>
+                          <td>
+                          <td><label class="badge badge-danger">Pending</label></td>
+                          </td>
+                          <td> $ 77.99 </td>
+                          <td> May 15, 2015 </td>
+                        </tr>
+                        <tr>
+                          <td> 2 </td>
+                          <td> Messsy Adam </td>
+                          <td>
+                          <td><label class="badge badge-danger">Pending</label></td>
+                          </td>
+                          <td> $245.30 </td>
+                          <td> July 1, 2015 </td>
+                        </tr>
+                        <tr>
+                          <td> 3 </td>
+                          <td> John Richards </td>
+                          <td>
+                          <td><label class="badge badge-danger">Pending</label></td>
+                          </td>
+                          <td> $138.00 </td>
+                          <td> Apr 12, 2015 </td>
+                        </tr>
+                        <tr>
+                          <td> 4 </td>
+                          <td> Peter Meggik </td>
+                          <td>
+                          <td><label class="badge badge-danger">Pending</label></td>
+                          </td>
+                          <td> $ 77.99 </td>
+                          <td> May 15, 2015 </td>
+                        </tr>
+                        <tr>
+                          <td> 5 </td>
+                          <td> Edward </td>
+                          <td>
+                          <td><label class="badge badge-danger">Pending</label></td>
+                          </td>
+                          <td> $ 160.25 </td>
+                          <td> May 03, 2015 </td>
+                        </tr>
+                        <tr>
+                          <td> 6 </td>
+                          <td> John Doe </td>
+                          <td>
+                            <<td><label class="badge badge-danger">Pending</label></td>
+                          </td>
+                          <td> $ 123.21 </td>
+                          <td> April 05, 2015 </td>
+                        </tr>
+                        <tr>
+                          <td> 7 </td>
+                          <td> Henry Tom </td>
+                          <td>
+                          <td><label class="badge badge-danger">Pending</label></td>
+                          </td>
+                          <td> $ 150.00 </td>
+                          <td> June 16, 2015 </td>
+                        </tr>
+                      </tbody>
+                    </table>
        
-              </div>
+            </div>
              
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
