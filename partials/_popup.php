@@ -1,4 +1,7 @@
+<?php 
+function select() {
 
+echo '
 <div class="container">
   <!-- Button to Open the Modal -->
 
@@ -28,4 +31,7 @@
     </div>
   </div>
   
-</div>
+</div>';
+  exit;
+}
+?>
