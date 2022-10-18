@@ -1,33 +1,40 @@
-- name: FTP Deploy
-  # You may pin to the exact commit or the version.
-  # uses: SamKirkland/FTP-Deploy-Action@1b21034a8decff23858a1721ca2c25b949b4bc78
-  uses: SamKirkland/FTP-Deploy-Action@4.3.2
-  with:
-    # ftp server
-    server: 212.58.20.15
-    # ftp username
-    username: v2_mikroes
-    # ftp password
-    password: s39l$4s4S
-    # Server port to connect to (read your web hosts docs)
-    port: 21
-    # protocol to deploy with - ftp, ftps, or ftps-legacy
-    protocol: # optional
-    # Folder to upload from, must end with trailing slash /
-    local-dir: # optional
-    # Path to upload to on the server. Must end with trailing slash /
-    server-dir: # optional
-    # Path and name of the state file - this file is used to track which files have been deployed
-    state-name: # optional
-    # Prints which modifications will be made with current config options, but doesnt actually make any changes
-    dry-run: # optional
-    # Deletes ALL contents of server-dir, even items in excluded with exclude argument
-    dangerous-clean-slate: # optional
-    # An array of glob patterns, these files will not be included in the publish/delete process
-    exclude: # optional
-    # How verbose should the information be - minimal, standard, or verbose
-    log-level: # optional
-    # strict or loose
-    security: # optional
-    # Timeout in milliseconds for FTP operations
-    timeout: # optional
+name: Build and deploy
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build ⛏
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Install dependencies
+        run: npm ci
+      - name: Build dependencies
+        run: npm run build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy 🚀
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Download artifact
+        uses: actions/download-artifact@main
+        with: 
+          name: dist
+          path: dist
+      - name: Sync files to hosting
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with: 
+          server: 212.58.20.15
+          username: v2_mikroes
+          password: ${{ secrets.PROD_FTP_PASSWORD }}
