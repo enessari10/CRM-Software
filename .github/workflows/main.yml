@@ -11,9 +11,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        server: ftp.mikroes.com
+        server: 212.58.20.15
         username: mikroes_v2
         password: s39l$4s4S
         port: 21
         protocol: ftp
-        security: strict
