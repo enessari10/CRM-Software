@@ -187,11 +187,11 @@
               </nav>
             </div>
             <div class="row">
-            <div class="col-lg-6 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Basic Table</h4>
-                    <p class="card-description"> Add class <code>.table</code>
+                    <h4 class="card-title">Striped Table</h4>
+                    <p class="card-description"> Add class <code>.table-striped</code>
                     </p>
             <table class="table table-bordered">
                       <thead>
@@ -255,8 +255,8 @@
                         </tr>
                       </tbody>
                     </table>
-</div>
-</div>
+                    </div>
+                </div>
             </div>
              
           <!-- content-wrapper ends -->
