@@ -1,4 +1,4 @@
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_popup.php") ?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_success_modal.html") ?>
 
 <!DOCTYPE html>
 <html lang="tr">
