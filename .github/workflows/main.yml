@@ -11,6 +11,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        server: 212.58.20.15
+        server: ftp.mikroes.com
         username: mikroes_v2
         password: s39l$4s4S
