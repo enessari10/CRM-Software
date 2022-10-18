@@ -194,7 +194,7 @@
                     <form class="forms-sample">
                     <div class="form-group">
                       <label for="exampleFormControlSelect2">Firma Adı</label>
-                      <select class="form-control" id="companyName">
+                      <select class="form-control form-control-lg" id="companyName">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
