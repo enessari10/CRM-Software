@@ -13,6 +13,6 @@ jobs:
       with:
         server: 212.58.20.15
         username: mikroes_v2
-        password: s39l$4s4S
+        password: 102030*Enes*Yusuf
         port: 21
         protocol: ftp
