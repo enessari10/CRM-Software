@@ -190,93 +190,87 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Hizmet Talepleri</h4>
+                    <h4 class="card-title">Oluşturulmuş Raporlar</h4>
             <table class="table table-bordered">
                       <thead>
                         <tr>
                           <th> Talep Eden </th>
-                          <th> Talep Açıklaması </th>
                           <th> Talep Tarihi </th>
-                          <th> Talep Durumu </th>
+                          <th> Servis Tarihi </th>
+                          <th> Personel </th>
                           <th> İşlem </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td> Test Kullanıcısı </td>
-                          <td> Deneme </td>
                           <td> 10.10.2022 </td>
-                          <td> <label class="badge badge-danger">Pending</label> </td>
+                          <td> 10.10.2022 </td>
+                          <td> Enes </td>
                           <td> <div class="btn-group">
                               <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
-                                <a class="dropdown-item">Durum değiştir</a>
-                                <a class="dropdown-item">Sil</a>
+                                <a class="dropdown-item">Detay gör</a>
                               </div>
                             </div> </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
-                          <td> Deneme </td>
                           <td> 10.10.2022 </td>
-                          <td> <label class="badge badge-danger">Pending</label> </td>
+                          <td> 10.10.2022 </td>
+                          <td> Enes </td>
                           <td> <div class="btn-group">
                               <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
-                                <a class="dropdown-item">Durum değiştir</a>
-                                <a class="dropdown-item">Sil</a>
+                                <a class="dropdown-item">Detay gör</a>
                               </div>
                             </div> </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
-                          <td> Deneme </td>
                           <td> 10.10.2022 </td>
-                          <td> <label class="badge badge-danger">Pending</label> </td>
+                          <td> 10.10.2022 </td>
+                          <td> Enes </td>
                           <td> <div class="btn-group">
                               <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
-                                <a class="dropdown-item">Durum değiştir</a>
-                                <a class="dropdown-item">Sil</a>
+                                <a class="dropdown-item">Detay gör</a>
                               </div>
                             </div> </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
-                          <td> Deneme </td>
                           <td> 10.10.2022 </td>
-                          <td> <label class="badge badge-danger">Pending</label> </td>
+                          <td> 10.10.2022 </td>
+                          <td> Enes </td>
                           <td> <div class="btn-group">
                               <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
-                                <a class="dropdown-item">Durum değiştir</a>
-                                <a class="dropdown-item">Sil</a>
+                                <a class="dropdown-item">Detay gör</a>
                               </div>
                             </div> </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
-                          <td> Deneme </td>
                           <td> 10.10.2022 </td>
-                          <td> <label class="badge badge-danger">Pending</label> </td>
+                          <td> 10.10.2022 </td>
+                          <td> Enes </td>
                           <td> <div class="btn-group">
                               <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
-                                <a class="dropdown-item">Durum değiştir</a>
-                                <a class="dropdown-item">Sil</a>
+                                <a class="dropdown-item">Detay gör</a>
                               </div>
                             </div> </td>
                         </tr>
                         <tr>
                           <td> Test Kullanıcısı </td>
-                          <td> Deneme </td>
                           <td> 10.10.2022 </td>
-                          <td> <label class="badge badge-danger">Pending</label> </td>
+                          <td> 10.10.2022 </td>
+                          <td> Enes </td>
                           <td> <div class="btn-group">
-                              <button type="button" class="btn btn-outline-success btn-icon-text" data-bs-toggle="dropdown">İşlem Seç</button>
+                              <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
-                                <a class="dropdown-item">Durum değiştir</a>
-                                <a class="dropdown-item">Sil</a>
+                                <a class="dropdown-item">Detay gör</a>
                               </div>
                             </div> </td>
                         </tr>
