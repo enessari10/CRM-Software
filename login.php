@@ -16,7 +16,7 @@
                 <h4>Merhaba, CRM Sistemine hoş geldiniz</h4>
                 <h6 class="font-weight-light">Devam etmek için oturum açın.</h6>
                 <form class="pt-3">
-                  <div class="form-group">
+                  <div class="form-group" method="post" action="/ajax/login_cookie.php">
                     <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email Adresi">
                   </div>
                   <div class="form-group">
@@ -28,7 +28,7 @@
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
-                        <input type="checkbox" class="form-check-input"> Oturumumu açık tut </label>
+                        <input type="checkbox" class="form-check-input" name="remember-me"> Oturumumu açık tut </label>
                     </div>
                     <a href="#" class="auth-link text-black">Şifremi Unuttum?</a>
                   </div>
