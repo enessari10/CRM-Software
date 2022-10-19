@@ -1,3 +1,47 @@
+<?php
+    
+include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
+
+$User = $_POST['email'];
+$Pass = $_POST['password'];
+ 
+// Formdan aldığımız bilgileri veri tabanında sorguluyoruz.
+$CheckUser = $db->query("SELECT * FROM Users WHERE email='{$User}' and password = '{$Pass}' ")->fetch(PDO::FETCH_ASSOC);
+ 
+if ( $CheckUser ) {
+ 
+// Eğer kullanıcı var ise standart session başlatma işlemlerini uygulayın, ardından beni hatırla işlemlerini yapalım.
+ 
+if ( isset($_POST['remember-me']) ) {
+ 
+$UserID = $CheckUser['id']; // Kullanıcının id'si.
+$delete = $db->exec("DELETE FROM Cookie WHERE user_id = '$UserID' "); // Önceki anahtarları siliyoruz.
+ 
+$NewToken = bin2hex(openssl_random_pseudo_bytes(32)); // Rastgele kod üretiyoruz.
+ 
+// Ürettiğimiz kodu kullanıcı id'si ve tarayıcı bilgisi ile birlikte veritabanımıza kaydediyoruz.
+$Insert2 = $db->prepare("INSERT INTO Cookie SET
+        user_id = :bir,
+        remember_token = :iki,
+        expired_time = :uc,
+        user_browser = :dort");
+      $insert = $Insert2->execute(array(
+        "bir" => $UserID,
+        "iki" => $NewToken,
+        "uc" => time()+604800,
+        'dort' => md5($_SERVER['HTTP_USER_AGENT'])
+         
+      ));
+ 
+// Kullanıcının tarayıcısına bu kodu çerez olarak kaydediyoruz.
+setcookie("RMB", $NewToken, time() + 604801,'/');
+ 
+}
+ 
+} 
+?>
+
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -16,14 +60,14 @@
                 <h4>Merhaba, CRM Sistemine hoş geldiniz</h4>
                 <h6 class="font-weight-light">Devam etmek için oturum açın.</h6>
                 <form class="pt-3">
-                  <div class="form-group" method="post" action="/ajax/login_cookie.php">
+                  <div class="form-group">
                     <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email Adresi">
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifre">
                   </div>
                   <div class="mt-3">
-                    <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="../pages/admin/home.php">GİRİŞ YAP</a>
+                    <button name="submit" type = "submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">GİRİŞ YAP</button>
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
