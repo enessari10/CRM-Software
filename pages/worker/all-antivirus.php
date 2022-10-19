@@ -25,7 +25,7 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_admin_menu.html") ?>
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_worker_menu.html") ?>
           </ul>
         </nav>
         <!-- partial -->
