@@ -11,7 +11,7 @@
     
     // Check user login or not
     if(!isset($_SESSION['userid'])){
-        
+        session_start();
     } else {
     header('Location: /login.php');
     }
