@@ -4,6 +4,19 @@
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
     <link href='/assets/lib/main.css' rel='stylesheet' />
     <script src='/assets/lib/main.js'></script>
+    <style>
+  #loading {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+</style>
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
@@ -150,8 +163,37 @@
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
     <script src="/assets/js/popup.js"></script>
-    <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
-    
+    <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+	var today = new Date();
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      initialDate: today,
+      editable: false,
+	  locale:'tr',
+	  
+      navLinks: true, // can click day/week names to navigate views
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: {
+        url: 'https://crm.mikroes.com/process/takvim/get.php'
+      },
+      loading: function(bool) {
+        document.getElementById('loading').style.display =
+          bool ? 'block' : 'none';
+      }
+    });
+
+    calendar.render();
+  });
+
+</script>
     <!-- End custom js for this page -->
   </body>
   

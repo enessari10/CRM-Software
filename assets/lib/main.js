@@ -5439,8 +5439,8 @@ var FullCalendar = (function (exports) {
     StandardTheme.prototype.classes = {
         root: 'fc-theme-standard',
         tableCellShaded: 'fc-cell-shaded',
-        buttonGroup: 'fc-button-group',
-        button: 'fc-button fc-button-primary',
+        buttonGroup: 'btn btn-gradient-dark btn-rounded btn-fw',
+        button: 'btn btn-gradient-dark btn-rounded btn-fw',
         buttonActive: 'fc-button-active',
     };
     StandardTheme.prototype.baseIconClass = 'fc-icon';
