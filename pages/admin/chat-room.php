@@ -1,223 +1,222 @@
-<html>
-<head>
-	<title>Chat application in php using web scocket programming</title>
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
+  </head>
+  <body>
+      <!-- partial:partials/_navbar.html -->
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.html") ?>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="/assets/images/faces/face1.jpg" alt="profile">
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">Email Adresi</span>
+                  <span class="text-secondary text-small">Firma Adı</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_admin_menu.html") ?>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
+                </span> Mesaj İçeriği
+              </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="row">
+            <div class="container">
+<h3 class=" text-center">Messaging</h3>
+<div class="messaging">
+      <div class="inbox_msg">
+        <div class="inbox_people">
+          <div class="headind_srch">
+            <div class="recent_heading">
+              <h4>Recent</h4>
+            </div>
+            <div class="srch_bar">
+              <div class="stylish-input-group">
+                <input type="text" class="search-bar"  placeholder="Search" >
+                <span class="input-group-addon">
+                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                </span> </div>
+            </div>
+          </div>
+          <div class="inbox_chat">
+            <div class="chat_list active_chat">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+                  <p>Test, which is a new approach to have all solutions 
+                    astrology under one roof.</p>
+                </div>
+              </div>
+            </div>
+            <div class="chat_list">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+                  <p>Test, which is a new approach to have all solutions 
+                    astrology under one roof.</p>
+                </div>
+              </div>
+            </div>
+            <div class="chat_list">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+                  <p>Test, which is a new approach to have all solutions 
+                    astrology under one roof.</p>
+                </div>
+              </div>
+            </div>
+            <div class="chat_list">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+                  <p>Test, which is a new approach to have all solutions 
+                    astrology under one roof.</p>
+                </div>
+              </div>
+            </div>
+            <div class="chat_list">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+                  <p>Test, which is a new approach to have all solutions 
+                    astrology under one roof.</p>
+                </div>
+              </div>
+            </div>
+            <div class="chat_list">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+                  <p>Test, which is a new approach to have all solutions 
+                    astrology under one roof.</p>
+                </div>
+              </div>
+            </div>
+            <div class="chat_list">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_ib">
+                  <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
+                  <p>Test, which is a new approach to have all solutions 
+                    astrology under one roof.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mesgs">
+          <div class="msg_history">
+            <div class="incoming_msg">
+              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                  <p>Test which is a new approach to have all
+                    solutions</p>
+                  <span class="time_date"> 11:01 AM    |    June 9</span></div>
+              </div>
+            </div>
+            <div class="outgoing_msg">
+              <div class="sent_msg">
+                <p>Test which is a new approach to have all
+                  solutions</p>
+                <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+            </div>
+            <div class="incoming_msg">
+              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                  <p>Test, which is a new approach to have</p>
+                  <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+              </div>
+            </div>
+            <div class="outgoing_msg">
+              <div class="sent_msg">
+                <p>Apollo University, Delhi, India Test</p>
+                <span class="time_date"> 11:01 AM    |    Today</span> </div>
+            </div>
+            <div class="incoming_msg">
+              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+              <div class="received_msg">
+                <div class="received_withd_msg">
+                  <p>We work directly with our designers and suppliers,
+                    and sell direct to you, which means quality, exclusive
+                    products, at a price anyone can afford.</p>
+                  <span class="time_date"> 11:01 AM    |    Today</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="type_msg">
+            <div class="input_msg_write">
+              <input type="text" class="write_msg" placeholder="Type a message" />
+              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <p class="text-center top_spac"> Design by <a target="_blank" href="https://www.linkedin.com/in/sunil-rajput-nattho-singh/">Sunil Rajput</a></p>
+      
+    </div></div>
+            </div>
+             
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer.html") ?>
 
-	<style type="text/css">
-		html,
-		
-		#wrapper
-		{
-			display: flex;
-		  	flex-flow: column;
-		  	height: 100%;
-		}
-		#remaining
-		{
-			flex-grow : 1;
-		}
-		#messages {
-			height: 200px;
-			background: whitesmoke;
-			overflow: auto;
-		}
-		#chat-room-frm {
-			margin-top: 10px;
-		}
-		#user_list
-		{
-			height:450px;
-			overflow-y: auto;
-		}
-
-		#messages_area
-		{
-			height: 650px;
-			overflow-y: auto;
-			background-color:#e6e6e6;
-		}
-
-	</style>
-</head>
-<body>
-	<div class="container">
-		<br />
-        <h3 class="text-center">PHP Chat Application using Websocket - Display User with Online or Offline Status</h3>
-        <br />
-		<div class="row">
-			
-			<div class="col-lg-8">
-				<div class="card">
-					<div class="card-header"><h3>Chat Room</h3></div>
-					<div class="card-body" id="messages_area">
-					<?php
-					
-
-						echo '
-						<div class="row justify-content-end">
-							<div class="col-sm-10">
-								<div class="shadow-sm alert alert-success">
-									<b>Enes - </b>selammmmmm
-									<br />
-									<div class="text-right">
-										<small><i>10.10.2021 14.10</i></small>
-									</div>
-								</div>
-							</div>
-						</div>
-						';
-					
-					?>
-					</div>
-				</div>
-
-				<form method="post" id="chat_form" data-parsley-errors-container="#validation_error">
-					<div class="input-group mb-3">
-						<textarea class="form-control" id="chat_message" name="chat_message" placeholder="Type Message Here" data-parsley-maxlength="1000" data-parsley-pattern="/^[a-zA-Z0-9\s]+$/" required></textarea>
-						<div class="input-group-append">
-							<button type="submit" name="send" id="send" class="btn btn-primary"><i class="fa fa-paper-plane"></i></button>
-						</div>
-					</div>
-					<div id="validation_error"></div>
-				</form>
-			</div>
-			<div class="col-lg-4">
-			
-				<input type="hidden" name="login_user_id" id="login_user_id" value="1" />
-				<div class="mt-3 mb-3 text-center">
-					<img src="" width="150" class="img-fluid rounded-circle img-thumbnail" />
-					<h3 class="mt-2">ENES NAME</h3>
-					<a href="profile.php" class="btn btn-secondary mt-2 mb-2">Edit</a>
-					<input type="button" class="btn btn-primary mt-2 mb-2" name="logout" id="logout" value="Logout" />
-				</div>
-				
-				?>
-
-				<!-- <div class="card mt-3">
-					<div class="card-header">User List</div>
-					<div class="card-body" id="user_list">
-						<div class="list-group list-group-flush">
-						<?php
-						if(count($user_data) > 0)
-						{
-							foreach($user_data as $key => $user)
-							{
-								$icon = '<i class="fa fa-circle text-danger"></i>';
-
-								if($user['user_login_status'] == 'Login')
-								{
-									$icon = '<i class="fa fa-circle text-success"></i>';
-								}
-
-								if($user['user_id'] != $login_user_id)
-								{
-									echo '
-									<a class="list-group-item list-group-item-action">
-										<img src="'.$user["user_profile"].'" class="img-fluid rounded-circle img-thumbnail" width="50" />
-										<span class="ml-1"><strong>'.$user["user_name"].'</strong></span>
-										<span class="mt-2 float-right">'.$icon.'</span>
-									</a>
-									';
-								}
-
-							}
-						}
-						?>
-						</div>
-					</div>
-				</div> -->
-
-			</div>
-		</div>
-	</div>
-</body>
-<script type="text/javascript">
-	
-	$(document).ready(function(){
-
-		var conn = new WebSocket('ws://localhost:8080');
-		conn.onopen = function(e) {
-		    console.log("Connection established!");
-		};
-
-		conn.onmessage = function(e) {
-		    console.log(e.data);
-
-		    var data = JSON.parse(e.data);
-
-		    var row_class = '';
-
-		    var background_class = '';
-
-		    if(data.from == 'Me')
-		    {
-		    	row_class = 'row justify-content-start';
-		    	background_class = 'text-dark alert-light';
-		    }
-		    else
-		    {
-		    	row_class = 'row justify-content-end';
-		    	background_class = 'alert-success';
-		    }
-
-		    var html_data = "<div class='"+row_class+"'><div class='col-sm-10'><div class='shadow-sm alert "+background_class+"'><b>"+data.from+" - </b>"+data.msg+"<br /><div class='text-right'><small><i>"+data.dt+"</i></small></div></div></div></div>";
-
-		    $('#messages_area').append(html_data);
-
-		    $("#chat_message").val("");
-		};
-
-		$('#chat_form').parsley();
-
-		$('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
-
-		$('#chat_form').on('submit', function(event){
-
-			event.preventDefault();
-
-			if($('#chat_form').parsley().isValid())
-			{
-
-				var user_id = $('#login_user_id').val();
-
-				var message = $('#chat_message').val();
-
-				var data = {
-					userId : user_id,
-					msg : message
-				};
-
-				conn.send(JSON.stringify(data));
-
-				$('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
-
-			}
-
-		});
-		
-		// $('#logout').click(function(){
-
-		// 	user_id = $('#login_user_id').val();
-
-		// 	$.ajax({
-		// 		url:"action.php",
-		// 		method:"POST",
-		// 		data:{user_id:user_id, action:'leave'},
-		// 		success:function(data)
-		// 		{
-		// 			var response = JSON.parse(data);
-
-		// 			if(response.status == 1)
-		// 			{
-		// 				conn.close();
-		// 				location = 'index.php';
-		// 			}
-		// 		}
-		// 	})
-
-		// });
-
-	});
-	
-</script>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="/assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/assets/js/off-canvas.js"></script>
+    <script src="/assets/js/hoverable-collapse.js"></script>
+    <script src="/assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/assets/js/dashboard.js"></script>
+    <script src="/assets/js/todolist.js"></script>
+    <!-- End custom js for this page -->
+  </body>
 </html>
