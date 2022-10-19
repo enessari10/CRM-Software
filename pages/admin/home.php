@@ -2,6 +2,8 @@
 <html lang="tr">
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
+    <link href='/assets/lib/main.css' rel='stylesheet' />
+    <script src='/assets/lib/main.js'></script>
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
@@ -89,6 +91,8 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Takvim </h4>
+                    <div id='loading'>loading...</div>
+                  <div id='calendar'></div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
 </button><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
