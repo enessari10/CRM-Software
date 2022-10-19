@@ -12,11 +12,10 @@ if( isset($_SESSION['userid']) ){
     // Decrypt cookie variable value
     $userid = decryptCookie($_COOKIE['rememberme']);
     
-    $sql_query = "select count(*) as cntUser,id from Users where user_id='".$userid."'";
+    $sql_query = "select * from Users where user_id='".$userid."'";
     $result = mysqli_query($db,$sql_query);
     $row = mysqli_fetch_array($result);
-
-    $count = $row['cntUser'];
+    $count=mysqli_num_rows($result);
 
     if( $count > 0 ){
         $_SESSION['userid'] = $userid; 

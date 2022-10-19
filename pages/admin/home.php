@@ -1,26 +1,28 @@
-<?php
+<!-- <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
 
-    // Check user login or not
-    if(!isset($_SESSION['userid'])){
-        header('Location: /login.php');
-    }
+// Check user login or not
+if(!isset($_SESSION['userid'])){
+    
+} else {
+header('Location: /login.php');
+}
 
-    // logout
-    if(isset($_POST['but_logout'])){
-        session_destroy();
+// logout
+if(isset($_POST['but_logout'])){
+    session_destroy();
 
-        // Remove cookie variables
-        $days = 30;
-        setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
+    // Remove cookie variables
+    $days = 30;
+    setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
 
-        header('Location: /login.php');
-    }
-    ?>
+    header('Location: /login.php');
+}
+?> -->
 <!DOCTYPE html>
 <html lang="tr">
   <head>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
     <link href='/assets/lib/main.css' rel='stylesheet' />
     <script src='/assets/lib/main.js'></script>
     <style>

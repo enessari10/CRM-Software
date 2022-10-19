@@ -6,12 +6,27 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
+    <?php
+    include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
+    
+    // Check user login or not
+    if(!isset($_SESSION['userid'])){
+        
+    } else {
+    header('Location: /login.php');
+    }
+    
+    // logout
+    if(isset($_POST['but_logout'])){
+        session_destroy();
+    
+        // Remove cookie variables
+        $days = 30;
+        setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
+    
+        header('Location: /login.php');
+    }
+    ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
