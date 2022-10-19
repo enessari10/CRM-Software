@@ -3,7 +3,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
 
     // Check user login or not
     if(!isset($_SESSION['userid'])){
-        header('Location: login.php');
+        header('Location: /login.php');
     }
 
     // logout
@@ -14,7 +14,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
         $days = 30;
         setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
 
-        header('Location: login.php');
+        header('Location: /login.php');
     }
     ?>
 <!DOCTYPE html>

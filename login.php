@@ -59,14 +59,13 @@ if(isset($_POST['but_submit'])){
     
     if ($uname != "" && $password != ""){
 
-        $sql_query = "select count(*) as cntUser,id from Users where email='".$uname."' and password='".$password."'";
+        $sql_query = "select * from Users where email='".$uname."' and password='".$password."'";
         $result = mysqli_query($db,$sql_query);
         $row = mysqli_fetch_array($result);
-
-        $count = $row['cntUser'];
-
+		    $count=mysqli_num_rows($result);
+		
         if($count > 0){
-             $userid = $row['id'];
+             $userid = $row['user_id'];
             if( isset($_POST['rememberme']) ){
 
                 // Set cookie variables
@@ -107,11 +106,10 @@ if(isset($_POST['but_submit'])){
                 <h6 class="font-weight-light">Devam etmek için oturum açın.</h6>
                 <form class="pt-3" method="post" action="">
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email Adresi">
+                    <input type="email" class="form-control form-control-lg" name="email" placeholder="Email Adresi">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifre">
-                  </div>
+                    <input type="password" class="form-control form-control-lg" name="password" placeholder="Şifre">                  </div>
                   <div class="mt-3">
                   <input type="submit" value="GİRİŞ YAP" name="but_submit" id="but_submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" />
                   </div>
