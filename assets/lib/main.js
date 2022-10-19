@@ -7910,7 +7910,7 @@ var FullCalendar = (function (exports) {
                 }
                 else {
                     var isPressed = buttonName === props.activeButton;
-                    var isDisabled = (!props.isTodayEnabled && buttonName === 'today') ||
+                    var isDisabled = (!props.isTodayEnabled && buttonName === 'Bugün') ||
                         (!props.isPrevEnabled && buttonName === 'prev') ||
                         (!props.isNextEnabled && buttonName === 'next');
                     var buttonClasses = ["fc-" + buttonName + "-button", theme.getClass('button')];
