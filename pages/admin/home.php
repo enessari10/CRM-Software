@@ -1,24 +1,4 @@
-<!-- <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
 
-// Check user login or not
-if(!isset($_SESSION['userid'])){
-    
-} else {
-header('Location: /login.php');
-}
-
-// logout
-if(isset($_POST['but_logout'])){
-    session_destroy();
-
-    // Remove cookie variables
-    $days = 30;
-    setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
-
-    header('Location: /login.php');
-}
-?> -->
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -41,7 +21,7 @@ if(isset($_POST['but_logout'])){
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.html") ?>
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
@@ -55,7 +35,7 @@ if(isset($_POST['but_logout'])){
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">Email Adresi</span>
+                  <span class="font-weight-bold mb-2"><?php echo $_SESSION['userid']; ?></span>
                   <span class="text-secondary text-small">Firma Adı</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
