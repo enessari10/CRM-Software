@@ -54,13 +54,13 @@ function decryptCookie( $ciphertext ) {
 // On submit
 if(isset($_POST['but_submit'])){
 
-    $uname = mysqli_real_escape_string($con,$_POST['email']);
-    $password = mysqli_real_escape_string($con,$_POST['password']);
+    $uname = mysqli_real_escape_string($db,$_POST['email']);
+    $password = mysqli_real_escape_string($db,$_POST['password']);
     
     if ($uname != "" && $password != ""){
 
         $sql_query = "select count(*) as cntUser,id from Users where email='".$uname."' and password='".$password."'";
-        $result = mysqli_query($con,$sql_query);
+        $result = mysqli_query($db,$sql_query);
         $row = mysqli_fetch_array($result);
 
         $count = $row['cntUser'];
@@ -105,7 +105,7 @@ if(isset($_POST['but_submit'])){
                 </div>
                 <h4>Merhaba, CRM Sistemine hoş geldiniz</h4>
                 <h6 class="font-weight-light">Devam etmek için oturum açın.</h6>
-                <form class="pt-3">
+                <form class="pt-3" method="post" action="">
                   <div class="form-group">
                     <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email Adresi">
                   </div>
@@ -113,7 +113,7 @@ if(isset($_POST['but_submit'])){
                     <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifre">
                   </div>
                   <div class="mt-3">
-                    <button name="submit" type = "submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">GİRİŞ YAP</button>
+                  <input type="submit" value="GİRİŞ YAP" name="but_submit" id="but_submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" />
                   </div>
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
