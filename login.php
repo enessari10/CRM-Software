@@ -115,7 +115,7 @@ if(isset($_POST['but_submit'])){
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
-                        <input type="checkbox" name="rememberme"  value="1"> Oturumumu açık tut </label>
+                        <input type="checkbox" name="rememberme"  checked> Oturumumu açık tut </label>
                     </div>
                     <a href="#" class="auth-link text-black">Şifremi Unuttum?</a>
                   </div>
