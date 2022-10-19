@@ -1,46 +1,92 @@
+
 <?php
-    
 include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
 
-$User = $_POST['email'];
-$Pass = $_POST['password'];
- 
-// Formdan aldığımız bilgileri veri tabanında sorguluyoruz.
-$CheckUser = $db->query("SELECT * FROM Users WHERE email='{$User}' and password = '{$Pass}' ")->fetch(PDO::FETCH_ASSOC);
- 
-if ( $CheckUser ) {
- 
-// Eğer kullanıcı var ise standart session başlatma işlemlerini uygulayın, ardından beni hatırla işlemlerini yapalım.
- 
-if ( isset($_POST['remember-me']) ) {
- 
-$UserID = $CheckUser['id']; // Kullanıcının id'si.
-$delete = $db->exec("DELETE FROM Cookie WHERE user_id = '$UserID' "); // Önceki anahtarları siliyoruz.
- 
-$NewToken = bin2hex(openssl_random_pseudo_bytes(32)); // Rastgele kod üretiyoruz.
- 
-// Ürettiğimiz kodu kullanıcı id'si ve tarayıcı bilgisi ile birlikte veritabanımıza kaydediyoruz.
-$Insert2 = $db->prepare("INSERT INTO Cookie SET
-        user_id = :bir,
-        remember_token = :iki,
-        expired_time = :uc,
-        user_browser = :dort");
-      $insert = $Insert2->execute(array(
-        "bir" => $UserID,
-        "iki" => $NewToken,
-        "uc" => time()+604800,
-        'dort' => md5($_SERVER['HTTP_USER_AGENT'])
-         
-      ));
- 
-// Kullanıcının tarayıcısına bu kodu çerez olarak kaydediyoruz.
-setcookie("RMB", $NewToken, time() + 604801,'/');
- 
-}
- 
-} 
-?>
 
+// Check if $_SESSION or $_COOKIE already set
+if( isset($_SESSION['userid']) ){
+   header('Location: /pages/admin/home.php');
+   exit;
+}else if( isset($_COOKIE['rememberme']  )){
+    
+    // Decrypt cookie variable value
+    $userid = decryptCookie($_COOKIE['rememberme']);
+    
+    $sql_query = "select count(*) as cntUser,id from Users where user_id='".$userid."'";
+    $result = mysqli_query($db,$sql_query);
+    $row = mysqli_fetch_array($result);
+
+    $count = $row['cntUser'];
+
+    if( $count > 0 ){
+        $_SESSION['userid'] = $userid; 
+       header('Location: /pages/admin/home.php');
+       exit;
+    }
+}
+
+
+// Encrypt cookie
+function encryptCookie( $value ) {
+
+   $key = hex2bin(openssl_random_pseudo_bytes(4));
+
+   $cipher = "aes-256-cbc";
+   $ivlen = openssl_cipher_iv_length($cipher);
+   $iv = openssl_random_pseudo_bytes($ivlen);
+
+   $ciphertext = openssl_encrypt($value, $cipher, $key, 0, $iv);
+
+   return( base64_encode($ciphertext . '::' . $iv. '::' .$key) );
+}
+
+// Decrypt cookie
+function decryptCookie( $ciphertext ) {
+
+   $cipher = "aes-256-cbc";
+
+   list($encrypted_data, $iv,$key) = explode('::', base64_decode($ciphertext));
+   return openssl_decrypt($encrypted_data, $cipher, $key, 0, $iv);
+
+}
+
+
+// On submit
+if(isset($_POST['but_submit'])){
+
+    $uname = mysqli_real_escape_string($con,$_POST['email']);
+    $password = mysqli_real_escape_string($con,$_POST['password']);
+    
+    if ($uname != "" && $password != ""){
+
+        $sql_query = "select count(*) as cntUser,id from Users where email='".$uname."' and password='".$password."'";
+        $result = mysqli_query($con,$sql_query);
+        $row = mysqli_fetch_array($result);
+
+        $count = $row['cntUser'];
+
+        if($count > 0){
+             $userid = $row['id'];
+            if( isset($_POST['rememberme']) ){
+
+                // Set cookie variables
+                $days = 30;
+                $value = encryptCookie($userid);
+                setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000));
+            }
+            
+            $_SESSION['userid'] = $userid; 
+            header('Location: /pages/admin/home.php');
+            exit;
+        }else{
+            echo "Invalid username and password";
+        }
+
+    }
+
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -72,7 +118,7 @@ setcookie("RMB", $NewToken, time() + 604801,'/');
                   <div class="my-2 d-flex justify-content-between align-items-center">
                     <div class="form-check">
                       <label class="form-check-label text-muted">
-                        <input type="checkbox" class="form-check-input" name="remember-me"> Oturumumu açık tut </label>
+                        <input type="checkbox" name="rememberme"  value="1"> Oturumumu açık tut </label>
                     </div>
                     <a href="#" class="auth-link text-black">Şifremi Unuttum?</a>
                   </div>
