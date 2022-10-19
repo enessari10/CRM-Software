@@ -174,7 +174,7 @@ img{ max-width:100%;}
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                   <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
-                </span> Mesaj İçeriği
+                </span> Canlı Destek
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -188,21 +188,20 @@ img{ max-width:100%;}
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-<h3 class=" text-center">Messaging</h3>
 <div class="messaging">
       <div class="inbox_msg">
         <div class="inbox_people">
           <div class="headind_srch">
             <div class="recent_heading">
-              <h4>Recent</h4>
+              <h4>Son Mesajlar</h4>
             </div>
-            <div class="srch_bar">
-              <div class="stylish-input-group">
+            <!--<div class="srch_bar">
+               <div class="stylish-input-group">
                 <input type="text" class="search-bar"  placeholder="Search" >
                 <span class="input-group-addon">
                 <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
                 </span> </div>
-            </div>
+            </div> -->
           </div>
           <div class="inbox_chat">
             <div class="chat_list active_chat">
@@ -321,7 +320,7 @@ img{ max-width:100%;}
           <div class="type_msg">
             <div class="input_msg_write">
               <input type="text" class="write_msg" placeholder="Type a message" />
-              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+              <button class="msg_send_btn" type="button"><i class="mdi mdi-send" aria-hidden="true"></i></button>
             </div>
           </div>
         </div>
