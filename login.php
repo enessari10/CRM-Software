@@ -2,7 +2,7 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
 
-if( isset($_SESSION['email']) ){
+if(isset($_SESSION['email']) ){
 
   if ($_SESSION['email'] == "mikroes_admin") {
 
@@ -95,29 +95,31 @@ if(isset($_POST['but_submit'])){
                 $days = 30;
                 $value = encryptCookie($userid);
                 setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000));
+                
+                if ($row['role'] == "mikroes_admin") {
+
+                  $_SESSION['role'] = $userRole; 
+                  $_SESSION['email'] = $userEmail; 
+                  header('Location: /pages/admin/home.php');
+    
+                } else if ($row['role'] == "customer") {
+    
+                  $_SESSION['role'] = $userRole; 
+                  $_SESSION['email'] = $userEmail; 
+                  header('Location: /pages/customer/home.php');
+    
+                } else {
+    
+                  $_SESSION['role'] = $userRole; 
+                  $_SESSION['email'] = $userEmail; 
+                  header('Location: /pages/worker/home.php');
+    
+                }
+                
+                exit;
             }
 
-            if ($row['role'] == "mikroes_admin") {
-
-              $_SESSION['role'] = $userRole; 
-              $_SESSION['email'] = $userEmail; 
-              header('Location: /pages/admin/home.php');
-
-            } else if ($row['role'] == "customer") {
-
-              $_SESSION['role'] = $userRole; 
-              $_SESSION['email'] = $userEmail; 
-              header('Location: /pages/customer/home.php');
-
-            } else {
-
-              $_SESSION['role'] = $userRole; 
-              $_SESSION['email'] = $userEmail; 
-              header('Location: /pages/worker/home.php');
-
-            }
             
-            exit;
         }else{
             echo "Invalid username and password";
         }

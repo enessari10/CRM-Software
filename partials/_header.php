@@ -10,7 +10,7 @@
     include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
     
     // Check user login or not
-    if(!isset($_SESSION['userid'])){
+    if(!isset($_SESSION['email'])){
         session_start();
     } else {
     header('Location: /login.php');
