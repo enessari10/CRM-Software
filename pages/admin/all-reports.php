@@ -2,10 +2,8 @@
 <html lang="tr">
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
-    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-  </head>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/datatables.min.css"/>
+ 
   <body>
       <!-- partial:partials/_navbar.html -->
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
@@ -51,104 +49,53 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-            <!-- <table class="table table-bordered">
-                      <thead>
+
+             <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Talep Eden</th>
+                    <th>Talep Tarihi</th>
+                    <th>Servis Tarihi</th>
+                    <th>Personel</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+
+            <tbody>
+              <?php
+                  $sql = "SELECT * FROM `Raporlar` ORDER BY servis_tarihi DESC";
+                  if ($result = $db->query($sql)) {
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+				
                         <tr>
-                          <th> Talep Eden </th>
-                          <th> Talep Tarihi </th>
-                          <th> Servis Tarihi </th>
-                          <th> Personel </th>
-                          <th> İşlem </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td> Test Kullanıcısı </td>
-                          <td> 10.10.2022 </td>
-                          <td> 10.10.2022 </td>
-                          <td> Enes </td>
-                          <td> 
-                          <div class="btn-group">
+		<?php 
+		$field1name = $row["talep_eden"];
+        $tarih1 = date_create($row["talep_tarihi"]);
+        $talep_tarihi = date_format($tarih1, 'd-m-Y');
+        $field2name = $talep_tarihi;
+        $personel = $row["personel"];
+        $tarih2 = date_create($row["servis_tarihi"]);
+        $servis_tarihi = date_format($tarih2, 'd-m-Y H:i');
+        $field3name = $servis_tarihi;
+        $id = $row["id"];  
+		?>
+							<td><?php echo $field1name; ?></td>
+							<td><?php echo $field2name; ?></td>
+              				<td><?php echo $field3name; ?></td>
+							<td><?php echo $personel; ?></td> 
+							<td> <div class="btn-group">
                               <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                               <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
+                                <a class="dropdown-item">Detayı görüntüle</a>
                               </div>
-                            </div>
-                          </td>
+						</td>
+
+								<?php } } ?>
                         </tr>
-                        <tr>
-                          <td> Test Kullanıcısı </td>
-                          <td> 10.10.2022 </td>
-                          <td> 10.10.2022 </td>
-                          <td> Enes </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td> Test Kullanıcısı </td>
-                          <td> 10.10.2022 </td>
-                          <td> 10.10.2022 </td>
-                          <td> Enes </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td> Test Kullanıcısı </td>
-                          <td> 10.10.2022 </td>
-                          <td> 10.10.2022 </td>
-                          <td> Enes </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td> Test Kullanıcısı </td>
-                          <td> 10.10.2022 </td>
-                          <td> 10.10.2022 </td>
-                          <td> Enes </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td> Test Kullanıcısı </td>
-                          <td> 10.10.2022 </td>
-                          <td> 10.10.2022 </td>
-                          <td> Enes </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table> -->
-                    <div id="jsGrid"></div>
+            
+          </table>
+                    
 
                     </div>
                 </div>
@@ -164,6 +111,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+</body>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -181,42 +129,26 @@
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
     <!-- End custom js for this page -->
-    <script>
-    var clients = [
-        { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
-        { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
-        { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
-        { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
-        { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
-    ];
- 
-    var countries = [
-        { Name: "", Id: 0 },
-        { Name: "United States", Id: 1 },
-        { Name: "Canada", Id: 2 },
-        { Name: "United Kingdom", Id: 3 }
-    ];
- 
-    $("#jsGrid").jsGrid({
-        width: "100%",
-        height: "400px",
- 
-        inserting: true,
-        editing: true,
-        sorting: true,
-        paging: true,
- 
-        data: clients,
- 
-        fields: [
-            { name: "Name", type: "text", width: 150, validate: "required" },
-            { name: "Age", type: "number", width: 50 },
-            { name: "Address", type: "text", width: 200 },
-            { name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name" },
-            { name: "Married", type: "checkbox", title: "Is Married", sorting: false },
-            { type: "control" }
-        ]
+   
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/datatables.min.js"></script>  
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": [ "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
     });
+  });
 </script>
-  </body>
+ 
 </html>
