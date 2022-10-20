@@ -1,4 +1,5 @@
 <?php
+
    define('DB_SERVER', '212.58.20.68:3306');
    define('DB_USERNAME', 'mk_crmsoftware');
    define('DB_PASSWORD', 'F*1f5vh06');
@@ -7,4 +8,9 @@
    if(mysqli_connect_errno()) {  
     die("Failed to connect with MySQL: ". mysqli_connect_error());  
 }  
-?>
+ ?>
+
+<!-- define('DB_SERVER', '127.0.0.1');
+//    define('DB_USERNAME', 'root');
+//    define('DB_PASSWORD', '');
+//    define('DB_DATABASE', 'CRMSoftware'); -->

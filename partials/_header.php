@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
     <?php
-    include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
     
     // Check user login or not
     if(!isset($_SESSION['email'])){

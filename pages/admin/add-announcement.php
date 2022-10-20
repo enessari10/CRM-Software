@@ -1,3 +1,28 @@
+<?php 
+    require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+
+  if(isset($_POST['but_submit'])){
+
+    $duyuruBasligi = $_POST['baslik'];
+    $duyuruAciklamasi = $_POST['aciklama'];
+    $processClass->sqlInsert($db,"Duyurular","duyuru_basligi, duyuru_aciklamasi", "'$duyuruBasligi', '$duyuruAciklamasi'");
+    
+    if ($processClass == true) {
+
+      $showAlert = $processClass->successAlert('Duyuru başarıyla gönderildi.');
+
+    } else {
+
+      $showAlert = $processClass->successAlert('Duyuru gönderilemedi bir hata oluştu.');
+
+    }
+
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -48,23 +73,46 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <form class="forms-sample">
+                  <?php 
+                    if(isset($showAlert)) { 
+                      echo $showAlert; 
+                      } ?>
+                    <form class="forms-sample" action="" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Duyuru Başlığı</label>
-                        <input type="text" class="form-control" id="announcementHead" placeholder="Duyuru Başlığı">
+                        <input type="text" class="form-control" name="baslik" placeholder="Duyuru Başlığı" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Duyuru Açıklaması</label>
-                        <input type="text" class="form-control" id="announcementDesc" placeholder="Duyuru Açıklaması">
+                        <input type="text" class="form-control" name="aciklama" placeholder="Duyuru Açıklaması" required>
                       </div>
-                      <button type="submit" class="btn btn-gradient-primary me-2">Duyuru Gönder</button>
-                    </form>
+                      <button type="submit" name="but_submit" id="but_submit" class="btn btn-primary">Duyuru Gönder</button>
+                   
                   </div>
                 </div>
-              </div>
-       
+</div>
               </div>
              
+</form>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer.html") ?>
