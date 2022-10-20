@@ -1,3 +1,27 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+
+  if(isset($_POST['but_submit'])){
+
+    $companyName = $_POST['companyName'];
+    $downloadLink = $_POST['link'];
+    $processClass->sqlInsert($db,"Antivirusler","firma_adi, url", "'$companyName', '$downloadLink'");
+    
+    if ($processClass == true) {
+
+      $showAlert = $processClass->successAlert('Antivirüs başarıyla eklendi.');
+
+    } else {
+
+      $showAlert = $processClass->successAlert('Antivirüs eklenemedi bir hata oluştu.');
+
+    }
+
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -48,7 +72,7 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <form class="forms-sample">
+                    <form class="forms-sample" action="" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Firma Adı</label>
                         <input type="text" class="form-control" id="companyName" placeholder="Firma Adı">
@@ -57,7 +81,7 @@
                         <label for="exampleInputEmail3">İndirme Linki</label>
                         <input type="text" class="form-control" id="link" placeholder="İndirme Linki">
                       </div>
-                      <button type="submit" class="btn btn-gradient-primary me-2">Kaydet</button>
+                      <button type="submit" name="but_submit" id="but_submit" class="btn btn-gradient-primary me-2">Kaydet</button>
                     </form>
                   </div>
                 </div>

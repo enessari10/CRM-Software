@@ -5,9 +5,7 @@
    define('DB_PASSWORD', 'F*1f5vh06');
    define('DB_DATABASE', 'CRMSoftware');
    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-   if(mysqli_connect_errno()) {  
-    die("Failed to connect with MySQL: ". mysqli_connect_error());  
-}  
+   if(mysqli_connect_errno()) { die("Failed to connect with MySQL: ". mysqli_connect_error());   }  
  ?>
 
 <!-- define('DB_SERVER', '127.0.0.1');
