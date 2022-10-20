@@ -1,6 +1,7 @@
 
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
+session_start();
 
 if(isset($_SESSION['userid']) ){
 
