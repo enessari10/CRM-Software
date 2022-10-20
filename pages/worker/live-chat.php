@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
   <head>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
     <style>
 .container{max-width:1170px; margin:auto;}
 img{ max-width:100%;}
@@ -144,7 +144,7 @@ img{ max-width:100%;}
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.html") ?>
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
