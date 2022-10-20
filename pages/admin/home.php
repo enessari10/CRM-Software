@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
     <link href='/assets/lib/main.css' rel='stylesheet' />
     <script src='/assets/lib/main.js'></script>
     <style>
@@ -20,7 +21,7 @@
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.html") ?>
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
@@ -34,7 +35,7 @@
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">Email Adresi</span>
+                  <span class="font-weight-bold mb-2"><?php echo $_SESSION['email']; ?></span>
                   <span class="text-secondary text-small">Firma Adı</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -108,7 +109,8 @@
                   <div id='calendar'></div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
-</button><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

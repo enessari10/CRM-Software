@@ -17,15 +17,17 @@
            <!-- <span class="availability-status online"></span>-->
           </div>
           <div class="nav-profile-text">
-            <p class="mb-1 text-black">email@email.com</p>
+            <p class="mb-1 text-black"><?php echo $_SESSION['email']; ?></p>
           </div>
         </a>
         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
           <!-- <a class="dropdown-item" href="#">
             <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a> -->
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-            <i class="mdi mdi-logout me-2 text-primary"></i> Çıkış Yap </a>
+          <form method='post' action="">
+            <input type="submit" class="mdi mdi-logout me-2 text-primary" value="Çıkış Yap" name="but_logout">
+        </form>
+          
         </div>
       </li>
       <!-- <li class="nav-item d-none d-lg-block full-screen-link">
@@ -122,9 +124,10 @@
         </div>
       </li> -->
       <li class="nav-item nav-logout d-none d-lg-block">
-        <a class="nav-link" href="#">
-          <i class="mdi mdi-power"></i>
-        </a>
+        <form method='post' action="">
+          <input type="submit"class="mdi mdi-power" value="Çıkış Yap" name="but_logout">
+      </form>
+       
       </li>
       <!-- <li class="nav-item nav-settings d-none d-lg-block">
         <a class="nav-link" href="#">
