@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="tr">
   <head>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.html") ?>
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
 
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
