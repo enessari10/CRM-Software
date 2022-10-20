@@ -18,7 +18,9 @@ if( isset($_SESSION['userid']) ){
     $count=mysqli_num_rows($result);
 
     if( $count > 0 ){
-        $_SESSION['userid'] = $userid; 
+        $_SESSION['userid'] = $userid;
+        $_SESSION['email'] = $row['email'];
+
        header('Location: /pages/admin/home.php');
        exit;
     }
@@ -66,7 +68,7 @@ if(isset($_POST['but_submit'])){
         if($count > 0){
              $userid = $row['user_id'];
              $userEmail = $row['email'];
-             
+
             if( isset($_POST['rememberme']) ){
 
                 // Set cookie variables
@@ -76,6 +78,7 @@ if(isset($_POST['but_submit'])){
             }
             
             $_SESSION['userid'] = $userid; 
+            $_SESSION['email'] = $userEmail; 
             header('Location: /pages/admin/home.php');
             exit;
         }else{
