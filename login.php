@@ -130,18 +130,13 @@ if(isset($_POST['but_submit'])){
         }else{
 
           
-            $script = "<script>
-            $(document).ready(function(){
-             
-                //Put the errors in the .modal-content element
-                $('#exampleModalCenter .modal-content').text(errorList.join(","));
-                //Show the modal
-                $('#exampleModal').modal('show');
-              }
-            })
-          </script>";
+            $script = '   <script>
+            $(document).ready(function() {
+                    $("#myModal").modal("show");
+            });
+       </script>';
 
-            echo "  ";
+            
         }
 
     }
