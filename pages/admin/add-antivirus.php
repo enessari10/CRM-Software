@@ -15,7 +15,7 @@
 
     } else {
 
-      $showAlert = $processClass->successAlert('Antivirüs eklenemedi bir hata oluştu.');
+      $showAlert = $processClass->errorAlert('Antivirüs eklenemedi bir hata oluştu.');
 
     }
 
@@ -72,6 +72,10 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
+                  <?php 
+                    if(isset($showAlert)) { 
+                      echo $showAlert; 
+                      } ?>
                     <form class="forms-sample" action="" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Firma Adı</label>
