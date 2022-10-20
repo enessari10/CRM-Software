@@ -79,11 +79,11 @@
                     <form class="forms-sample" action="" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Firma Adı</label>
-                        <input type="text" class="form-control" name="companyName" placeholder="Firma Adı">
+                        <input type="text" class="form-control" name="companyName" placeholder="Firma Adı" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">İndirme Linki</label>
-                        <input type="text" class="form-control" name="link" placeholder="İndirme Linki">
+                        <input type="text" class="form-control" name="link" placeholder="İndirme Linki" required>
                       </div>
                       <button type="submit" name="but_submit" id="but_submit" class="btn btn-gradient-primary me-2">Antivirüs Kaydet</button>
                     </form>
