@@ -2,7 +2,7 @@
 <html lang="tr">
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css"/>
  
   <body>
       <!-- partial:partials/_navbar.html -->
@@ -147,6 +147,9 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
+      "oLanguage": {
+                  "sUrl" : "https://cdn.datatables.net/plug-ins/a5734b29083/i18n/Turkish.json"
+                },
     });
   });
 </script>
