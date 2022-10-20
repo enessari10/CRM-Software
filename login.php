@@ -149,6 +149,11 @@ if(isset($_POST['but_submit'])){
 <html lang="tr">
   <head>
 
+<<<<<<< HEAD
+  
+  <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.html") ?>
+  </head>
+=======
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -164,6 +169,7 @@ if(isset($_POST['but_submit'])){
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="shortcut icon" href="/assets/images/favicon.ico" />
 </head>
+>>>>>>> 1ba4aa49da9c0a1e1d297584e18a182c8189ff71
   <body>
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
