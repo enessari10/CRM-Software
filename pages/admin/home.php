@@ -71,7 +71,7 @@
                   <div class="card-body">
                     <img src="/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">BerqNet Lisans Biten Firma Sayısı </h4>
-                    <h2 class="mb-5"><a href="info-details.php?search=berqnet" style="color:white;"><?php echo $processClass->getBerqnetDay($db); ?></a></h2>
+                    <h2 class="mb-5"><a href="info-details.php?search=berqnet_tarihi" style="color:white;"><?php echo $processClass->getBerqnetDay($db); ?></a></h2>
                   </div>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                   <div class="card-body">
                     <img src="/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Web Süresi Biten Firma Sayısı </h4>
-                    <h2 class="mb-5"><a href="info-details.php?search=web" style="color:white;"><?php echo $processClass->getWebDay($db); ?></a></h2>
+                    <h2 class="mb-5"><a href="info-details.php?search=web_tarihi" style="color:white;"><?php echo $processClass->getWebDay($db); ?></a></h2>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@
                   <div class="card-body">
                     <img src="/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Antivirüs Süresi Biten Firma Sayısı </h4>
-                    <h2 class="mb-5"><a href="info-details.php?search=antivirus" style="color:white;"><?php echo $processClass->getAntivirusDay($db); ?></a></h2>
+                    <h2 class="mb-5"><a href="info-details.php?search=antivirus_tarihi" style="color:white;"><?php echo $processClass->getAntivirusDay($db); ?></a></h2>
                   </div>
                 </div>
               </div>

@@ -72,19 +72,6 @@ class Process {
 
 //GET DATA
     public function getHomeInfo($db, $search) {
-
-        if ($search == "berqnet") {
-
-            $columnName = "berqnet_tarihi";
-
-        } else if ($search == "antivirus") {
-
-            $columnName = "antivirus_tarihi";
-
-        } else if ($search == "web"){
-
-            $columnName = "web_tarihi";
-        }
         
         $query = "SELECT * FROM Firmalar where DATEDIFF(Firmalar.$columnName ,NOW()) <= 15;";
         if ($result = $db->query($query)) {

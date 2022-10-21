@@ -69,11 +69,8 @@
                       <tbody>
                         <?php 
 						$search = $_GET['search'];
-	  					$column = $search;
-	  					$columnTwo = "_tarihi";
                         $row = $processClass->getHomeInfo($db, $search);
-	  					$columName = $search . $columnTwo;
-                        $newDateType = $processClass->convertDateLocaleTR($row["$columName"]);
+                        $newDateType = $processClass->convertDateLocaleTR($row["$search"]);
  
                                 echo '<tr>
                                 <td>'.$row["firma_adi"].'</td>
