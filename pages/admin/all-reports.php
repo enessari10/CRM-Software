@@ -73,9 +73,7 @@
             <tbody>
 
             <?php 
-            $result = $processClass->getAllData($db, "Raporlar", "servis_tarihi", true);
-
-            while ($row = $result->fetch_assoc()) {
+              $row = $processClass->getAllData($db, "Raporlar", "servis_tarihi", true);
               $talepTarihi = $processClass->convertDateLocaleTR($row["talep_tarihi"]);
               $servisTarihi = $processClass->convertDateLocaleTR($row["servis_tarihi"]);
               echo '
@@ -91,11 +89,7 @@
               </div>
               </td>
               </tr>';
-              $result->free();
-              
-              } 
-            
-            
+
             ?>
              </tbody>
           </table>

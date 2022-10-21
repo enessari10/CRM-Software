@@ -91,15 +91,12 @@ class Process {
         } else {
             $query = "SELECT * FROM " . $table . "  ORDER BY " .$orderColumn . " ASC";
         }
-        
-        if ($result = $db->query($query)) {
-            return $result;
-
-            
+        $result = mysqli_query($db,$query);
+        $row = mysqli_num_rows($result);
+        if ($row > 0 ) {
+            return mysqli_fetch_array($result);
+        }
     }
-
-    }
-
 
 }
 ?>
