@@ -1,4 +1,9 @@
+<?php 
 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -66,7 +71,7 @@
                   <div class="card-body">
                     <img src="/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">BerqNet Lisans Biten Firma Sayısı </h4>
-                    <h2 class="mb-5">NULL</h2>
+                    <h2 class="mb-5"><?php $processClass->getBerqnetDay($db)?></h2>
                   </div>
                 </div>
               </div>
@@ -75,7 +80,7 @@
                   <div class="card-body">
                     <img src="/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Web Süresi Biten Firma Sayısı </h4>
-                    <h2 class="mb-5">NULL</h2>
+                    <h2 class="mb-5"><?php $processClass->getWebDay($db)?></h2>
                   </div>
                 </div>
               </div>
@@ -84,16 +89,16 @@
                   <div class="card-body">
                     <img src="/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Antivirüs Süresi Biten Firma Sayısı </h4>
-                    <h2 class="mb-5">NULL</h2>
+                    <h2 class="mb-5"><?php $processClass->getAntivirusDay($db)?></h2>
                   </div>
                 </div>
               </div>
               <div class="col-md-3 stretch-card grid-margin">
-                <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                     <h4 class="font-weight-normal mb-3">Bekleyen Talep Sayısı</h4>
-                    <h2 class="mb-5">NULL</h2>
+                    <h2 class="mb-5"><?php $processClass->getWaitingServiceCount($db)?></h2>
                   </div>
                 </div>
               </div>
