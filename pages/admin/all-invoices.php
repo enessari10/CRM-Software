@@ -3,15 +3,16 @@
   require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
   $processClass = new Process();
 ?>
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
-     
+<!-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css"/> -->
+ 
 <link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  </head>
   <body>
       <!-- partial:partials/_navbar.html -->
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
@@ -42,12 +43,10 @@
           <div class="content-wrapper">
             <div class="page-header">
               <h3 class="page-title">
-              <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
-                            <a href="" style="color:white;"><i class="mdi mdi-plus-circle-outline"></i></a>
-                          </button>  
-               Fatura Edilecekler
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
+                </span> Fatura Edilecekler
               </h3>
-              
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
@@ -59,23 +58,25 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                      <thead>
-                        <tr>
-                          <th> No </th>
-                          <th> Açıklama </th>
-                          <th> Tarih </th>
-                          <th> Firma Adı </th>
-                          <th> İşlem </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <?php 
+
+             <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                  <th> No </th>
+                  <th> Açıklama </th>
+                  <th> Tarih </th>
+                  <th> Firma Adı </th>
+                  <th> İşlem </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            <?php 
               echo $processClass->getAllInvoices($db);
             ?>
-
-                      </tbody>
-                    </table>
+             </tbody>
+          </table>
                     </div>
                 </div>
             </div>
@@ -90,6 +91,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+</body>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -107,7 +109,8 @@
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
     <!-- End custom js for this page -->
-    <script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+   
+<script src="/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
@@ -119,7 +122,10 @@
 <script src="/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/datatables.min.js"></script>   -->
+<script>
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": true,
@@ -138,5 +144,5 @@
     });
   });
 </script>
-  </body>
+ 
 </html>
