@@ -42,7 +42,10 @@
               <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
                             <a href="" style="color:white;"><i class="mdi mdi-plus-circle-outline"></i></a>
                           </button>  
-               Fatura Edilecekler
+               <?php 
+               $key = mb_convert_case($_GET['search'],MB_CASE_TITLE,"UTF-8");
+               echo "$key Bitişi Yaklaşanlar"; 
+               ?>
               </h3>
               
               <nav aria-label="breadcrumb">
@@ -71,10 +74,13 @@
                         $row = $processClass->getHomeInfo($db, $search);
 	  					$columName = $search . $columnTwo;
                         $newDateType = $processClass->convertDateLocaleTR($row["$columName"]);
-	  echo '<tr>
-	  <td>'.$row["firma_adi"].'</td>
-	  <td>'.$newDateType.'</td>
-	  </tr>';
+                        if(isset($row)) {
+                            echo '<tr>
+                            <td>'.$row["firma_adi"].'</td>
+                            <td>'.$newDateType.'</td>
+                            </tr>';
+                        }
+	  
                         ?>
                       </tbody>
                     </table>
