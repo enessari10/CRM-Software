@@ -61,62 +61,9 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Toner verildi. </td>
-                          <td> 10.10.2022 </td>
-                          <td> Dota </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Sil</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Toner verildi. </td>
-                          <td> 10.10.2022 </td>
-                          <td> Dota </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Sil</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Toner verildi. </td>
-                          <td> 10.10.2022 </td>
-                          <td> Dota </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Sil</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Toner verildi. </td>
-                          <td> 10.10.2022 </td>
-                          <td> Dota </td>
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Sil</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
+                      <?php 
+              echo $processClass->getAllInvoices($db);
+            ?>
 
                       </tbody>
                     </table>
@@ -151,5 +98,24 @@
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
     <!-- End custom js for this page -->
+    <script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": true,
+      "buttons": [ "excel", "pdf", "print"],
+      order:[[3,"asc"]]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": false,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+      
+    });
+  });
+</script>
   </body>
 </html>

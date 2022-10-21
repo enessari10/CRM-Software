@@ -84,18 +84,14 @@ class Process {
 	}
 
 
-    public function getAllData($db, $table, $orderColumn, $orderType) {
+    public function getAllReports($db) {
 
-        if($orderType == true) {
-            $query = "SELECT * FROM " . $table . "  ORDER BY " .$orderColumn . " DESC";
-        } else {
-            $query = "SELECT * FROM " . $table . "  ORDER BY " .$orderColumn . " ASC";
-        }
+        $query = "SELECT * FROM  Raporlar  ORDER BY servis_tarihi DESC";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
-                $talepTarihi = convertDateLocaleTR($row["talep_tarihi"]);
-                $servisTarihi = convertDateLocaleTR($row["servis_tarihi"]);
-                 echo '
+                $talepTarihi = $this->convertDateLocaleTR($row["talep_tarihi"]);
+                $servisTarihi = $this->convertDateLocaleTR($row["servis_tarihi"]);
+                echo '
                 <tr>
                 <td>'.$row["talep_eden"].'</td>
                 <td>'.$talepTarihi.'</td>
@@ -105,6 +101,30 @@ class Process {
                 <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                 <div class="dropdown-menu">
                   <a href="report-detail.php?report_id='.$row['id'].'" class="dropdown-item">Detayı görüntüle</a>
+                </div>
+                </td>
+                </tr>';
+            
+            }
+        }
+    }
+
+    public function getAllInvoices($db) {
+
+        $query = "SELECT * FROM Fatura_Edilecekler INNER JOIN Firmalar ON Fatura_Edilecekler.firma_id = Firmalar.firma_id ORDER BY Fatura_Edilecekler.tarih DESC";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+                $tarih = $this->convertDateLocaleTR($row["tarih"]);
+                echo '
+                <tr>
+                <td>'.$row["id"].'</td>
+                <td>'.$row["aciklama"].'</td>
+                <td>'.$tarih.'</td>
+                <td>'.$row["firma_adi"].'</td>
+                <td> <div class="btn-group">
+                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                <div class="dropdown-menu">
+                  <a href="" class="dropdown-item">Sil</a>
                 </div>
                 </td>
                 </tr>';

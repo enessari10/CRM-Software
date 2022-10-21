@@ -73,12 +73,10 @@
             <tbody>
 
             <?php 
-              echo $processClass->getAllData($db, "Raporlar", "servis_tarihi", true);
+              echo $processClass->getAllReports($db);
             ?>
              </tbody>
           </table>
-                    
-
                     </div>
                 </div>
             </div>
@@ -131,7 +129,8 @@
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": true,
-      "buttons": [ "excel", "pdf", "print"]
+      "buttons": [ "excel", "pdf", "print"],
+      order:[[3,"asc"]]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
