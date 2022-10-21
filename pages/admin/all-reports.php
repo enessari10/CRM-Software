@@ -74,8 +74,6 @@
 
             <?php 
               echo $processClass->getAllData($db, "Raporlar", "servis_tarihi", true);
-              
-
             ?>
              </tbody>
           </table>

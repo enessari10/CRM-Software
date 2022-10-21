@@ -93,14 +93,14 @@ class Process {
         }
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
-                $talepTarihi = $processClass->convertDateLocaleTR($row["talep_tarihi"]);
-                $servisTarihi = $processClass->convertDateLocaleTR($row["servis_tarihi"]);
-                return '
+                $talepTarihi = convertDateLocaleTR($row["talep_tarihi"]);
+                $servisTarihi = convertDateLocaleTR($row["servis_tarihi"]);
+                 echo '
                 <tr>
                 <td>'.$row["talep_eden"].'</td>
                 <td>'.$talepTarihi.'</td>
-                <td>'.$row["personel"].'</td>
                 <td>'.$servisTarihi.'</td>
+                <td>'.$row["personel"].'</td>
                 <td> <div class="btn-group">
                 <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                 <div class="dropdown-menu">
