@@ -75,7 +75,7 @@
                   <?php 
                     if(isset($showAlert)) { 
                       echo $showAlert; 
-                      } ?>
+                      }?>
                     <form class="forms-sample" action="" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Firma Adı</label>

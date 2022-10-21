@@ -70,6 +70,7 @@
                         <?php 
 						$search = $_GET['search'];
                         $row = $processClass->getHomeInfo($db, $search);
+                        
 						  if(!isset($row["$search"]) == true){
 						  	echo '<tr>
                                 <td>Data Bulunamadı</td>

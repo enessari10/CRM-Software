@@ -1,3 +1,9 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -65,38 +71,27 @@
             </thead>
 
             <tbody>
-              <?php
-                  $sql = "SELECT * FROM `Raporlar` ORDER BY servis_tarihi DESC";
-                  if ($result = $db->query($sql)) {
-                    while ($row = $result->fetch_assoc()) {
-                        ?>
-				
-                        <tr>
-		<?php 
-		$field1name = $row["talep_eden"];
-        $tarih1 = date_create($row["talep_tarihi"]);
-        $talep_tarihi = date_format($tarih1, 'd-m-Y');
-        $field2name = $talep_tarihi;
-        $personel = $row["personel"];
-        $tarih2 = date_create($row["servis_tarihi"]);
-        $servis_tarihi = date_format($tarih2, 'd-m-Y H:i');
-        $field3name = $servis_tarihi;
-        $id = $row["id"];  
-		?>
-							<td><?php echo $field1name; ?></td>
-							<td><?php echo $field2name; ?></td>
-              				<td><?php echo $field3name; ?></td>
-							<td><?php echo $personel; ?></td> 
-							<td> <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detayı görüntüle</a>
-                              </div>
-						</td>
 
-								<?php } } ?>
-                        </tr>
+            <?php 
+            $row = $processClass->getAllData($db, "Raporlar", "servis_tarihi", true);
+            $talepTarihi = $processClass->convertDateLocaleTR($row["talep_tarihi"]);
+            $servisTarihi = $processClass->convertDateLocaleTR($row["servis_tarihi"]);
+            echo '
+            <tr>
+            <td>'.$row["talep_eden"].'</td>
+            <td>'.$talepTarihi.'</td>
+            <td>'.$row["personel"].'</td>
+            <td>'.$servisTarihi.'</td>
+            <td> <div class="btn-group">
+            <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+            <div class="dropdown-menu">
+              <a href="report-detail.php?report_id='.$row['id'].'" class="dropdown-item">Detayı görüntüle</a>
+            </div>
+            </td>
+            </tr>';
             
+            ?>
+             </tbody>
           </table>
                     
 
