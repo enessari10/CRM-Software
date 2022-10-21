@@ -91,12 +91,11 @@ class Process {
         } else {
             $query = "SELECT * FROM " . $table . "  ORDER BY " .$orderColumn . " ASC";
         }
+        
         if ($result = $db->query($query)) {
-            while ($row = $result->fetch_assoc()) {
-				return $row;
-                $result->free();
-				
-        } 
+            return $result;
+
+            
     }
 
     }
