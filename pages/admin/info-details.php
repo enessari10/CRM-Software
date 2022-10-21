@@ -74,12 +74,15 @@
                         $row = $processClass->getHomeInfo($db, $search);
 	  					$columName = $search . $columnTwo;
                         $newDateType = $processClass->convertDateLocaleTR($row["$columName"]);
-                        if(isset($row)) {
-                            echo '<tr>
-                            <td>'.$row["firma_adi"].'</td>
-                            <td>'.$newDateType.'</td>
-                            </tr>';
+                        if(isset($newDateType)){
+                            if(isset($row)) {
+                                echo '<tr>
+                                <td>'.$row["firma_adi"].'</td>
+                                <td>'.$newDateType.'</td>
+                                </tr>';
+                            }
                         }
+                        
 	  
                         ?>
                       </tbody>
