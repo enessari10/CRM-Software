@@ -40,7 +40,7 @@
             <div class="page-header">
               <h3 class="page-title">
               <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
-                            <a href="" style="color:white;"><i class="mdi mdi-plus-circle-outline"></i></a>
+                            <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
                           </button>  
                <?php 
                $key = mb_convert_case($_GET['search'],MB_CASE_TITLE,"UTF-8");
@@ -70,12 +70,22 @@
                         <?php 
 						$search = $_GET['search'];
                         $row = $processClass->getHomeInfo($db, $search);
-                        $newDateType = $processClass->convertDateLocaleTR($row["$search"]);
- 
-                                echo '<tr>
-                                <td>'.$row["firma_adi"].'</td>
-                                <td>'.$row[$newDateType].'</td>
+						  if(!isset($row["$search"]) == true){
+						  	echo '<tr>
+                                <td>Data Bulunamadı</td>
+                                <td>Data Bulunamadı</td>
                                 </tr>';
+						  } else {
+						  $newDateType = $processClass->convertDateLocaleTR($row["$search"]);
+ 								
+								echo '<tr>
+                                <td>'.$row["firma_adi"].'</td>
+                                <td>'.$newDateType.'</td>
+                                </tr>';
+						
+						  }
+                        
+                                 
    
 	  
                         ?>

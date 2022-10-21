@@ -73,7 +73,7 @@ class Process {
 //GET DATA
     public function getHomeInfo($db, $search) {
         
-        $query = "SELECT * FROM Firmalar where DATEDIFF(Firmalar.$columnName ,NOW()) <= 15;";
+        $query = "SELECT * FROM Firmalar where DATEDIFF(Firmalar.$search ,NOW()) <= 15;";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
 				return $row;
