@@ -91,12 +91,26 @@ class Process {
         } else {
             $query = "SELECT * FROM " . $table . "  ORDER BY " .$orderColumn . " ASC";
         }
-        $result = mysqli_query($db,$query);
-        $row = mysqli_num_rows($result);
-        if ($row > 0 ) {
-            return mysqli_fetch_array($result);
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+                $talepTarihi = $processClass->convertDateLocaleTR($row["talep_tarihi"]);
+                $servisTarihi = $processClass->convertDateLocaleTR($row["servis_tarihi"]);
+                return '
+                <tr>
+                <td>'.$row["talep_eden"].'</td>
+                <td>'.$talepTarihi.'</td>
+                <td>'.$row["personel"].'</td>
+                <td>'.$servisTarihi.'</td>
+                <td> <div class="btn-group">
+                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                <div class="dropdown-menu">
+                  <a href="report-detail.php?report_id='.$row['id'].'" class="dropdown-item">Detayı görüntüle</a>
+                </div>
+                </td>
+                </tr>';
+            
+            }
         }
     }
-
 }
 ?>

@@ -73,22 +73,8 @@
             <tbody>
 
             <?php 
-              $row = $processClass->getAllData($db, "Raporlar", "servis_tarihi", true);
-              $talepTarihi = $processClass->convertDateLocaleTR($row["talep_tarihi"]);
-              $servisTarihi = $processClass->convertDateLocaleTR($row["servis_tarihi"]);
-              echo '
-              <tr>
-              <td>'.$row["talep_eden"].'</td>
-              <td>'.$talepTarihi.'</td>
-              <td>'.$row["personel"].'</td>
-              <td>'.$servisTarihi.'</td>
-              <td> <div class="btn-group">
-              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-              <div class="dropdown-menu">
-                <a href="report-detail.php?report_id='.$row['id'].'" class="dropdown-item">Detayı görüntüle</a>
-              </div>
-              </td>
-              </tr>';
+              echo $processClass->getAllData($db, "Raporlar", "servis_tarihi", true);
+              
 
             ?>
              </tbody>
