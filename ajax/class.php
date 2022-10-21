@@ -5,6 +5,7 @@ date_default_timezone_set('Europe/Istanbul');
 class Process {
 
 
+// SQL FUNC
     public function sqlInsert($db ,$tble, $cols, $values){
 
         $insertquery = "INSERT INTO " . $tble . " (" . $cols . ") VALUES (" . $values . ")";
@@ -17,6 +18,12 @@ class Process {
 
     }
 
+// CONVERT DATE TYPE
+
+    public function convertDateLocaleTR($date) {
+        return date("d-m-Y", strtotime($date));  
+
+    }
 
     //HOME SCREEN DATA
     public function getAntivirusDay($db) {
@@ -74,35 +81,20 @@ class Process {
 
             $columnName = "antivirus_tarihi";
 
-        } else {
+        } else if ($search == "web"){
 
             $columnName = "web_tarihi";
         }
         
-        $query = "SELECT * FROM Firmalar where DATEDIFF(Firmalar.'.$columnName.' ,NOW()) <= 15;";
+        $query = "SELECT * FROM Firmalar where DATEDIFF(Firmalar.$columnName ,NOW()) <= 15;";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
-                $field1name = $row["firma_adi"];
-                $field2name =$row[$columnName];
-                return '<tr> 
-                        <td>'.$field1name.'</td> 
-                        <td>'.$field2name.'</td>
-                        </tr>';
-                }
+				return $row;
                 $result->free();
+				
         } 
     }
-    
+	}
+
 }
 ?>
-
-<!-- 
-
-$sql = "SELECT * FROM Firmalar Where firma_id='$id'";
-  $result = mysqli_query($db,$sql);
-
-  $row = mysqli_num_rows($result);
-
-  if ( $row > 0 ) {
-    $get_firma_info = mysqli_fetch_array($result);
--->

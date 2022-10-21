@@ -65,8 +65,16 @@
                       </thead>
                       <tbody>
                         <?php 
-                        $search = $_GET['search'];
-                        echo $processClass->getWaitingServiceCount($db, $search);
+						$search = $_GET['search'];
+	  					$column = $search;
+	  					$columnTwo = "_tarihi";
+                        $row = $processClass->getHomeInfo($db, $search);
+	  					$columName = $search . $columnTwo;
+                        $newDateType = $processClass->convertDateLocaleTR($row["$columName"]);
+	  echo '<tr>
+	  <td>'.$row["firma_adi"].'</td>
+	  <td>'.$newDateType.'</td>
+	  </tr>';
                         ?>
                       </tbody>
                     </table>
