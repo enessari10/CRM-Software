@@ -146,13 +146,12 @@ class Process {
 
     public function getAllUsers($db) {
 
-        $query = "SELECT * FROM Users INNER JOIN Firmalar ON Kullanicilar.firma_id = Firmalar.firma_id ORDER BY firma_adi DESC";
+        $query = "SELECT * FROM Users INNER JOIN Firmalar ON Users.firma_id = Firmalar.firma_id ORDER BY firma_adi DESC";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
                 $tarih = $this->convertDateLocaleTR($row["created_date"]);
 
-                echo $row['firma_adi'];
-                // '
+                echo '
                 // <tr>
                 // <td>'.$row["firma_adi"].'</td>
                 // <td>'.$row["email"].'</td>
