@@ -2,6 +2,25 @@
   require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
   require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
   $processClass = new Process();
+
+  if(isset($_POST['but_submit'])){
+
+    $companyId = filter_input(INPUT_POST, 'companyId', FILTER_SANITIZE_STRING);
+    $userRole = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING);
+    $userEmail = $_POST['email'];
+    $userPass = $_POST['password'];
+
+    $processClass->sqlInsert($db,"Users","company_id, email,password,role", "'$companyId', '$userEmail','$userPass','$userRole'");
+    if ($processClass == true) {
+
+      $showAlert = $processClass->successAlert('Antivirüs başarıyla eklendi.');
+
+    } else {
+
+      $showAlert = $processClass->errorAlert('Antivirüs eklenemedi bir hata oluştu.');
+
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="tr">
@@ -53,12 +72,19 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
+                  <?php 
+                    if(isset($showAlert)) { 
+                      echo $showAlert; 
+                      }?>
                     <h4 class="card-title"></h4>
                     <form class="forms-sample">
                     <div class="form-group">
                       <label for="exampleFormControlSelect2">Firma Adı</label>
-                      <select class="form-control form-control-lg" name="companyName">
-                     <?php echo $processClass=getCompanies($db); ?>
+                      <select class="form-control form-control-lg" name="companyId">
+						  <?php 
+              echo $processClass->getCompanies($db);
+            ?>
+						 
                       </select>
                     </div>
                       <div class="form-group">
@@ -72,12 +98,13 @@
                       <div class="form-group">
                       <label for="exampleFormControlSelect2">Rol</label>
                       <select class="form-control form-control-lg" name="role">
-                        <option>Firma Yetkilisi</option>
-                        <option>Mikroes Elemanı</option>
-                        <option>Mikroes Çalışanı</option>                       
+                        <option value='customer'>Firma Yetkilisi</option>
+                        <option value='mikroes_worker'>Mikroes Elemanı</option>
+                        <option value='mikroes_admin'>Mikroes Çalışanı</option>                       
                       </select>
                     </div>
-                      <button type="submit" class="btn btn-gradient-primary me-2">Kullanıcı Oluştur</button>
+                      <button type="submit" name="but_submit" id="but_submit"class="btn btn-gradient-primary me-2">Kullanıcı Oluştur</button>
+
                     </form>
                   </div>
                 </div>

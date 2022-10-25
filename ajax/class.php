@@ -88,11 +88,10 @@ class Process {
         $query = "SELECT * FROM Firmalar ORDER BY firma_adi;";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
-                echo '<option value='.$row['firma_id'].'>'.$row['firma_adi'].'</option>';
-                $result->free();
+				echo '<option value='.$row['firma_id'].'>'.$row['firma_adi'].'</option>';
 				
-        } 
-    }
+            } 
+        }
 	}
 
 
