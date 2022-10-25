@@ -10,7 +10,7 @@
     $userEmail = $_POST['email'];
     $userPass = $_POST['password'];
 
-    $processClass->sqlInsert($db,"Users","company_id, email,password,role", "'$companyId', '$userEmail','$userPass','$userRole'");
+    $processClass->sqlInsert($db,"Users","company_id, email, password, role", "'$companyId', '$userEmail','$userPass','$userRole'");
     if ($processClass == true) {
 
       $showAlert = $processClass->successAlert('Antivirüs başarıyla eklendi.');
@@ -77,7 +77,7 @@
                       echo $showAlert; 
                       }?>
                     <h4 class="card-title"></h4>
-                    <form class="forms-sample">
+                    <form class="forms-sample" action="" method="POST">
                     <div class="form-group">
                       <label for="exampleFormControlSelect2">Firma Adı</label>
                       <select class="form-control form-control-lg" name="companyId">
@@ -89,11 +89,11 @@
                     </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">E-Mail Adresi</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email Adresi" >
+                        <input type="email" class="form-control" name="email" placeholder="Email Adresi" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Şifre</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="password" required>
                       </div>
                       <div class="form-group">
                       <label for="exampleFormControlSelect2">Rol</label>
