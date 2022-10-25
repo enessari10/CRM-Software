@@ -10,6 +10,7 @@
     $berqnet = $_POST['berqnet'];
     $antivirus = $_POST['antivirus'];
 
+
     
     $processClass->sqlInsert($db,"Firmalar","firma_adi, web_tarihi, antivirus_tarihi, berqnet_tarihi", "'$company', '$web','$antivirus','$berqnet'");
     if ($processClass == true) {
@@ -77,8 +78,10 @@
                     <h4 class="card-title"></h4>
                     <form class="forms-sample" action="" method="POST">
                     <?php 
+                    
                     if(isset($showAlert)) { 
                       echo $showAlert; 
+                      echo $berqnet;
                       }?>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Firma Adı</label>
