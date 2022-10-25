@@ -1,3 +1,29 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+
+  if(isset($_POST['but_submit'])){
+
+    $company = $_POST['companyName'];
+    $web = $_POST['web'];
+    $berqnet = $_POST['berqnet'];
+    $antivirus = $_POST['antivirus'];
+
+    
+    $processClass->sqlInsert($db,"Firmalar","firma_adi, web_tarihi, antivirus_tarihi, berqnet_tarihi", "'$company', '$web','$antivirus','$berqnet'");
+    if ($processClass == true) {
+
+      $showAlert = $processClass->successAlert('Firma başarıyla eklendi.');
+
+    } else {
+
+      $showAlert = $processClass->errorAlert('Firma eklenemedi bir hata oluştu.');
+
+    }
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -49,25 +75,28 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title"></h4>
-                    <form class="forms-sample">
-                    
+                    <form class="forms-sample" action="" method="POST">
+                    <?php 
+                    if(isset($showAlert)) { 
+                      echo $showAlert; 
+                      }?>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Firma Adı</label>
-                        <input type="text" class="form-control" id="email" placeholder="Firma Adı" >
+                        <input type="text" class="form-control" name="companyName" placeholder="Firma Adı" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Berqnet Bitiş Zamanı</label>
-                        <input type="date" class="form-control" id="berqnet">
+                        <input type="date" class="form-control" name="berqnet">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Antivirüs Bitiş Zamanı</label>
-                        <input type="date" class="form-control" id="antivirus">
+                        <input type="date" class="form-control" name="antivirus">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Web Bitiş Zamanı</label>
-                        <input type="date" class="form-control" id="web">
+                        <input type="date" class="form-control" name="web">
                       </div>
-                      <button type="submit" class="btn btn-gradient-primary me-2">Firma Oluştur</button>
+                      <button type="submit" name="but_submit" class="btn btn-gradient-primary me-2">Firma Oluştur</button>
                     </form>
                   </div>
                 </div>

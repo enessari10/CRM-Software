@@ -13,11 +13,11 @@
     $processClass->sqlInsert($db,"Users","company_id, email, password, role", "'$companyId', '$userEmail','$userPass','$userRole'");
     if ($processClass == true) {
 
-      $showAlert = $processClass->successAlert('Antivirüs başarıyla eklendi.');
+      $showAlert = $processClass->successAlert('Kullanıcı başarıyla eklendi.');
 
     } else {
 
-      $showAlert = $processClass->errorAlert('Antivirüs eklenemedi bir hata oluştu.');
+      $showAlert = $processClass->errorAlert('Kullanıcı eklenemedi bir hata oluştu.');
 
     }
   }
