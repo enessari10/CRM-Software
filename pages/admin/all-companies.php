@@ -84,7 +84,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer_script.html") ?>
-
   </body>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer_script.html") ?>
+
 </html>

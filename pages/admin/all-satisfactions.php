@@ -1,8 +1,18 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
-  </head>
+<!-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css"/> -->
+ 
+<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <body>
       <!-- partial:partials/_navbar.html -->
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
@@ -48,75 +58,25 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-            <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th> Rapor Tarihi </th>
-                          <th> Talep Eden </th>
-                          <th> Personel </th>
-                          <th> Puan </th>
-                          <th>  </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td> 10.10.2022 </td>
-                          <td> enes@enes.com </td>
-                          <td> Enes Sarı </td> 
-                          <td> 5 </td> 
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>                         
-                        </tr>
-                        <tr>
-                          <td> 10.10.2022 </td>
-                          <td> enes@enes.com </td>
-                          <td> Enes Sarı </td> 
-                          <td> 5 </td> 
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>                         
-                        </tr>
-                        <tr>
-                          <td> 10.10.2022 </td>
-                          <td> enes@enes.com </td>
-                          <td> Enes Sarı </td> 
-                          <td> 5 </td> 
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>                         
-                        </tr>
-                        <tr>
-                          <td> 10.10.2022 </td>
-                          <td> enes@enes.com </td>
-                          <td> Enes Sarı </td> 
-                          <td> 5 </td> 
-                          <td> 
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Detay gör</a>
-                              </div>
-                            </div>
-                          </td>                         
-                        </tr>
-                      </tbody>
-                    </table>
+
+             <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                  <th> Rapor Tarihi </th>
+                  <th> Talep Eden</th>
+                  <th> Personel </th>
+                  <th> Puan </th>
+                  <th> İşlem </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            <?php 
+              echo $processClass->getAllSatisFactions($db);
+            ?>
+             </tbody>
+          </table>
                     </div>
                 </div>
             </div>
@@ -131,22 +91,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="/assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="/assets/js/jquery.cookie.js" type="text/javascript"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="/assets/js/off-canvas.js"></script>
-    <script src="/assets/js/hoverable-collapse.js"></script>
-    <script src="/assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="/assets/js/dashboard.js"></script>
-    <script src="/assets/js/todolist.js"></script>
-    <!-- End custom js for this page -->
-  </body>
+</body>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer_script.html") ?>
+ 
 </html>

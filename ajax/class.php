@@ -128,10 +128,9 @@ class Process {
                 $tarih = $this->convertDateLocaleTR($row["tarih"]);
                 echo '
                 <tr>
-                <td>'.$row["id"].'</td>
                 <td>'.$row["aciklama"].'</td>
-                <td>'.$tarih.'</td>
                 <td>'.$row["firma_adi"].'</td>
+                <td>'.$tarih.'</td>
                 <td> <div class="btn-group">
                 <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                 <div class="dropdown-menu">
@@ -206,6 +205,32 @@ class Process {
             }
         }
     }
-    
+
+    public function getAllSatisFactions($db) {
+
+        $query = "SELECT * FROM Memnuniyet INNER JOIN Raporlar ON Memnuniyet.rapor_id = Raporlar.id";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+
+                $reportDate = $this->convertDateLocaleTR($row["servis_tarihi"]);
+
+                echo '
+                <tr>
+                <td>'.$reportDate.'</td>
+                <td>'.$row['talep_eden'].'</td>
+                <td>'.$row['personel'].'</td>
+                <td>'.$row['puan'].'</td>
+                <td> <div class="btn-group">
+                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                <div class="dropdown-menu">
+                  <a href="satisfaction-detail.php?satisfaction_id='.$row['id'].'" class="dropdown-item">Detay</a>
+                  <a href="" class="dropdown-item">Sil</a>
+                </div>
+                </td>
+                </tr>';
+            
+            }
+        }
+    }
 }
 ?>
