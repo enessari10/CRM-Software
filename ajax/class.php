@@ -149,13 +149,20 @@ class Process {
         $query = "SELECT * FROM Users INNER JOIN Firmalar ON Users.company_id = Firmalar.firma_id ORDER BY firma_adi DESC;";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
-                $tarih = $this->convertDateLocaleTR($row["created_date"]);
 
+                $tarih = $this->convertDateLocaleTR($row["created_date"]);
+                if($row["role"] == "customer") {
+                    $role = "Müşteri";
+                } else if ($row["role"] == "mikroes_worker") {
+                    $role = "Mikroes Çalışanı";
+                } else {
+                    $role = "Admin";
+                }
                 echo '
                 <tr>
                 <td>'.$row["firma_adi"].'</td>
                 <td>'.$row["email"].'</td>
-                <td>'.$row["role"].'</td>
+                <td>'.$role.'</td>
                 <td>'.$row["password"].'</td>
                 <td>'.$tarih.'</td>
                 <td> <div class="btn-group">
@@ -170,5 +177,35 @@ class Process {
             }
         }
     }
+
+    public function getAllCompanies($db) {
+
+        $query = "SELECT * FROM Firmalar ORDER BY firma_adi DESC;";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+
+                $berqnet = $this->convertDateLocaleTR($row["berqnet_tarihi"]);
+                $web = $this->convertDateLocaleTR($row["web_tarihi"]);
+                $antivirus = $this->convertDateLocaleTR($row["antivirus_tarihi"]);
+
+                echo '
+                <tr>
+                <td>'.$row["firma_adi"].'</td>
+                <td>'.$berqnet.'</td>
+                <td>'.$antivirus.'</td>
+                <td>'.$web.'</td>
+                <td> <div class="btn-group">
+                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                <div class="dropdown-menu">
+                  <a href="company-detail.php?company_id='.$row['firma_id'].'" class="dropdown-item">Güncelle</a>
+                  <a href="" class="dropdown-item">Sil</a>
+                </div>
+                </td>
+                </tr>';
+            
+            }
+        }
+    }
+    
 }
 ?>

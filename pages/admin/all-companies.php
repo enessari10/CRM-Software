@@ -8,11 +8,7 @@
 <html lang="tr">
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
-<!-- <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css"/> -->
- 
-<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-<link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-<link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  </head>
   <body>
       <!-- partial:partials/_navbar.html -->
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
@@ -45,7 +41,7 @@
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                   <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
-                </span> Fatura Edilecekler
+                </span> Firmalar
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -58,25 +54,22 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-
-             <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                  <th> No </th>
-                  <th> Açıklama </th>
-                  <th> Tarih </th>
-                  <th> Firma Adı </th>
-                  <th> İşlem </th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-            <?php 
-              echo $processClass->getAllInvoices($db);
+                  <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th> Firma Adı </th>
+                          <th> Berqnet </th>
+                          <th> Antivirus </th>
+                          <th> Web </th>
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php 
+              echo $processClass->getAllCompanies($db);
             ?>
-             </tbody>
-          </table>
+                      </tbody>
+                    </table>
                     </div>
                 </div>
             </div>
@@ -91,7 +84,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-</body>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer_script.html") ?>
- 
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer_script.html") ?>
+
+  </body>
 </html>
