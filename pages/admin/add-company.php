@@ -6,13 +6,15 @@
   if(isset($_POST['but_submit'])){
 
     $company = $_POST['companyName'];
-    $web = $_POST['web'];
-    $berqnet = $_POST['berqnet'];
-    $antivirus = $_POST['antivirus'];
-
+	  $web = $_POST['web'];
+	  $berqnet = $_POST['berqnet'];
+	  $antivirus = $_POST['antivirus'];
+	  $web = !empty($web) ? "'$web'" : "NULL";
+    $berqnet = !empty($berqnet) ? "'$berqnet'" : "NULL";
+	  $antivirus = !empty($antivirus) ? "'$antivirus'" : "NULL";
 
     
-    $processClass->sqlInsert($db,"Firmalar","firma_adi, web_tarihi, antivirus_tarihi, berqnet_tarihi", "'$company', '$web','$antivirus','$berqnet'");
+    $processClass->sqlInsert($db,"Firmalar","firma_adi, web_tarihi, antivirus_tarihi, berqnet_tarihi", "'$company', $web,$antivirus,$berqnet");
     if ($processClass == true) {
 
       $showAlert = $processClass->successAlert('Firma başarıyla eklendi.');
@@ -81,7 +83,6 @@
                     
                     if(isset($showAlert)) { 
                       echo $showAlert; 
-                      echo $berqnet;
                       }?>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Firma Adı</label>

@@ -1,3 +1,9 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -51,7 +57,6 @@
             <table class="table table-bordered">
                       <thead>
                         <tr>
-                          <th> No </th>
                           <th> Firma Adı </th>
                           <th> Email Adresi </th>
                           <th> Rol </th>
@@ -61,51 +66,9 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Deneme </td>
-                          <td> enes@enes.com </td>
-                          <td> Firma Sahibi  </td>
-                          <td> 102030*  </td>
-                          <td> 10.10.2022  </td>
-                          <td>       <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Güncelle</a>
-                                <a class="dropdown-item">Sil</a>
-                              </div>
-                            </div></td>
-                        </tr>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Deneme </td>
-                          <td> enes@enes.com </td>
-                          <td> Firma Sahibi  </td>
-                          <td> 102030*  </td>
-                          <td> 10.10.2022  </td>
-                          <td>       <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Güncelle</a>
-                                <a class="dropdown-item">Sil</a>
-                              </div>
-                            </div></td>
-                        </tr>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Deneme </td>
-                          <td> enes@enes.com </td>
-                          <td> Firma Sahibi  </td>
-                          <td> 102030*  </td>
-                          <td> 10.10.2022  </td>
-                          <td>       <div class="btn-group">
-                              <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item">Güncelle</a>
-                                <a class="dropdown-item">Sil</a>
-                              </div>
-                            </div></td>
-                        </tr>
+                      <?php 
+              echo $processClass->getAllUsers($db);
+            ?>
                       </tbody>
                     </table>
                     </div>

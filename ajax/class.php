@@ -143,5 +143,32 @@ class Process {
             }
         }
     }
+
+    public function getAllUsers($db) {
+
+        $query = "SELECT * FROM Users INNER JOIN Firmalar ON Kullanicilar.firma_id = Firmalar.firma_id ORDER BY firma_adi DESC";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+                $tarih = $this->convertDateLocaleTR($row["created_date"]);
+
+                echo '
+                <tr>
+                <td>'.$row["firma_adi"].'</td>
+                <td>'.$row["email"].'</td>
+                <td>'.$row["role"].'</td>
+                <td>'.$row["password"].'</td>
+                <td>'.$tarih.'</td>
+                <td> <div class="btn-group">
+                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                <div class="dropdown-menu">
+                  <a href="user-detail.php?user_id='.$row['user_id'].'" class="dropdown-item">Güncelle</a>
+                  <a href="" class="dropdown-item">Sil</a>
+                </div>
+                </td>
+                </tr>';
+            
+            }
+        }
+    }
 }
 ?>
