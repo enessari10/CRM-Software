@@ -1,3 +1,8 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -52,30 +57,24 @@
                     <form class="forms-sample">
                     <div class="form-group">
                       <label for="exampleFormControlSelect2">Firma Adı</label>
-                      <select class="form-control form-control-lg" id="companyName">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                      <select class="form-control form-control-lg" name="companyName">
+                     <?php echo $processClass=getCompanies($db); ?>
                       </select>
                     </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">E-Mail Adresi</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email Adresi" >
+                        <input type="email" class="form-control" name="email" placeholder="Email Adresi" >
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Şifre</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" name="password">
                       </div>
                       <div class="form-group">
                       <label for="exampleFormControlSelect2">Rol</label>
-                      <select class="form-control form-control-lg" id="companyName">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                      <select class="form-control form-control-lg" name="role">
+                        <option>Firma Yetkilisi</option>
+                        <option>Mikroes Elemanı</option>
+                        <option>Mikroes Çalışanı</option>                       
                       </select>
                     </div>
                       <button type="submit" class="btn btn-gradient-primary me-2">Kullanıcı Oluştur</button>
