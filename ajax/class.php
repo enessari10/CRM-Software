@@ -247,5 +247,33 @@ class Process {
             }
         }
     }
+
+    public function getAllServiceRequests($db) {
+
+        $query = "SELECT * FROM Talepler WHERE talep_durum != 'Rapor Oluşturuldu'ORDER BY talep_tarihi DESC";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+
+                $serviceDate = $this->convertDateLocaleTR($row["talep_tarihi"]);
+
+                echo '
+                <tr>
+                <td>'.$row['talep_eden'].'</td>
+                <td>'.$row['talep_aciklamasi'].'</td>
+                <td>'.$serviceDate.'</td>
+                <td>'.$row['talep_durum'].'</td>
+                <td> <div class="btn-group">
+                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                <div class="dropdown-menu">
+                  <a href="report-service.php?service_id='.$row['id'].'" class="dropdown-item">Durum Değiştir</a>
+                  <a href="" class="dropdown-item">Sil</a>
+                </div>
+                </td>
+                </tr>';
+            
+            }
+        }
+    }
+    
 }
 ?>
