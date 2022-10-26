@@ -208,7 +208,7 @@ class Process {
 
     public function getAllSatisFactions($db) {
 
-        $query = "SELECT * FROM Memnuniyet INNER JOIN Raporlar ON Memnuniyet.rapor_id = Raporlar.id";
+        $query = "SELECT * FROM Memnuniyetler INNER JOIN Raporlar ON Memnuniyetler.rapor_id = Raporlar.id";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
 
