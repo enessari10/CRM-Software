@@ -1,3 +1,27 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+
+  if(isset($_POST['but_submit'])){
+
+    $baslik = $_POST['head'];
+	  $description = $_POST['desc'];
+	  $date = $_POST['date'];
+	
+    $processClass->sqlInsert($db,"Manuel_Talepler","baslik,aciklama,tarih", "'$baslik', '$description','$date'");
+    if ($processClass == true) {
+
+      $showAlert = $processClass->successAlert('Manuel talep başarıyla oluşturuldu.');
+
+    } else {
+
+      $showAlert = $processClass->errorAlert('Manuel talep oluşturulamadı.');
+
+    }
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -48,20 +72,24 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <form class="forms-sample">
+                  <?php 
+                    if(isset($showAlert)) { 
+                      echo $showAlert; 
+                      }?>
+                    <form class="forms-sample" action="" method="POST">
                       <div class="form-group">
                         <label for="exampleInputName1">Talep Başlığı</label>
-                        <input type="text" class="form-control" id="baslik" placeholder="Talep Başlığı">
+                        <input type="text" class="form-control" name="head" placeholder="Talep Başlığı">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Talep İçeriği</label>
-                        <input type="tex" class="form-control" id="aciklama" placeholder="Talep İçeriği">
+                        <input type="tex" class="form-control" name="desc" placeholder="Talep İçeriği">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Tarih / Zaman</label>
-                        <input type="datetime-local" class="form-control" id="tarih" placeholder="Tarih">
+                        <input type="datetime-local" class="form-control" name="date" placeholder="Tarih">
                       </div>
-                      <button type="submit" class="btn btn-gradient-primary me-2">Talep Oluştur</button>
+                      <button type="submit" name="but_submit" class="btn btn-gradient-primary me-2">Talep Oluştur</button>
                     </form>
                   </div>
                 </div>

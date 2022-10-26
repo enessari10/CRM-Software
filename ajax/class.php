@@ -255,11 +255,11 @@ class Process {
             while ($row = $result->fetch_assoc()) {
 
                 $serviceDate = $this->convertDateLocaleTR($row["talep_tarihi"]);
-
+                $description = substr($row['talep_aciklamasi'],0,65);
                 echo '
                 <tr>
                 <td>'.$row['talep_eden'].'</td>
-                <td>'.$row['talep_aciklamasi'].'</td>
+                <td>'.$description.'</td>
                 <td>'.$serviceDate.'</td>
                 <td>'.$row['talep_durum'].'</td>
                 <td> <div class="btn-group">
