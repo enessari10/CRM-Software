@@ -79,15 +79,15 @@
                     <form class="forms-sample" action="" method="POST">
                       <div class="form-group">
                         <label for="exampleInputName1">Talep Başlığı</label>
-                        <input type="text" class="form-control" name="head" placeholder="Talep Başlığı">
+                        <input type="text" class="form-control" name="head" placeholder="Talep Başlığı" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Talep İçeriği</label>
-                        <input type="tex" class="form-control" name="desc" placeholder="Talep İçeriği">
+                        <input type="tex" class="form-control" name="desc" placeholder="Talep İçeriği" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Tarih / Zaman</label>
-                        <input type="datetime-local" class="form-control" name="date" placeholder="Tarih">
+                        <input type="datetime-local" class="form-control" name="date" placeholder="Tarih" required>
                       </div>
                       <button type="submit" name="but_submit" class="btn btn-gradient-primary me-2">Talep Oluştur</button>
                     </form>
