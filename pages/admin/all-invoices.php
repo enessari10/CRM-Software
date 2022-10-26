@@ -62,7 +62,6 @@
              <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                  <th> No </th>
                   <th> Açıklama </th>
                   <th> Tarih </th>
                   <th> Firma Adı </th>
