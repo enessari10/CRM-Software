@@ -216,9 +216,9 @@ class Process {
 
                 echo '
                 <tr>
-                <td>'.$reportDate.'</td>
                 <td>'.$row['talep_eden'].'</td>
                 <td>'.$row['personel'].'</td>
+                <td>'.$reportDate.'</td>
                 <td>'.$row['puan'].'</td>
                 <td> <div class="btn-group">
                 <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
@@ -227,6 +227,21 @@ class Process {
                   <a href="" class="dropdown-item">Sil</a>
                 </div>
                 </td>
+                </tr>';
+            
+            }
+        }
+    }
+    public function getAllAntivirus($db) {
+
+        $query = "SELECT * FROM Antivirusler ORDER BY firma_adi DESC";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+
+                echo '
+                <tr>
+                <td>'.$row['firma_adi'].'</td>
+                <td><a href="'.$row['url'].'">İndirme Linki</a></td>
                 </tr>';
             
             }

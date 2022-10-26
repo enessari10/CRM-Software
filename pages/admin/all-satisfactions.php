@@ -62,9 +62,9 @@
              <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                  <th> Rapor Tarihi </th>
                   <th> Talep Eden</th>
                   <th> Personel </th>
+                  <th> Rapor Tarihi </th>
                   <th> Puan </th>
                   <th> İşlem </th>
                 </tr>
