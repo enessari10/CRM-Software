@@ -1,3 +1,10 @@
+<?php 
+
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -79,29 +86,15 @@
               </div>
             </div>
            
-
-
-  <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
-                </span> Hizmet Talepleri
-              </h3>
-              <nav aria-label="breadcrumb">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">
-                  </li>
-                </ul>
-              </nav>
-            </div>
+             
             <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
-          
-                  <table id="example1" class="table table-bordered table-striped">
+                    <h4 class="card-title">Destek Talepleriniz </h4>
+                    
+                    <div class="table-responsive">
+                    <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th> Talep Eden </th>
@@ -114,14 +107,23 @@
                       <tbody>
                       <?php 
               echo $processClass->getAllServiceRequests($db);
+
             ?>
                       </tbody>
                     </table>
+
+                    
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+       
+
+
+            
+              </div>
              
-           
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer.html") ?>
