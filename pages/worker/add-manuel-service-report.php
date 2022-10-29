@@ -94,15 +94,15 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Servis Zamanı</label>
-                        <input type="date" class="form-control" name="date" placeholder="Servis Zamanı">
+                        <input type="date" class="form-control" name="date" placeholder="Servis Zamanı" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Personel Bilgisi</label>
-                        <input type="text" class="form-control" name="personel" placeholder="Personel Bilgisi">
+                        <input type="text" class="form-control" name="personel" placeholder="Personel Bilgisi" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Rapor Açıklaması</label>
-                        <textarea class="form-control" name="desc" rows="4" placeholder="Rapor açıklama"></textarea>
+                        <textarea class="form-control" name="desc" rows="4" placeholder="Rapor açıklama" required></textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary me-2">Rapor Oluştur</button>
                     </form>
