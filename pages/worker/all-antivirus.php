@@ -1,7 +1,17 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
+<link rel="stylesheet" href="/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+ 
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
@@ -48,42 +58,25 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-            <table class="table table-bordered">
+           
+                  <table id="example1" class="table table-bordered table-striped">
                       <thead>
                         <tr>
-                          <th> No </th>
                           <th> Firma Adı </th>
                           <th> İndirme Linki </th>
-                          
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Test Firması </td>
-                          <td> <a href="">İndir</a> </td>                          
-                        </tr>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Test Firması </td>
-                          <td> <a href="">İndir</a> </td>                          
-                        </tr>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Test Firması </td>
-                          <td> <a href="">İndir</a> </td>                          
-                        </tr>
-                        <tr>
-                          <td> 1 </td>
-                          <td> Test Firması </td>
-                          <td> <a href="">İndir</a> </td>                          
-                        </tr>
+                  
+            <?php 
+              echo $processClass->getAllAntivirus($db);
+            ?>
                       </tbody>
                     </table>
                     </div>
                 </div>
             </div>
-             
+            
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer.html") ?>
@@ -94,22 +87,8 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="/assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="/assets/js/jquery.cookie.js" type="text/javascript"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="/assets/js/off-canvas.js"></script>
-    <script src="/assets/js/hoverable-collapse.js"></script>
-    <script src="/assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="/assets/js/dashboard.js"></script>
-    <script src="/assets/js/todolist.js"></script>
-    <!-- End custom js for this page -->
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer_script.html") ?>
+
   </body>
+
 </html>
