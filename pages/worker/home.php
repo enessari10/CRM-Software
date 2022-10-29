@@ -1,7 +1,29 @@
+<?php 
+
+require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+$processClass = new Process();
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
+<head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
+    <link href='/assets/lib/main.css' rel='stylesheet' />
+    <script src='/assets/lib/main.js'></script>
+    <style>
+  #loading {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+</style>
   </head>
   <body>
       <!-- partial:partials/_navbar.html -->
@@ -20,7 +42,7 @@
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">Email Adresi</span>
+                <span class="font-weight-bold mb-2"><?php echo $_SESSION['email']; ?></span>
                   <span class="text-secondary text-small">Firma Adı</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -37,7 +59,7 @@
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                   <i class="mdi mdi-home"></i>
-                </span> CRM Teknik Ekip  Paneli
+                </span> CRM Müşteri  Paneli
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -53,73 +75,36 @@
               <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Destek Talepleriniz </h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th> Firma Adı  </th>
-                            <th> Konu </th>
-                            <th> Durum </th>
-                            <th> Değişiklik Tarihi </th>
-                            <th> Destek ID </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img src="/assets/images/faces/face1.jpg" class="me-2" alt="image"> David Grey
-                            </td>
-                            <td> Fund is not recieved </td>
-                            <td>
-                              <label class="badge badge-gradient-success">TAMAMLANDI</label>
-                            </td>
-                            <td> Dec 5, 2017 </td>
-                            <td> WD-12345 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="/assets/images/faces/face2.jpg" class="me-2" alt="image"> Stella Johnson
-                            </td>
-                            <td> High loading time </td>
-                            <td>
-                              <label class="badge badge-gradient-warning">İNCELENİYOR</label>
-                            </td>
-                            <td> Dec 12, 2017 </td>
-                            <td> WD-12346 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="/assets/images/faces/face3.jpg" class="me-2" alt="image"> Marina Michel
-                            </td>
-                            <td> Website down for one week </td>
-                            <td>
-                              <label class="badge badge-gradient-info">PROGRAMA ALINDI</label>
-                            </td>
-                            <td> Dec 16, 2017 </td>
-                            <td> WD-12347 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="/assets/images/faces/face4.jpg" class="me-2" alt="image"> John Doe
-                            </td>
-                            <td> Loosing control on server </td>
-                            <td>
-                              <label class="badge badge-gradient-danger">REDDEDİLDİ</label>
-                            </td>
-                            <td> Dec 3, 2017 </td>
-                            <td> WD-12348 </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <h4 class="card-title">Takvim </h4>
+                    <div id='loading'>loading...</div>
+                  <div id='calendar'></div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+                    <!--Takvim -->
                   </div>
                 </div>
               </div>
             </div>
-
-
-            
        
               </div>
              
@@ -133,6 +118,7 @@
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+    
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -149,6 +135,39 @@
     <!-- Custom js for this page -->
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/todolist.js"></script>
+    <script src="/assets/js/popup.js"></script>
+    <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+	var today = new Date();
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      initialDate: today,
+      editable: false,
+	  locale:'tr',
+	  
+      navLinks: true, // can click day/week names to navigate views
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: {
+        url: 'https://crm.mikroes.com/process/takvim/get.php'
+      },
+      loading: function(bool) {
+        document.getElementById('loading').style.display =
+          bool ? 'block' : 'none';
+      }
+    });
+
+    calendar.render();
+  });
+
+</script>
     <!-- End custom js for this page -->
   </body>
+  
 </html>
