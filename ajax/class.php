@@ -243,7 +243,7 @@ class Process {
     }
     public function getAllAntivirus($db) {
 
-        $query = "SELECT * FROM Antivirusler ORDER BY firma_adi DESC";
+        $query = "SELECT * FROM Antivirusler ORDER BY firma_adi ASC";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
 
@@ -283,6 +283,31 @@ class Process {
             }
         }
     }
-    
+
+
+// CANLI DESTEK AREA
+
+    public function getAllChats($db) {
+        $query = "SELECT * FROM Canli_Destek INNER JOIN Users ON Canli_Destek.gonderen_id = Users.user_id ORDER BY zaman ASC";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+                $date = $this->convertDateLocaleTR($row["zaman"]);
+                echo '<div class="inbox_chat">
+                <div class="chat_list active_chat">
+                  <div class="chat_people">
+                    <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                    <div class="chat_ib">
+                      <h5>'.$row['email'].'<span class="chat_date">'.$date.'</span></h5>
+                      
+                    </div>
+                  </div>
+                </div>';
+            }
+        }
+
+    }
+
+
+// CANLI DESTEK AREA FINAL
 }
 ?>
