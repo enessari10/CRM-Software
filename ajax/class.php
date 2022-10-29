@@ -288,10 +288,10 @@ class Process {
 // CANLI DESTEK AREA
 
     public function getAllChats($db) {
-        $query = "SELECT * FROM Gorusmeler INNER JOIN Users ON Gorusmeler.user_id = Users.user_id ORDER BY tarih_saat ASC";
+        $query = "SELECT * FROM Gorusmeler INNER JOIN Users ON Gorusmeler.g_id = Users.user_id ORDER BY tarih_saat ASC";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
-                $date = $this->convertDateLocaleTR($row["tarih_zaman"]);
+                $date = $this->convertDateLocaleTR($row["tarih_saat"]);
                 echo '
                 <tr>
                 <td>'.$row['email'].'</td>
@@ -299,7 +299,7 @@ class Process {
                 <td> <div class="btn-group">
                 <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                 <div class="dropdown-menu">
-                  <a href="chat-detail.php?chat_id='.$row['gorusme_id'].'" class="dropdown-item">Durum Değiştir</a>
+                  <a href="chat-detail.php?chat_id='.$row['gorusme_id'].'" class="dropdown-item">Görüntüle</a>
                   <a href="" class="dropdown-item">Sil</a>
                 </div>
                 </td>
@@ -307,6 +307,27 @@ class Process {
             }
         }
 
+    }
+
+    public function getChatDetail($db, $gorusme_id) {
+        $query = "SELECT * FROM Mesajlar INNER JOIN Users ON Mesajlar.gonderen_id = Users.user_id WHERE Mesajlar.gorusme_id = $gorusme_id ORDER BY tarih_saat ASC";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+                echo '
+                <div class="chat-log__item">
+                <h3 class="chat-log__author">Felipe <small>14:30</small></h3>
+                <div class="chat-log__message">'.$row['mesaj'].'</div>
+              </div>
+              <div class="chat-log__item chat-log__item--own">
+                <h3 class="chat-log__author">Fabrício <small>14:30</small></h3>
+                <div class="chat-log__message">BRB</div>
+              </div> 
+              ';
+            }
+        }
+       
+
+    
     }
 
 
