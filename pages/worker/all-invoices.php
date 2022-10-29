@@ -39,16 +39,15 @@
           </ul>
         </nav>
         <!-- partial -->
-        <div class="main-panel">
+         <!-- partial -->
+         <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
               <h3 class="page-title">
-              <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
-                            <a href="" style="color:white;"><i class="mdi mdi-plus-circle-outline"></i></a>
-                          </button>  
-               Fatura Edilecekler
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
+                </span> Fatura Edilecekler
               </h3>
-              
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
@@ -60,17 +59,8 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                  <th> Açıklama </th>
-                  <th> Firma Adı </th>
-                  <th> Tarih </th>
-                  <th> İşlem </th>
-                </tr>
-            </thead>
-                       
-            <table id="example1" class="table table-bordered table-striped">
+
+             <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                   <th> Açıklama </th>
@@ -89,7 +79,7 @@
           </table>
                     </div>
                 </div>
-            </div>            
+            </div>
              
            <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
