@@ -331,19 +331,27 @@ class Process {
     }
 
 
-    public function getCustomerService ($db) {
-        $query = "SELECT * FROM Talepler INNER JOIN Firmalar ON Talepler.talep_eden_firma_id = Firmalar.firma_id WHERE firma_adi = '$login_session' ORDER BY id DESC";
+    public function getCustomerAllServiceRequests($db) {
+
+        $query = "SELECT *  INNER JOIN Firmalar ON Talepler.talep_eden_firma_id = Firmalar.firma_id WHERE firma_adi = '$login_session' FROM Talepler WHERE talep_durum != 'Rapor Oluşturuldu'ORDER BY talep_tarihi DESC ";
         if ($result = $db->query($query)) {
-            while ($talepeden = $result->fetch_assoc()) {
+            while ($row = $result->fetch_assoc()) {
+
                 $serviceDate = $this->convertDateLocaleTR($row["talep_tarihi"]);
                 $description = substr($row['talep_aciklamasi'],0,65);
                 echo '
                 <tr>
-                <td>'.$talepeden['firma_adi'].'</td>
-                <td>'.$description .'</td>
+                <td>'.$row['firma_adi'].'</td>
+                <td>'.$description.'</td>
                 <td>'.$serviceDate.'</td>
                 <td>'.$row['talep_durum'].'</td>
-                
+                <td> <div class="btn-group">
+                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                <div class="dropdown-menu">
+                  <a href="report-service.php?service_id='.$row['id'].'" class="dropdown-item">Durum Değiştir</a>
+                  <a href="" class="dropdown-item">Sil</a>
+                </div>
+                </td>
                 </tr>';
             
             }
