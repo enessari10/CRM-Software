@@ -63,7 +63,6 @@
                         <tr>
                           <th> Firma Adı </th>
                           <th> İndirme Linki </th>
-                          
                         </tr>
                       </thead>
                       <tbody>

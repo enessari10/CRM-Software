@@ -61,7 +61,8 @@
                           <th> Berqnet </th>
                           <th> Antivirus </th>
                           <th> Web </th>
-                         
+                          <th> İşlem </th>
+
                         </tr>
                       </thead>
                       <tbody>
