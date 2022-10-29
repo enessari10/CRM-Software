@@ -79,78 +79,49 @@
               </div>
             </div>
            
-             
+
+
+  <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <a href="" style="color:white;"><i class="mdi mdi-home"></i></a>
+                </span> Hizmet Talepleri
+              </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                  </li>
+                </ul>
+              </nav>
+            </div>
             <div class="row">
-              <div class="col-12 grid-margin">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Destek Talepleriniz </h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th> Firma Adı  </th>
-                            <th> Konu </th>
-                            <th> Durum </th>
-                            <th> Değişiklik Tarihi </th>
-                            <th> Destek ID </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img src="/assets/images/faces/face1.jpg" class="me-2" alt="image"> David Grey
-                            </td>
-                            <td> Fund is not recieved </td>
-                            <td>
-                              <label class="badge badge-gradient-success">TAMAMLANDI</label>
-                            </td>
-                            <td> Dec 5, 2017 </td>
-                            <td> WD-12345 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="/assets/images/faces/face2.jpg" class="me-2" alt="image"> Stella Johnson
-                            </td>
-                            <td> High loading time </td>
-                            <td>
-                              <label class="badge badge-gradient-warning">İNCELENİYOR</label>
-                            </td>
-                            <td> Dec 12, 2017 </td>
-                            <td> WD-12346 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="/assets/images/faces/face3.jpg" class="me-2" alt="image"> Marina Michel
-                            </td>
-                            <td> Website down for one week </td>
-                            <td>
-                              <label class="badge badge-gradient-info">PROGRAMA ALINDI</label>
-                            </td>
-                            <td> Dec 16, 2017 </td>
-                            <td> WD-12347 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="/assets/images/faces/face4.jpg" class="me-2" alt="image"> John Doe
-                            </td>
-                            <td> Loosing control on server </td>
-                            <td>
-                              <label class="badge badge-gradient-danger">REDDEDİLDİ</label>
-                            </td>
-                            <td> Dec 3, 2017 </td>
-                            <td> WD-12348 </td>
-                          </tr>
-                        </tbody>
-                      </table>
+          
+                  <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th> Talep Eden </th>
+                          <th> Talep Açıklaması </th>
+                          <th> Talep Tarihi </th>
+                          <th> Talep Durumu </th>
+                          <th> İşlem </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php 
+              echo $processClass->getAllServiceRequests($db);
+            ?>
+                      </tbody>
+                    </table>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-       
-              </div>
              
+           
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer.html") ?>
