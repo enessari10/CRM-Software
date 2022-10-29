@@ -288,20 +288,22 @@ class Process {
 // CANLI DESTEK AREA
 
     public function getAllChats($db) {
-        $query = "SELECT * FROM Canli_Destek INNER JOIN Users ON Canli_Destek.gonderen_id = Users.user_id ORDER BY zaman ASC";
+        $query = "SELECT * FROM Gorusmeler INNER JOIN Users ON Gorusmeler.user_id = Users.user_id ORDER BY tarih_saat ASC";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
-                $date = $this->convertDateLocaleTR($row["zaman"]);
-                echo '<div class="inbox_chat">
-                <div class="chat_list active_chat">
-                  <div class="chat_people">
-                    <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                    <div class="chat_ib">
-                      <h5>'.$row['email'].'<span class="chat_date">'.$date.'</span></h5>
-                      
-                    </div>
-                  </div>
-                </div>';
+                $date = $this->convertDateLocaleTR($row["tarih_zaman"]);
+                echo '
+                <tr>
+                <td>'.$row['email'].'</td>
+                <td>'.$$date.'</td>
+                <td> <div class="btn-group">
+                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
+                <div class="dropdown-menu">
+                  <a href="chat-detail.php?chat_id='.$row['gorusme_id'].'" class="dropdown-item">Durum Değiştir</a>
+                  <a href="" class="dropdown-item">Sil</a>
+                </div>
+                </td>
+                </tr>';
             }
         }
 
