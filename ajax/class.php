@@ -18,6 +18,15 @@ class Process {
 
     }
 
+    public function getCompanyNameWithId($db ,$id){
+
+        $query =  mysqli_query($db,"SELECT * FROM Firmalar WHERE firma_id ='$id'");
+        while($row = mysqli_fetch_assoc($result)) {
+            return $row['firma_adi'];
+        }
+
+    }
+
 // CONVERT DATE TYPE
 
     public function convertDateLocaleTR($date) {

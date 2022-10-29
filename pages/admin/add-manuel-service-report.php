@@ -1,3 +1,29 @@
+<?php 
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+  $processClass = new Process();
+
+  if(isset($_POST['but_submit'])){
+
+    $companyId = filter_input(INPUT_POST, 'companyId', FILTER_SANITIZE_STRING);
+    $serviceState = $_POST['serviceState'];
+    $date = $_POST['date'];
+    $personel = $_POST['personel'];
+    $desc = $_POST['desc'];
+    $companyName = $processClass->getCompanyNameWithId($db, $companyId);
+
+    $processClass->sqlInsert($db,"Users","company_id, email, password, role", "'$companyId', '$userEmail','$userPass','$userRole'");
+    if ($processClass == true) {
+
+      $showAlert = $processClass->successAlert('Kullanıcı başarıyla eklendi.');
+
+    } else {
+
+      $showAlert = $processClass->errorAlert('Kullanıcı eklenemedi bir hata oluştu..');
+
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -48,33 +74,33 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
+                  <?php 
+                    if(isset($showAlert)) { 
+                      echo $showAlert; 
+                      }?>
                     <h4 class="card-title"></h4>
                     <form class="forms-sample">
                     <div class="form-group">
-                      <label for="exampleFormControlSelect2">Firma Adı</label>
-                      <select class="form-control form-control-lg" id="companyName">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <label for="exampleFormControlSelect2">Firma Adı</label>
+                      <select class="form-control form-control-lg" name="companyId">
+						          <?php echo $processClass->getCompanies($db);?>
                       </select>
                     </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Talep Durumu</label>
-                        <input type="text" class="form-control" id="serviceState" placeholder="Talep Durumu" value="Rapor oluşturuldu." disabled>
+                        <input type="text" class="form-control" name="serviceState" placeholder="Talep Durumu" value="Rapor oluşturuldu." disabled>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Servis Zamanı</label>
-                        <input type="date" class="form-control" id="tarih" placeholder="Servis Zamanı">
+                        <input type="date" class="form-control" name="date" placeholder="Servis Zamanı">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Personel Bilgisi</label>
-                        <input type="text" class="form-control" id="serviceState" placeholder="Personel Bilgisi">
+                        <input type="text" class="form-control" name="personel" placeholder="Personel Bilgisi">
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Rapor Açıklaması</label>
-                        <textarea class="form-control" id="reportDescription" rows="4" placeholder="Rapor açıklama"></textarea>
+                        <textarea class="form-control" name="desc" rows="4" placeholder="Rapor açıklama"></textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary me-2">Rapor Oluştur</button>
                     </form>
