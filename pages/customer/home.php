@@ -105,7 +105,7 @@
                       </thead>
                       <tbody>
                       <?php 
-              echo $processClass->getCustomerService ($db);
+              echo $processClass->getCustomerAllServiceRequest ($db);
 
             ?>
                       </tbody>
