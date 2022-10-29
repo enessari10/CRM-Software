@@ -101,12 +101,11 @@
                           <th> Talep Açıklaması </th>
                           <th> Talep Tarihi </th>
                           <th> Talep Durumu </th>
-                          <th> İşlem </th>
                         </tr>
                       </thead>
                       <tbody>
                       <?php 
-              echo $processClass->getAllServiceRequests($db);
+              echo $processClass->getCustomerService ($db);
 
             ?>
                       </tbody>

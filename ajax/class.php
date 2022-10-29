@@ -331,6 +331,30 @@ class Process {
     }
 
 
+    public function getCustomerService ($db) {
+        $query = "SELECT * FROM Talepler INNER JOIN Firmalar ON Talepler.talep_eden_firma_id = Firmalar.firma_id WHERE firma_adi = '$login_session' ORDER BY id DESC";
+        if ($result = $db->query($query)) {
+            while ($talepeden = $result->fetch_assoc()) {
+                $serviceDate = $this->convertDateLocaleTR($row["talep_tarihi"]);
+                $description = substr($row['talep_aciklamasi'],0,65);
+                echo '
+                <tr>
+                <td>'.$talepeden['firma_adi'].'</td>
+                <td>'.$description .'</td>
+                <td>'.$serviceDate.'</td>
+                <td>'.$row['talep_durum'].'</td>
+                
+                </tr>';
+            
+            }
+        }
+    }
+
+
+
+            
+
+
 // CANLI DESTEK AREA FINAL
 }
 ?>
