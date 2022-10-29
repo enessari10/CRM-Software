@@ -19,7 +19,7 @@
 
     } else {
 
-      $showAlert = $processClass->errorAlert('Kullanıcı eklenemedi bir hata oluştu..');
+      $showAlert = $processClass->errorAlert('Kullanıcı eklenemedi bir hata oluştu.');
 
     }
   }
