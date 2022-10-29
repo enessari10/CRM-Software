@@ -113,6 +113,9 @@
 <div class="main">
   <div class="container ">
     <div class="chat-log">
+        <?php 
+        $id = $_GET['chat_id'];
+        echo  $processClass->getChatDetail($db, $id); ?>
       <!-- DATA BURAYA-->
     </div>
   </div>
