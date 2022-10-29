@@ -63,8 +63,8 @@
             <thead>
                 <tr>
                   <th> Açıklama </th>
-                  <th> Tarih </th>
                   <th> Firma Adı </th>
+                  <th> Tarih </th>
                   <th> İşlem </th>
                 </tr>
             </thead>
