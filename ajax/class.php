@@ -341,17 +341,11 @@ class Process {
                 $description = substr($row['talep_aciklamasi'],0,65);
                 echo '
                 <tr>
-                <td>'.$row['talep_eden'].'</td>
+                <td>'.$row['firma_adi'].'</td>
                 <td>'.$description.'</td>
                 <td>'.$serviceDate.'</td>
                 <td>'.$row['talep_durum'].'</td>
-                <td> <div class="btn-group">
-                <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
-                <div class="dropdown-menu">
-                  <a href="report-service.php?service_id='.$row['id'].'" class="dropdown-item">Durum Değiştir</a>
-                  <a href="" class="dropdown-item">Sil</a>
-                </div>
-                </td>
+                
                 </tr>';
             
             }
