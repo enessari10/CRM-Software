@@ -9,7 +9,7 @@
     header('Location: /../login.php');
 }
    // logout
-   if(isset($_POST['but_logout'])){
+   if(isset($_POST['submit'])){
     session_destroy();
     $days = 30;
     setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
@@ -119,7 +119,9 @@
                       <?php echo $processClass->getCustomerAllServiceRequests($db, $_SESSION['email']); ?>
                       </tbody>
                     </table> 
-                    
+                    <form action="" method="post">
+<input type="submit" name="submit" id="submit" class="button" value="Submit"/>
+</form>
                     </div>
                   </div>
                 </div>
