@@ -31,25 +31,27 @@ if(isset($_SESSION['userid']) ){
 
       if ($row['role'] == "mikroes_admin") {
 
-		$_SESSION['userid'] = $row['user_id'];
+		    $_SESSION['userid'] = $row['user_id'];
         $_SESSION['role'] = $row['role']; 
         $_SESSION['email'] = $row['email']; 
         header('Location: /pages/admin/home.php');
 
       } else if ($row['role'] == "customer") {
 
-		$_SESSION['userid'] = $row['user_id'];
+		    $_SESSION['userid'] = $row['user_id'];
         $_SESSION['role'] = $row['role']; 
         $_SESSION['email'] = $row['email']; 
         header('Location: /pages/customer/home.php');
 
-      } else {
+      } else if ($row['role'] == "worker") {
 
-		$_SESSION['userid'] = $row['user_id'];
-		$_SESSION['role'] = $row['role']; 
+		    $_SESSION['userid'] = $row['user_id'];
+		    $_SESSION['role'] = $row['role']; 
         $_SESSION['email'] = $row['email']; 
         header('Location: /pages/worker/home.php');
 
+      } else {
+        header('Location: /login.php');
       }
        exit;
 
@@ -90,11 +92,11 @@ if(isset($_POST['but_submit'])){
 		
         if($count > 0){
 
-			 $userId = $row['user_id'];
+			       $userId = $row['user_id'];
              $userRole = $row['role'];
              $userEmail = $row['email'];
 
-            if( isset($_POST['rememberme']) ){
+            if(isset($_POST['rememberme'])){
 
                 $days = 30;
                 $value = encryptCookie($userId);
@@ -103,24 +105,26 @@ if(isset($_POST['but_submit'])){
                 if ($row['role'] == "mikroes_admin") {
 
                   $_SESSION['userid'] = $userId; 
-				  $_SESSION['role'] = $userRole; 
+				          $_SESSION['role'] = $userRole; 
                   $_SESSION['email'] = $userEmail; 
-						header('Location: /pages/admin/home.php');
+						      header('Location: /pages/admin/home.php');
     
                 } else if ($row['role'] == "customer") {
                       
-				  $_SESSION['userid'] = $userId; 
+				          $_SESSION['userid'] = $userId; 
                   $_SESSION['role'] = $userRole; 
                   $_SESSION['email'] = $userEmail; 
                   header('Location: /pages/customer/home.php');
     
-                } else {
+                } else if ($row['role'] == "worker"){
     
-				  $_SESSION['userid'] = $userId; 
+				          $_SESSION['userid'] = $userId; 
                   $_SESSION['role'] = $userRole; 
                   $_SESSION['email'] = $userEmail; 
                   header('Location: /pages/worker/home.php');
     
+                } else {
+                  header('Location: /login.php');
                 }
                 
                 exit;
