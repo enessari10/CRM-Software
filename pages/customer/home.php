@@ -12,8 +12,9 @@
    if(isset($_POST['submit'])){
     session_destroy();
     $days = 30;
-    setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
-    header('Location: /../login.php');
+    unset($_COOKIE['rememberme']); 
+    setcookie ("rememberme",null, time() - ($days *  24 * 60 * 60 * 1000) );
+    echo 'SETLENDİ';
 }
 ?>
 
