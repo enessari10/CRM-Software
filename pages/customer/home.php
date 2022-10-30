@@ -3,19 +3,7 @@
   require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
   require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
   $processClass = new Process();
-  if(!isset($_SESSION['email'])){
-    session_start();
-} else {
-    header('Location: /../login.php');
-}
-   // logout
-   if(isset($_POST['submit'])){
-    session_destroy();
-    $days = 30;
-    unset($_COOKIE['rememberme']); 
-    setcookie ("rememberme",null, time() - ($days *  24 * 60 * 60 * 1000) );
-    echo 'SETLENDİ';
-}
+ 
 ?>
 
 <!DOCTYPE html>

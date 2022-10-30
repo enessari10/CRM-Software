@@ -1,83 +1,7 @@
 
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
-session_start();
 
-if(isset($_SESSION['userid']) ){
-
-  if ($_SESSION['email'] == "mikroes_admin") {
-    header('Location: /pages/admin/home.php');
-
-  } else if ($_SESSION['email'] == "customer") {
-
-    header('Location: /pages/customer/home.php');
-
-  } else if ($_SESSION['email'] == "mikroes_worker"){
-
-    header('Location: /pages/worker/home.php');
-
-  } else {
-    header('Location: /login.php');
-
-  }
-   exit;
-
-} else if( isset($_COOKIE['rememberme']  )){
-    
-    $userid = decryptCookie($_COOKIE['rememberme']);
-    $sql_query = "select * from Users where user_id='".$userid."'";
-    $result = mysqli_query($db,$sql_query);
-    $row = mysqli_fetch_array($result);
-    $count= mysqli_num_rows($result);
-
-    if( $count > 0 ){
-
-      if ($row['role'] == "mikroes_admin") {
-
-		    $_SESSION['userid'] = $row['user_id'];
-        $_SESSION['role'] = $row['role']; 
-        $_SESSION['email'] = $row['email']; 
-        header('Location: /pages/admin/home.php');
-
-      } else if ($row['role'] == "customer") {
-
-		    $_SESSION['userid'] = $row['user_id'];
-        $_SESSION['role'] = $row['role']; 
-        $_SESSION['email'] = $row['email']; 
-        header('Location: /pages/customer/home.php');
-
-      } else if ($row['role'] == "mikroes_worker") {
-
-		    $_SESSION['userid'] = $row['user_id'];
-		    $_SESSION['role'] = $row['role']; 
-        $_SESSION['email'] = $row['email']; 
-        header('Location: /pages/worker/home.php');
-
-      } else {
-        header('Location: /login.php');
-      }
-       exit;
-
-    }
-} 
-
-function encryptCookie( $value ) {
-
-   $key = hex2bin(openssl_random_pseudo_bytes(4));
-   $cipher = "aes-256-cbc";
-   $ivlen = openssl_cipher_iv_length($cipher);
-   $iv = openssl_random_pseudo_bytes($ivlen);
-   $ciphertext = openssl_encrypt($value, $cipher, $key, 0, $iv);
-   return( base64_encode($ciphertext . '::' . $iv. '::' .$key) );
-}
-
-function decryptCookie( $ciphertext ) {
-
-   $cipher = "aes-256-cbc";
-   list($encrypted_data, $iv,$key) = explode('::', base64_decode($ciphertext));
-   return openssl_decrypt($encrypted_data, $cipher, $key, 0, $iv);
-
-}
 
 
 if(isset($_POST['but_submit'])){
@@ -100,36 +24,39 @@ if(isset($_POST['but_submit'])){
 
             if(isset($_POST['rememberme'])){
 
-                $days = 30;
-                $value = encryptCookie($userId);
-                setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000));
+              echo 'REMEMBER SECİLİ';
+                // $days = 30;
+                // $value = encryptCookie($userId);
+                // setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000));
                 
-                if ($row['role'] == "mikroes_admin") {
+                // if ($row['role'] == "mikroes_admin") {
 
-                  $_SESSION['userid'] = $userId; 
-				          $_SESSION['role'] = $userRole; 
-                  $_SESSION['email'] = $userEmail; 
-						      header('Location: /pages/admin/home.php');
+                //   $_SESSION['userid'] = $userId; 
+				        //   $_SESSION['role'] = $userRole; 
+                //   $_SESSION['email'] = $userEmail; 
+						    //   header('Location: /pages/admin/home.php');
     
-                } else if ($row['role'] == "customer") {
+                // } else if ($row['role'] == "customer") {
                       
-				          $_SESSION['userid'] = $userId; 
-                  $_SESSION['role'] = $userRole; 
-                  $_SESSION['email'] = $userEmail; 
-                  header('Location: /pages/customer/home.php');
+				        //   $_SESSION['userid'] = $userId; 
+                //   $_SESSION['role'] = $userRole; 
+                //   $_SESSION['email'] = $userEmail; 
+                //   header('Location: /pages/customer/home.php');
     
-                } else if ($row['role'] == "mikroes_worker"){
+                // } else if ($row['role'] == "mikroes_worker"){
     
-				          $_SESSION['userid'] = $userId; 
-                  $_SESSION['role'] = $userRole; 
-                  $_SESSION['email'] = $userEmail; 
-                  header('Location: /pages/worker/home.php');
+				        //   $_SESSION['userid'] = $userId; 
+                //   $_SESSION['role'] = $userRole; 
+                //   $_SESSION['email'] = $userEmail; 
+                //   header('Location: /pages/worker/home.php');
     
-                } else {
-                  header('Location: /login.php');
-                }
+                // } else {
+                //   header('Location: /login.php');
+                // }
                 
-                exit;
+                // exit;
+            } else {
+              echo 'REMEMBER SECİLİ DEGİL';
             }
 
             
