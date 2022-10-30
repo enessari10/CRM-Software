@@ -3,6 +3,13 @@
   require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
   require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
   $processClass = new Process();
+   // logout
+   if(isset($_POST['but_logout'])){
+    session_destroy();
+    $days = 30;
+    setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
+    header('Location: /login.php');
+}
 ?>
 
 <!DOCTYPE html>
