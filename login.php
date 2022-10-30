@@ -59,10 +59,7 @@ if(isset($_SESSION['userid']) ){
        exit;
 
     }
-} else {
-  header('Location: /login.php');
-}
-
+} 
 
 function encryptCookie( $value ) {
 
