@@ -12,9 +12,12 @@ if(isset($_SESSION['userid']) ){
 
     header('Location: /pages/customer/home.php');
 
-  } else {
+  } else if ($_SESSION['email'] == "mikroes_worker"){
 
     header('Location: /pages/worker/home.php');
+
+  } else {
+    header('Location: /login.php');
 
   }
    exit;
@@ -56,6 +59,8 @@ if(isset($_SESSION['userid']) ){
        exit;
 
     }
+} else {
+  header('Location: /login.php');
 }
 
 

@@ -119,6 +119,7 @@
                       <?php echo $processClass->getCustomerAllServiceRequests($db, $_SESSION['email']); ?>
                       </tbody>
                     </table> 
+                    
                     </div>
                   </div>
                 </div>
