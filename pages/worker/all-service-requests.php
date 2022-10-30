@@ -71,7 +71,7 @@
                       </thead>
                       <tbody>
                       <?php 
-              echo $processClass->getAllServiceRequests($db);
+              echo $processClass->getAllServiceRequests($db, $_SESSION['email']);
             ?>
                       </tbody>
                     </table>
