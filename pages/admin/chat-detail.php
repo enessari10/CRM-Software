@@ -9,15 +9,7 @@
   <head>
     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
     <style>
-.page-header {
-	background: #006A4E;
-	margin: 0;
-  padding: 20px 0 10px;
-	color: #FFFFFF;
-	position: fixed;
-	width: 100%;
-  z-index: 1
-}
+
 .main {
 	height: 100vh;
 	padding-top: 70px;
