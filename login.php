@@ -38,9 +38,7 @@ if(isset($_POST['but_submit'])){
 
             if(isset($_POST['rememberme'])){
 
-                 $days = 30;
-                 $value = encryptCookie($userId);
-                 setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000));
+                 setcookie ("rememberme",$userId,time()+ (30 *  24 * 60 * 60 * 1000));
                  $processClass->routes($userId, $userRole, $userEmail);
                 
                 
