@@ -1,7 +1,21 @@
 
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
+require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+$processClass = new Process();
+session_start();
 
+ if(isset($_SESSION["role"])) {
+  if ($userRole == "mikroes_admin") {
+    header('Location: /pages/admin/home.php');
+  } else if ($userRole == "customer") {
+    header('Location: /pages/customer/home.php');
+  } else if ($userRole == "mikroes_worker"){
+    header('Location: /pages/worker/home.php');
+  } else {
+    $script = '<div class="alert alert-danger" role="alert">Bir hata oluştu.</div>';
+  }
+ }
 
 
 if(isset($_POST['but_submit'])){
@@ -24,54 +38,23 @@ if(isset($_POST['but_submit'])){
 
             if(isset($_POST['rememberme'])){
 
-              echo 'REMEMBER SECİLİ';
-                // $days = 30;
-                // $value = encryptCookie($userId);
-                // setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000));
+                 $days = 30;
+                 $value = encryptCookie($userId);
+                 setcookie ("rememberme",$value,time()+ ($days *  24 * 60 * 60 * 1000));
+                 $processClass->routes($userId, $userRole, $userEmail);
                 
-                // if ($row['role'] == "mikroes_admin") {
-
-                //   $_SESSION['userid'] = $userId; 
-				        //   $_SESSION['role'] = $userRole; 
-                //   $_SESSION['email'] = $userEmail; 
-						    //   header('Location: /pages/admin/home.php');
-    
-                // } else if ($row['role'] == "customer") {
-                      
-				        //   $_SESSION['userid'] = $userId; 
-                //   $_SESSION['role'] = $userRole; 
-                //   $_SESSION['email'] = $userEmail; 
-                //   header('Location: /pages/customer/home.php');
-    
-                // } else if ($row['role'] == "mikroes_worker"){
-    
-				        //   $_SESSION['userid'] = $userId; 
-                //   $_SESSION['role'] = $userRole; 
-                //   $_SESSION['email'] = $userEmail; 
-                //   header('Location: /pages/worker/home.php');
-    
-                // } else {
-                //   header('Location: /login.php');
-                // }
                 
                 // exit;
             } else {
-              echo 'REMEMBER SECİLİ DEGİL';
+              $processClass->routes($userId, $userRole, $userEmail);
+
             }
 
             
         }else{
-
-          
-            $script = '<div class="alert alert-danger" role="alert">
-            Kullanıcı adı veya şifre hatalı
-          </div>';
-
-            
+            $script = '<div class="alert alert-danger" role="alert">Kullanıcı adı veya şifre hatalı</div>';
         }
-
     }
-
 }
 
 ?>
@@ -82,7 +65,7 @@ if(isset($_POST['but_submit'])){
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CRM</title>
+    <title>Mikroes CRM Sistemi</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendors/css/vendor.bundle.base.css">
