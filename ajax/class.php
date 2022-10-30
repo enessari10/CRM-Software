@@ -5,33 +5,6 @@ date_default_timezone_set('Europe/Istanbul');
 class Process {
 
 
-public function routes($userId, $userRole, $userEmail) {
-    if ($userRole == "mikroes_admin") {
-  
-      $_SESSION['userid'] = $userId; 
-      $_SESSION['role'] = $userRole; 
-      $_SESSION['email'] = $userEmail; 
-      header('Location: /pages/admin/home.php');
-  
-    } else if ($userRole == "customer") {
-          
-      $_SESSION['userid'] = $userId; 
-      $_SESSION['role'] = $userRole; 
-      $_SESSION['email'] = $userEmail; 
-      header('Location: /pages/customer/home.php');
-  
-    } else if ($userRole == "mikroes_worker"){
-  
-      $_SESSION['userid'] = $userId; 
-      $_SESSION['role'] = $userRole; 
-      $_SESSION['email'] = $userEmail; 
-      header('Location: /pages/worker/home.php');
-  
-    } else {
-      $script = '<div class="alert alert-danger" role="alert">Bir hata oluştu.</div>';
-    }
-  }
-
 // SQL FUNC
     public function sqlInsert($db ,$tble, $cols, $values){
 
