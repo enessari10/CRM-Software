@@ -17,10 +17,10 @@
     if(!isset($_SESSION['email'])){
         session_start();
     } else {
-    header('Location: /login.php');
+        header('Location: /login.php');
     }
     // logout
-    if(!isset($_POST['but_logout'])){
+    if(isset($_POST['but_logout'])){
         session_destroy();
         $days = 30;
         setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
