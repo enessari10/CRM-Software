@@ -21,7 +21,7 @@
           <ul class="navbar-nav navbar-nav-right">
             
             <li class="nav-item nav-logout d-none d-lg-block">
-            <button class="nav-link"type="button" name="but_logout">
+            <button class="nav-link" type="submit" id="but_logout" name="but_logout">
             <i class="mdi mdi-power"></i>
             </button>
              
