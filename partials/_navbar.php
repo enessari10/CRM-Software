@@ -1,13 +1,4 @@
-<?php
-// logout
-    if(isset($_POST['but_logout'])){
-        session_destroy();
-        // Remove cookie variables
-        $days = 30;
-        setcookie ("rememberme","", time() - ($days *  24 * 60 * 60 * 1000) );
-        header('Location: /login.php');
-    }
-    ?>
+
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
           <a class="navbar-brand brand-logo" href="home.php"><img src="assets/images/logo.png" alt="logo" /></a>
