@@ -333,7 +333,7 @@ class Process {
 
     public function getCustomerAllServiceRequests($db, $user_email) {
 
-        $query = "SELECT * FROM Talepler INNER JOIN Firmalar ON Talepler.talep_eden_firma_id = Firmalar.firma_id WHERE firma_adi = '$user_email'  WHERE talep_durum != 'Rapor Oluşturuldu'ORDER BY talep_tarihi DESC ";
+        $query = "SELECT * FROM Talepler INNER JOIN Firmalar ON Talepler.talep_eden_firma_id = Firmalar.firma_id WHERE firma_adi = '$user_email' ORDER BY talep_tarihi DESC ";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
 
