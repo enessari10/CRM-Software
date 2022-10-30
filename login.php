@@ -43,7 +43,7 @@ if(isset($_SESSION['userid']) ){
         $_SESSION['email'] = $row['email']; 
         header('Location: /pages/customer/home.php');
 
-      } else if ($row['role'] == "worker") {
+      } else if ($row['role'] == "mikroes_worker") {
 
 		    $_SESSION['userid'] = $row['user_id'];
 		    $_SESSION['role'] = $row['role']; 
@@ -116,7 +116,7 @@ if(isset($_POST['but_submit'])){
                   $_SESSION['email'] = $userEmail; 
                   header('Location: /pages/customer/home.php');
     
-                } else if ($row['role'] == "worker"){
+                } else if ($row['role'] == "mikroes_worker"){
     
 				          $_SESSION['userid'] = $userId; 
                   $_SESSION['role'] = $userRole; 
