@@ -105,7 +105,7 @@
                       </thead>
                       <tbody>
                       <?php 
-              echo $processClass->getCustomerAllServiceRequest ($db);
+              echo $processClass->getCustomerAllServiceRequest ($db, $_SESSION['email']);
 
             ?>
                       </tbody>
