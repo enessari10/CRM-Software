@@ -1,3 +1,8 @@
+<?php 
+if($_SESSION['role'] != 'mikroes_admin') {
+    header("location:/../error-404.html");
+  }
+  ?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>

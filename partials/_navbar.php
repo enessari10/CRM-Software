@@ -12,12 +12,11 @@
           <ul class="navbar-nav navbar-nav-right">
             
             <li class="nav-item nav-logout d-none d-lg-block">
-              <form action="" method="POST">
 				  
                 <a class="nav-link" href="/../logout.php">
                 <i class="mdi mdi-power"></i>
                 </a>
-              </form>
+
              
             </li>
             

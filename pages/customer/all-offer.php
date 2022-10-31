@@ -1,3 +1,15 @@
+<?php 
+
+  require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
+  require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
+
+  $processClass = new Process();
+  session_start();
+ 
+  if($_SESSION['role'] != 'customer') {
+    header("location:/../error-404.html");
+  }
+?>
 <!DOCTYPE html>
 <html lang="tr">
   <head>
