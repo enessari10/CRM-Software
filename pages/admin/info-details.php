@@ -3,6 +3,7 @@
   require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
   require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
   $processClass = new Process();
+  session_start();
   if($_SESSION['role'] != 'mikroes_admin') {
     header("location:/../error-404.html");
   }
