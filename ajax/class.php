@@ -352,6 +352,14 @@ class Process {
         }
     }
 
+    public function getCompanyIdWithEmail($db, $email) {
+        $query = "SELECT * FROM Firmalar INNER JOIN Users ON Firmalar.firma_id = Users.firma_id WHERE Users.email = '$email' ";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+                return $row['firma_id'];
+            }
+        }
+    }
 
 
             

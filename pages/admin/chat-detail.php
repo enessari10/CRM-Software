@@ -210,15 +210,6 @@
               <time class="chat-time" datetime="2015-07-01T11:37">11:37:08 am</time>
             </div>
           </div>
-          <div class="chat-body">
-            <div class="chat-content">
-              <p>
-                Good morning, sir.
-                <br>What can I do for you?
-              </p>
-              <time class="chat-time" datetime="2015-07-01T11:37">11:37:08 am</time>
-            </div>
-          </div>
         </div>
         <div class="chat chat-left">
           <div class="chat-avatar">
