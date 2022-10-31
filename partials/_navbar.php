@@ -13,9 +13,10 @@
             
             <li class="nav-item nav-logout d-none d-lg-block">
               <form action="" method="POST">
-                <button class="nav-link" type="submit" id="but_logout" name="but_logout">
+				  
+                <a class="nav-link" href="/../logout.php">
                 <i class="mdi mdi-power"></i>
-                </button>
+                </a>
               </form>
              
             </li>

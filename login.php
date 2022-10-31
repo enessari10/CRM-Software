@@ -32,13 +32,16 @@ if(isset($_POST['but_submit'])){
 		
         if($count > 0){
 
-			       $userId = $row['user_id'];
+			 $userId = $row['user_id'];
              $userRole = $row['role'];
              $userEmail = $row['email'];
 
             if(isset($_POST['rememberme'])){
 
                  setcookie ("rememberme",$userId,time()+ (30 *  24 * 60 * 60 * 1000));
+				 setcookie("email","$userEmail",time()+ (30 *  24 * 60 * 60 * 1000));
+				 setcookie("role","$userRole",time()+ (30 *  24 * 60 * 60 * 1000));
+
                  if ($userRole == "mikroes_admin") {
   
                   $_SESSION['userid'] = $userId; 
