@@ -20,7 +20,10 @@
     $date = $_POST['tarih'];
     $desc = $_POST['aciklama']; 
     $companyId = $processClass->getCompanyIdWithEmail($db, $userEmail);
-
+    echo $userEmail;
+    echo $date;
+    echo $desc;
+    echo $company_id;
     $processClass->sqlInsert($db,"Talepler","talep_eden, talep_eden_firma_id, talep_aciklamasi,talep_tarihi,talep_durum	", "'$userEmail', '$companyId', '$desc','$date','Bekliyor'");
     
     if ($processClass == true) {
