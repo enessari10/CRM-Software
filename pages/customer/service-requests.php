@@ -16,7 +16,7 @@
 
   if(isset($_POST['but_submit'])){
 
-    $userEmail = $_POST['email'];
+    $userEmail =  $_SESSION['email']; 
     $date = $_POST['tarih'];
     $desc = $_POST['aciklama']; 
     $companyId = $processClass->getCompanyIdWithEmail($db, $userEmail);
@@ -98,7 +98,7 @@
                     <form class="forms-sample" action="" method="POST"> 
                       <div class="form-group">
                         <label for="exampleInputName1">Firma Adı </label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="email" placeholder="Firma Adı " disabled value="<?php echo $_SESSION['email']; ?> ">
+                        <input type="text" class="form-control" id="exampleInputName1" name="email" placeholder="Firma Adı " disabled value="<?php echo  $_SESSION['email']; ?> ">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Servis İstediğiniz Tarih</label>
