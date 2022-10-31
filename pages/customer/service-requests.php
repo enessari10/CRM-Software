@@ -65,7 +65,7 @@
                     <form class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputName1">Firma Adı </label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Firma Adı ">
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Firma Adı " disabled value="<?php echo $_SESSION['email']; ?> ">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Servis İstediğiniz Tarih</label>
