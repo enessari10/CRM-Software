@@ -5,9 +5,33 @@
 
   $processClass = new Process();
   session_start();
+
+  
  
   if($_SESSION['role'] != 'customer') {
     header("location:/../error-404.html");
+
+    
+  }
+
+  if(isset($_POST['but_submit'])){
+
+    $userEmail = $_POST['email'];
+    $date = $_POST['tarih'];
+    $desc = $_POST['aciklama']; 
+    $companyId = $processClass->getCompanyIdWithEmail($db, $userEmail);
+
+    $processClass->sqlInsert($db,"Talepler","talep_eden, talep_eden_firma_id, talep_aciklamasi,talep_tarihi,talep_durum	", "'$userEmail', '$companyId', '$desc','$date','Bekliyor'");
+    
+    if ($processClass == true) {
+
+      $showAlert = $processClass->successAlert('Talebiniz başarıyla oluşturuldu.');
+
+    } else {
+
+      $showAlert = $processClass->errorAlert('Talebiniz oluşturulamadı.');
+
+    }
   }
 ?>
 <!DOCTYPE html>
@@ -62,20 +86,24 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <form class="forms-sample">
+                  <?php 
+                    if(isset($showAlert)) { 
+                      echo $showAlert; 
+                      }?>
+                    <form class="forms-sample" action="" method="POST"> 
                       <div class="form-group">
                         <label for="exampleInputName1">Firma Adı </label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Firma Adı " disabled value="<?php echo $_SESSION['email']; ?> ">
+                        <input type="text" class="form-control" id="exampleInputName1" name="email" placeholder="Firma Adı " disabled value="<?php echo $_SESSION['email']; ?> ">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Servis İstediğiniz Tarih</label>
-                        <input type="date" class="form-control" id="exampleInputEmail3" placeholder="Servis İstediğiniz Tarih " require>
+                        <input type="datetime-local" class="form-control" id="exampleInputEmail3" name="tarih" placeholder="Servis İstediğiniz Tarih " required>
                       </div>
                       <div class="form-group">
-                        <label require for="exampleTextarea1">Talep Açıklaması</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                        <label for="exampleTextarea1">Talep Açıklaması</label>
+                        <textarea class="form-control" id="exampleTextarea1" name="aciklama" rows="4" required></textarea>
                       </div>
-                      <button type="submit" class="btn btn-gradient-primary me-2">Oluştur</button>
+                      <button type="submit" name="but_submit" id="but_submit" class="btn btn-gradient-primary me-2">Oluştur</button>
                     </form>
                   </div>
                 </div>

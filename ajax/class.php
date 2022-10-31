@@ -17,7 +17,6 @@ class Process {
         }
 
     }
-
     public function getCompanyNameWithId($db ,$id){
 
         $query =  mysqli_query($db,"SELECT * FROM Firmalar WHERE firma_id ='$id'");
