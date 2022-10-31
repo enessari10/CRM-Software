@@ -182,7 +182,7 @@
               </nav>
             </div>
             <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
+            <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                   <div class="container bootstrap snippets bootdeys">
@@ -190,9 +190,7 @@
   <!-- Panel Chat -->
   <div class="panel" id="chat">
     <div class="panel-heading">
-      <h3 class="panel-title">
-        <i class="icon wb-chat-text" aria-hidden="true"></i> Chat
-      </h3>
+     
     </div>
     <div class="panel-body">
       <div class="chats">
@@ -202,6 +200,15 @@
               <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
               <i></i>
             </a>
+          </div>
+          <div class="chat-body">
+            <div class="chat-content">
+              <p>
+                Good morning, sir.
+                <br>What can I do for you?
+              </p>
+              <time class="chat-time" datetime="2015-07-01T11:37">11:37:08 am</time>
+            </div>
           </div>
           <div class="chat-body">
             <div class="chat-content">
