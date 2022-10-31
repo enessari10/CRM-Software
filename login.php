@@ -4,7 +4,6 @@ include($_SERVER["DOCUMENT_ROOT"] . "/config/Database.php");
 require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
 $processClass = new Process();
 session_start();
-echo $_SESSION["role"];
 
  if(isset($_SESSION["role"])) {
   if ($_SESSION["role"] == "mikroes_admin") {
