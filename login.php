@@ -5,12 +5,13 @@ require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
 $processClass = new Process();
 session_start();
 echo $_SESSION["role"];
+
  if(isset($_SESSION["role"])) {
-  if ($userRole == "mikroes_admin") {
+  if ($_SESSION["role"] == "mikroes_admin") {
     header('Location: /pages/admin/home.php');
-  } else if ($userRole == "customer") {
+  } else if ($_SESSION["role"] == "customer") {
     header('Location: /pages/customer/home.php');
-  } else if ($userRole == "mikroes_worker"){
+  } else if ($_SESSION["role"] == "mikroes_worker"){
     header('Location: /pages/worker/home.php');
   } else {
     $script = '<div class="alert alert-danger" role="alert">Bir hata oluştu.</div>';
@@ -39,8 +40,8 @@ if(isset($_POST['but_submit'])){
             if(isset($_POST['rememberme'])){
 
                  setcookie ("rememberme",$userId,time()+ (30 *  24 * 60 * 60 * 1000));
-				 setcookie("email","$userEmail",time()+ (30 *  24 * 60 * 60 * 1000));
-				 setcookie("role","$userRole",time()+ (30 *  24 * 60 * 60 * 1000));
+				         setcookie("email","$userEmail",time()+ (30 *  24 * 60 * 60 * 1000));
+				         setcookie("role","$userRole",time()+ (30 *  24 * 60 * 60 * 1000));
 
                  if ($userRole == "mikroes_admin") {
   
