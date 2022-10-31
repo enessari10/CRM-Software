@@ -69,10 +69,10 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Servis İstediğiniz Tarih</label>
-                        <input type="date" class="form-control" id="exampleInputEmail3" placeholder="Servis İstediğiniz Tarih">
+                        <input type="date" class="form-control" id="exampleInputEmail3" placeholder="Servis İstediğiniz Tarih " require>
                       </div>
                       <div class="form-group">
-                        <label for="exampleTextarea1">Talep Açıklaması</label>
+                        <label require for="exampleTextarea1">Talep Açıklaması</label>
                         <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
                       </div>
                       <button type="submit" class="btn btn-gradient-primary me-2">Oluştur</button>
