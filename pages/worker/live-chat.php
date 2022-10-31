@@ -2,6 +2,8 @@
   require_once($_SERVER["DOCUMENT_ROOT"].'/config/Database.php');
   require_once($_SERVER["DOCUMENT_ROOT"].'/ajax/class.php');
   $processClass = new Process();
+  session_start();
+
   if($_SESSION['role'] != 'mikroes_worker') {
     header("location:/../error-404.html");
   }
@@ -33,7 +35,7 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_admin_menu.html") ?>
+            <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_worker_menu.html") ?>
           </ul>
         </nav>
         <!-- partial -->
