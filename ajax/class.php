@@ -9,7 +9,7 @@ class Process {
     public function sqlInsert($db ,$tble, $cols, $values){
 
         $insertquery = "INSERT INTO " . $tble . " (" . $cols . ") VALUES (" . $values . ")";
-        
+        echo $insertquery;
         if(mysqli_query($db, $insertquery)){
             return true;
         } else {
