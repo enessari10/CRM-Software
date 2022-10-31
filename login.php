@@ -129,7 +129,7 @@ if(isset($_POST['but_submit'])){
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <img src="/assets/images/logo.png">
+                  <img  src="/assets/images/logo.png">
                 </div>
                 <h4>Merhaba, CRM Sistemine hoş geldiniz</h4>
                 <h6 class="font-weight-light">Devam etmek için oturum açın.</h6>
