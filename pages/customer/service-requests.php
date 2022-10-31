@@ -102,7 +102,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Servis İstediğiniz Tarih</label>
-                        <input type="datetime-local" class="form-control" id="exampleInputEmail3" name="tarih" placeholder="Servis İstediğiniz Tarih " required>
+                        <input type="date" class="form-control" id="exampleInputEmail3" name="tarih" placeholder="Servis İstediğiniz Tarih " required>
                       </div>
                       <div class="form-group">
                         <label for="exampleTextarea1">Talep Açıklaması</label>
