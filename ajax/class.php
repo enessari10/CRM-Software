@@ -312,16 +312,28 @@ class Process {
         $query = "SELECT * FROM Mesajlar INNER JOIN Users ON Mesajlar.gonderen_id = Users.user_id WHERE Mesajlar.gorusme_id = $gorusme_id ORDER BY tarih_saat ASC";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
-                echo '
-                <div class="chat-log__item">
-                <h3 class="chat-log__author">Felipe <small>14:30</small></h3>
-                <div class="chat-log__message">'.$row['mesaj'].'</div>
-              </div>
-              <div class="chat-log__item chat-log__item--own">
-                <h3 class="chat-log__author">Fabrício <small>14:30</small></h3>
-                <div class="chat-log__message">BRB</div>
-              </div> 
-              ';
+
+                if($row['role'] == 'mikroes_admin') {
+
+                    echo '<div class="media media-chat media-chat-reverse">
+                    <div class="media-body">
+                      <p>'.$row['mesaj'].'</p>
+                      <p class="meta">10:00</p>
+                    </div>
+                  </div>';
+
+                } else {
+                    echo ' <div class="media media-chat">
+                  <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                  <div class="media-body">
+                  <p>'.$row['mesaj'].'</p>
+                    <p class="meta">23:58</p>
+                  </div>
+                </div>
+                    ';
+                }
+
+               
             }
         }
        

@@ -356,19 +356,10 @@ button, input, optgroup, select, textarea {
 
 
               <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important;">
-                <div class="media media-chat">
-                  <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
-                  <div class="media-body">
-                    <p>What are you doing tomorrow?<br> Can we come up a bar?</p>
-                    <p class="meta"><time datetime="2018">23:58</time></p>
-                  </div>
-                </div>
-                <div class="media media-chat media-chat-reverse">
-                  <div class="media-body">
-                    <p>Hiii, I'm good.</p>
-                    <p class="meta"><time datetime="2018">00:06</time></p>
-                  </div>
-                </div>
+                
+              <?php 
+              $id = $_GET['chat_id'];
+              echo $processClass-getChatDetail($db, $id);?> 
 
               <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div></div></div>
 
