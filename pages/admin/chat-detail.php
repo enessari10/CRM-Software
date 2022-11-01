@@ -7,592 +7,330 @@
     header("location:/../error-404.html");
   }
 ?>
-
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
   <head>
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
-    <style>
-.fa-2x {
-  font-size: 1.5em;
+     <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_header.php") ?>
+	  <style>
+.card-bordered {
+    border: 1px solid #ebebeb;
 }
 
-.app {
-  position: relative;
-  overflow: hidden;
-  top: 19px;
-  height: calc(100% - 38px);
-  margin: auto;
-  padding: 0;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
+.card {
+    border: 0;
+    border-radius: 0px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.03);
+    -webkit-transition: .5s;
+    transition: .5s;
+	
 }
 
-.app-one {
-  background-color: #f7f7f7;
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
-}
-
-.side {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
-.side-one {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  position: relative;
-  display: block;
-  top: 0;
-}
-
-.side-two {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 2;
-  position: relative;
-  top: -100%;
-  left: -100%;
-  -webkit-transition: left 0.3s ease;
-  transition: left 0.3s ease;
-
+.padding {
+    padding: 3rem !important
 }
 
 
-.heading {
-  padding: 10px 16px 10px 15px;
-  margin: 0;
-  height: 60px;
-  width: 100%;
-  background-color: #eee;
-  z-index: 1000;
-}
 
-.heading-avatar {
-  padding: 0;
-  cursor: pointer;
-
-}
-
-.heading-avatar-icon img {
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-}
-
-.heading-name {
-  padding: 0 !important;
-  cursor: pointer;
-}
-
-.heading-name-meta {
-  font-weight: 700;
-  font-size: 100%;
-  padding: 5px;
-  padding-bottom: 0;
-  text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #000;
-  display: block;
-}
-.heading-online {
-  display: none;
-  padding: 0 5px;
-  font-size: 12px;
-  color: #93918f;
-}
-.heading-compose {
-  padding: 0;
-}
-
-.heading-compose i {
-  text-align: center;
-  padding: 5px;
-  color: #93918f;
-  cursor: pointer;
-}
-
-.heading-dot {
-  padding: 0;
-  margin-left: 10px;
-}
-
-.heading-dot i {
-  text-align: right;
-  padding: 5px;
-  color: #93918f;
-  cursor: pointer;
-}
-
-.searchBox {
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 60px;
-  width: 100%;
-}
-
-.searchBox-inner {
-  height: 100%;
-  width: 100%;
-  padding: 10px !important;
-  background-color: #fbfbfb;
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
 }
 
 
-/*#searchBox-inner input {
-  box-shadow: none;
-}*/
-
-.searchBox-inner input:focus {
-  outline: none;
-  border: none;
-  box-shadow: none;
+.card-header {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(77,82,89,0.07);
 }
 
-.sideBar {
-  padding: 0 !important;
-  margin: 0 !important;
-  background-color: #fff;
-  overflow-y: auto;
-  border: 1px solid #f7f7f7;
-  height: calc(100% - 120px);
+.card-header .card-title {
+    padding: 0;
+    border: none;
 }
 
-.sideBar-body {
-  position: relative;
-  padding: 10px !important;
-  border-bottom: 1px solid #f7f7f7;
-  height: 72px;
-  margin: 0 !important;
-  cursor: pointer;
+h4.card-title {
+    font-size: 17px;
 }
 
-.sideBar-body:hover {
-  background-color: #f2f2f2;
+.card-header>*:last-child {
+    margin-right: 0;
 }
 
-.sideBar-avatar {
-  text-align: center;
-  padding: 0 !important;
+.card-header>* {
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
-.avatar-icon img {
-  border-radius: 50%;
-  height: 49px;
-  width: 49px;
-}
-
-.sideBar-main {
-  padding: 0 !important;
-}
-
-.sideBar-main .row {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.sideBar-name {
-  padding: 10px !important;
-}
-
-.name-meta {
-  font-size: 100%;
-  padding: 1% !important;
-  text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #000;
-}
-
-.sideBar-time {
-  padding: 10px !important;
-}
-
-.time-meta {
-  text-align: right;
-  font-size: 12px;
-  padding: 1% !important;
-  color: rgba(0, 0, 0, .4);
-  vertical-align: baseline;
-}
-
-/*New Message*/
-
-.newMessage {
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 100%;
-  position: relative;
-  left: -100%;
-}
-.newMessage-heading {
-  padding: 10px 16px 10px 15px !important;
-  margin: 0 !important;
-  height: 100px;
-  width: 100%;
-  background-color: #00bfa5;
-  z-index: 1001;
-}
-
-.newMessage-main {
-  padding: 10px 16px 0 15px !important;
-  margin: 0 !important;
-  height: 60px;
-  margin-top: 30px !important;
-  width: 100%;
-  z-index: 1001;
-  color: #fff;
-}
-
-.newMessage-title {
-  font-size: 18px;
-  font-weight: 700;
-  padding: 10px 5px !important;
-}
-.newMessage-back {
-  text-align: center;
-  vertical-align: baseline;
-  padding: 12px 5px !important;
-  display: block;
-  cursor: pointer;
-}
-.newMessage-back i {
-  margin: auto !important;
-}
-
-.composeBox {
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 60px;
-  width: 100%;
-}
-
-.composeBox-inner {
-  height: 100%;
-  width: 100%;
-  padding: 10px !important;
-  background-color: #fbfbfb;
-}
-
-.composeBox-inner input:focus {
-  outline: none;
-  border: none;
-  box-shadow: none;
-}
-
-.compose-sideBar {
-  padding: 0 !important;
-  margin: 0 !important;
-  background-color: #fff;
-  overflow-y: auto;
-  border: 1px solid #f7f7f7;
-  height: calc(100% - 160px);
-}
-
-/*Conversation*/
-
-.conversation {
-  padding: 0 !important;
-  margin: 0 !important;
-  height: 100%;
-  /*width: 100%;*/
-  border-left: 1px solid rgba(0, 0, 0, .08);
-  /*overflow-y: auto;*/
-}
-
-.message {
-  padding: 0 !important;
-  margin: 0 !important;
-  background: url("w.jpg") no-repeat fixed center;
-  background-size: cover;
-  overflow-y: auto;
-  border: 1px solid #f7f7f7;
-  height: calc(100% - 120px);
-}
-.message-previous {
-  margin : 0 !important;
-  padding: 0 !important;
-  height: auto;
-  width: 100%;
-}
-.previous {
-  font-size: 15px;
-  text-align: center;
-  padding: 10px !important;
-  cursor: pointer;
-}
-
-.previous a {
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.message-body {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: auto;
-  height: auto;
-}
-
-.message-main-receiver {
-  /*padding: 10px 20px;*/
-  max-width: 60%;
-}
-
-.message-main-sender {
-  padding: 3px 20px !important;
-  margin-left: 40% !important;
-  max-width: 60%;
-}
-
-.message-text {
-  margin: 0 !important;
-  padding: 5px !important;
-  word-wrap:break-word;
-  font-weight: 200;
-  font-size: 14px;
-  padding-bottom: 0 !important;
-}
-
-.message-time {
-  margin: 0 !important;
-  margin-left: 50px !important;
-  font-size: 12px;
-  text-align: right;
-  color: #9a9a9a;
-
-}
-
-.receiver {
-  width: auto !important;
-  padding: 4px 10px 7px !important;
-  border-radius: 10px 10px 10px 0;
-  background: #ffffff;
-  font-size: 12px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-  word-wrap: break-word;
-  display: inline-block;
-}
-
-.sender {
-  float: right;
-  width: auto !important;
-  background: #dcf8c6;
-  border-radius: 10px 10px 0 10px;
-  padding: 4px 10px 7px !important;
-  font-size: 12px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-  display: inline-block;
-  word-wrap: break-word;
-}
-
-
-/*Reply*/
-
-.reply {
-  height: 60px;
-  width: 100%;
-  background-color: #f5f1ee;
-  padding: 10px 5px 10px 5px !important;
-  margin: 0 !important;
-  z-index: 1000;
-}
-
-.reply-emojis {
-  padding: 5px !important;
-}
-
-.reply-emojis i {
-  text-align: center;
-  padding: 5px 5px 5px 5px !important;
-  color: #93918f;
-  cursor: pointer;
-}
-
-.reply-recording {
-  padding: 5px !important;
-}
-
-.reply-recording i {
-  text-align: center;
-  padding: 5px !important;
-  color: #93918f;
-  cursor: pointer;
-}
-
-.reply-send {
-  padding: 5px !important;
-}
-
-.reply-send i {
-  text-align: center;
-  padding: 5px !important;
-  color: #93918f;
-  cursor: pointer;
-}
-
-.reply-main {
-  padding: 2px 5px !important;
-}
-
-.reply-main textarea {
-  width: 100%;
-  resize: none;
-  overflow: hidden;
-  padding: 5px !important;
-  outline: none;
-  border: none;
-  text-indent: 5px;
-  box-shadow: none;
-  height: 100%;
-  font-size: 16px;
-}
-
-.reply-main textarea:focus {
-  outline: none;
-  border: none;
-  text-indent: 5px;
-  box-shadow: none;
-}
-
-@media screen and (max-width: 700px) {
-  .app {
-    top: 0;
-    height: 100%;
-  }
-  .heading {
-    height: 70px;
-    background-color: #009688;
-  }
-  .fa-2x {
-    font-size: 2.3em !important;
-  }
-  .heading-avatar {
-    padding: 0 !important;
-  }
-  .heading-avatar-icon img {
-    height: 50px;
-    width: 50px;
-  }
-  .heading-compose {
-    padding: 5px !important;
-  }
-  .heading-compose i {
+.btn-secondary {
+    color: #4d5259 !important;
+    background-color: #e4e7ea;
+    border-color: #e4e7ea;
     color: #fff;
-    cursor: pointer;
-  }
-  .heading-dot {
-    padding: 5px !important;
-    margin-left: 10px !important;
-  }
-  .heading-dot i {
+}
+
+.btn-xs {
+    font-size: 11px;
+    padding: 2px 8px;
+    line-height: 18px;
+}
+.btn-xs:hover{
+    color:#fff !important;
+}
+
+
+
+
+.card-title {
+    font-family: Roboto,sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 0;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(77,82,89,0.07);
+}
+
+
+.ps-container {
+    position: relative;
+}
+
+.ps-container {
+    -ms-touch-action: auto;
+    touch-action: auto;
+    overflow: hidden!important;
+    -ms-overflow-style: none;
+}
+
+.media-chat {
+    padding-right: 64px;
+    margin-bottom: 0;
+}
+
+.media {
+    padding: 16px 12px;
+    -webkit-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.media .avatar {
+    flex-shrink: 0;
+}
+
+.avatar {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #f5f6f7;
+    color: #8b95a5;
+    text-transform: uppercase;
+}
+
+.media-chat .media-body {
+    -webkit-box-flex: initial;
+    flex: initial;
+    display: table;
+}
+
+.media-body {
+    min-width: 0;
+}
+
+.media-chat .media-body p {
+    position: relative;
+    padding: 6px 8px;
+    margin: 4px 0;
+    background-color: #f5f6f7;
+    border-radius: 3px;
+    font-weight: 100;
+    color:#9b9b9b;
+}
+
+.media>* {
+    margin: 0 8px;
+}
+
+.media-chat .media-body p.meta {
+    background-color: transparent !important;
+    padding: 0;
+    opacity: .8;
+}
+
+.media-meta-day {
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 0;
+    color: #8b95a5;
+    opacity: .8;
+    font-weight: 400;
+}
+
+.media {
+    padding: 16px 12px;
+    -webkit-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.media-meta-day::before {
+    margin-right: 16px;
+}
+
+.media-meta-day::before, .media-meta-day::after {
+    content: '';
+    -webkit-box-flex: 1;
+    flex: 1 1;
+    border-top: 1px solid #ebebeb;
+}
+
+.media-meta-day::after {
+    content: '';
+    -webkit-box-flex: 1;
+    flex: 1 1;
+    border-top: 1px solid #ebebeb;
+}
+
+.media-meta-day::after {
+    margin-left: 16px;
+}
+
+.media-chat.media-chat-reverse {
+    padding-right: 12px;
+    padding-left: 64px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    flex-direction: row-reverse;
+}
+
+.media-chat {
+    padding-right: 64px;
+    margin-bottom: 0;
+}
+
+.media {
+    padding: 16px 12px;
+    -webkit-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+}
+
+.media-chat.media-chat-reverse .media-body p {
+    float: right;
+    clear: right;
+    background-color: #48b0f7;
     color: #fff;
-    cursor: pointer;
-  }
-  .sideBar {
-    height: calc(100% - 130px);
-  }
-  .sideBar-body {
-    height: 80px;
-  }
-  .sideBar-avatar {
-    text-align: left;
-    padding: 0 8px !important;
-  }
-  .avatar-icon img {
-    height: 55px;
-    width: 55px;
-  }
-  .sideBar-main {
-    padding: 0 !important;
-  }
-  .sideBar-main .row {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .sideBar-name {
-    padding: 10px 5px !important;
-  }
-  .name-meta {
+}
+
+.media-chat .media-body p {
+    position: relative;
+    padding: 6px 8px;
+    margin: 4px 0;
+    background-color: #f5f6f7;
+    border-radius: 3px;
+}
+
+
+.border-light {
+    border-color: #f1f2f3 !important;
+}
+
+.bt-1 {
+    border-top: 1px solid #ebebeb !important;
+}
+
+.publisher {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #f9fafb;
+}
+
+.publisher>*:first-child {
+    margin-left: 0;
+}
+
+.publisher>* {
+    margin: 0 8px;
+}
+
+.publisher-input {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    border: none;
+    outline: none !important;
+    background-color: transparent;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: Roboto,sans-serif;
+    font-weight: 300;
+}
+
+.publisher-btn {
+    background-color: transparent;
+    border: none;
+    color: #8b95a5;
     font-size: 16px;
-    padding: 5% !important;
-  }
-  .sideBar-time {
-    padding: 10px !important;
-  }
-  .time-meta {
-    text-align: right;
-    font-size: 14px;
-    padding: 4% !important;
-    color: rgba(0, 0, 0, .4);
-    vertical-align: baseline;
-  }
-  /*Conversation*/
-  .conversation {
-    padding: 0 !important;
-    margin: 0 !important;
-    height: 100%;
-    /*width: 100%;*/
-    border-left: 1px solid rgba(0, 0, 0, .08);
-    /*overflow-y: auto;*/
-  }
-  .message {
-    height: calc(100% - 140px);
-  }
-  .reply {
-    height: 70px;
-  }
-  .reply-emojis {
-    padding: 5px 0 !important;
-  }
-  .reply-emojis i {
-    padding: 5px 2px !important;
-    font-size: 1.8em !important;
-  }
-  .reply-main {
-    padding: 2px 8px !important;
-  }
-  .reply-main textarea {
-    padding: 8px !important;
-    font-size: 18px;
-  }
-  .reply-recording {
-    padding: 5px 0 !important;
-  }
-  .reply-recording i {
-    padding: 5px 0 !important;
-    font-size: 1.8em !important;
-  }
-  .reply-send {
-    padding: 5px 0 !important;
-  }
-  .reply-send i {
-    padding: 5px 2px 5px 0 !important;
-    font-size: 1.8em !important;
-  }
+    cursor: pointer;
+    overflow: -moz-hidden-unscrollable;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
 }
-    </style>
+
+.file-group {
+    position: relative;
+    overflow: hidden;
+} 
+
+.publisher-btn {
+    background-color: transparent;
+    border: none;
+    color: #cac7c7;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: -moz-hidden-unscrollable;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+} 
+
+.file-group input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1; 
+    width: 20px;
+}
+
+.text-info {
+    color: #48b0f7 !important;
+}
+		  </style>
+  </head>
   <body>
-      <!-- partial:partials/_navbar.html -->
+    <div class="container-scroller">
+      <!-- partial:../../partials/_navbar.html -->
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_navbar.php") ?>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
+        <!-- partial:../../partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                  <img src="/assets/images/faces/face1.jpg" alt="profile">
+                  <img src="../../assets/images/faces/face1.jpg" alt="profile">
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
@@ -603,551 +341,56 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
-            <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_admin_menu.html") ?>
+                        <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_admin_menu.html") ?>
+
           </ul>
         </nav>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="container app">
-  <div class="row app-one">
-    <div class="col-sm-4 side">
-      <div class="side-one">
-        <div class="row heading">
-          <div class="col-sm-3 col-xs-3 heading-avatar">
-            <div class="heading-avatar-icon">
-              <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
-            </div>
-          </div>
-          <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
-            <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
-          </div>
-          <div class="col-sm-2 col-xs-2 heading-compose  pull-right">
-            <i class="fa fa-comments fa-2x  pull-right" aria-hidden="true"></i>
-          </div>
-        </div>
-
-        <div class="row searchBox">
-          <div class="col-sm-12 searchBox-inner">
-            <div class="form-group has-feedback">
-              <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search">
-              <span class="glyphicon glyphicon-search form-control-feedback"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row sideBar">
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+			  
+            <div class="card card-bordered">
+              <div class="card-header">
+                <h4 class="card-title"><strong>Görüşme Detayı - eMAİL</strong></h4>
               </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar5.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="side-two">
-        <div class="row newMessage-heading">
-          <div class="row newMessage-main">
-            <div class="col-sm-2 col-xs-2 newMessage-back">
-              <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            </div>
-            <div class="col-sm-10 col-xs-10 newMessage-title">
-              New Chat
-            </div>
-          </div>
-        </div>
-
-        <div class="row composeBox">
-          <div class="col-sm-12 composeBox-inner">
-            <div class="form-group has-feedback">
-              <input id="composeText" type="text" class="form-control" name="searchText" placeholder="Search People">
-              <span class="glyphicon glyphicon-search form-control-feedback"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row compose-sideBar">
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar5.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar4.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row sideBar-body">
-            <div class="col-sm-3 col-xs-3 sideBar-avatar">
-              <div class="avatar-icon">
-                <img src="https://bootdey.com/img/Content/avatar/avatar5.png">
-              </div>
-            </div>
-            <div class="col-sm-9 col-xs-9 sideBar-main">
-              <div class="row">
-                <div class="col-sm-8 col-xs-8 sideBar-name">
-                  <span class="name-meta">John Doe
-                </span>
-                </div>
-                <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
-                  <span class="time-meta pull-right">18:18
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-8 conversation">
-      <div class="row heading">
-        <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
-          <div class="heading-avatar-icon">
-            <img src="https://bootdey.com/img/Content/avatar/avatar6.png">
-          </div>
-        </div>
-        <div class="col-sm-8 col-xs-7 heading-name">
-          <a class="heading-name-meta">John Doe
-          </a>
-          <span class="heading-online">Online</span>
-        </div>
-        <div class="col-sm-1 col-xs-1  heading-dot pull-right">
-          <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <div class="row message" id="conversation">
-        <div class="row message-previous">
-          <div class="col-sm-12 previous">
-            <a onclick="previous(this)" id="ankitjain28" name="20">
-            Show Previous Message!
-            </a>
-          </div>
-        </div>
-
-        <div class="row message-body">
-          <div class="col-sm-12 message-main-receiver">
-            <div class="receiver">
-              <div class="message-text">
-               Hi, what are you doing?!
-              </div>
-              <span class="message-time pull-right">
-                Sun
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row message-body">
-          <div class="col-sm-12 message-main-sender">
-            <div class="sender">
-              <div class="message-text">
-                I am doing nothing man!
-              </div>
-              <span class="message-time pull-right">
-                Sun
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row reply">
-        <div class="col-sm-1 col-xs-1 reply-emojis">
-          <i class="fa fa-smile-o fa-2x"></i>
-        </div>
-        <div class="col-sm-9 col-xs-9 reply-main">
-          <textarea class="form-control" rows="1" id="comment"></textarea>
-        </div>
-        <div class="col-sm-1 col-xs-1 reply-recording">
-          <i class="fa fa-microphone fa-2x" aria-hidden="true"></i>
-        </div>
-        <div class="col-sm-1 col-xs-1 reply-send">
-          <i class="fa fa-send fa-2x" aria-hidden="true"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
-             
+              <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important;">
+                <div class="media media-chat">
+                  <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                  <div class="media-body">
+                    <p>What are you doing tomorrow?<br> Can we come up a bar?</p>
+                    <p class="meta"><time datetime="2018">23:58</time></p>
+                  </div>
+                </div>
+                <div class="media media-chat media-chat-reverse">
+                  <div class="media-body">
+                    <p>Hiii, I'm good.</p>
+                    <p class="meta"><time datetime="2018">00:06</time></p>
+                  </div>
+                </div>
+
+              <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div></div></div>
+
+              <div class="publisher bt-1 border-light">
+                <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                <input class="publisher-input" type="text" placeholder="Mesajınızı yazın...">
+                <a class="publisher-btn" href="#" data-abc="true"><i class="mdi mdi-send"></i></a>
+              </div>
+
+             </div>
+
+          </div>
           <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer.html") ?>
-
+          <!-- partial:../../partials/_footer.html -->
+		<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer.html") ?>
           <!-- partial -->
-        
+        </div>
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-</body>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer_script.html") ?>
-<script>
-
-$(function(){
-    $(".heading-compose").click(function() {
-      $(".side-two").css({
-        "left": "0"
-      });
-    });
-
-    $(".newMessage-back").click(function() {
-      $(".side-two").css({
-        "left": "-100%"
-      });
-    });
-}) 
-</script>
+    <!-- container-scroller -->
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "/partials/_footer_script.html") ?>
+  </body>
 </html>
