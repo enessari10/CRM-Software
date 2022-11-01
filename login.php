@@ -38,9 +38,9 @@ if (isset($_POST['but_submit'])) {
       if (isset($_POST['rememberme'])) {
 
         $params = session_get_cookie_params();
-        setcookie("rememberme", $_COOKIE[$userId], time() + 60*60*24*30, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
-        setcookie("email", $_COOKIE[$userEmail], time() + 60*60*24*30, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
-        setcookie("role", $_COOKIE[$userRole], time() + 60*60*24*30, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+        setcookie("rememberme", $userId, time() + 60*60*24*30, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+        setcookie("email", $userEmail, time() + 60*60*24*30, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+        setcookie("role", $userRole, time() + 60*60*24*30, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
 
         if ($userRole == "mikroes_admin") {
 
