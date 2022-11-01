@@ -298,7 +298,7 @@ class Process {
                 <td> <div class="btn-group">
                 <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                 <div class="dropdown-menu">
-                  <a href="chat-detail.php?chat_id='.$row['gorusme_id'].'?gonderen_id='.$row['gonderen_id'].'" class="dropdown-item">Görüntüle</a>
+                  <a href="chat-detail.php?chat_id='.$row['gorusme_id'].'&alici_id='.$row['a_id'].'&gonderen_id='.$row['g_id'].'" class="dropdown-item">Görüntüle</a>
                   <a href="" class="dropdown-item">Sil</a>
                 </div>
                 </td>
@@ -308,13 +308,12 @@ class Process {
 
     }
 
-    public function getChatDetail($db, $gorusme_id) {
-        $query = "SELECT * FROM Mesajlar INNER JOIN Users ON Mesajlar.gonderen_id = Users.user_id WHERE Mesajlar.gorusme_id = $gorusme_id ORDER BY tarih_saat ASC";
+    public function getAdminChatDetailWithId($db, $gorusme_id, $id) {
+        $query = "SELECT * FROM Mesajlar INNER JOIN Users ON Mesajlar.gonderen_id = Users.user_id WHERE Mesajlar.gorusme_id = $gorusme_id AND Users.user_id= $id ORDER BY tarih_saat asc";
         if ($result = $db->query($query)) {
             while ($row = $result->fetch_assoc()) {
 
-                if($row['role'] == 'mikroes_admin') {
-
+            
                     echo '<div class="media media-chat media-chat-reverse">
                     <div class="media-body">
                       <p>'.$row['mesaj'].'</p>
@@ -322,7 +321,15 @@ class Process {
                     </div>
                   </div>';
 
-                } else {
+            }
+        }
+    }
+public function getUserChatDetailWithId($db, $gorusme_id, $id) {
+        $query = "SELECT * FROM Mesajlar INNER JOIN Users ON Mesajlar.gonderen_id = Users.user_id WHERE Mesajlar.gorusme_id = $gorusme_id AND Users.user_id= $id ORDER BY tarih_saat ASC";
+        if ($result = $db->query($query)) {
+            while ($row = $result->fetch_assoc()) {
+
+                
                     echo ' <div class="media media-chat">
                   <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
                   <div class="media-body">
@@ -331,13 +338,9 @@ class Process {
                   </div>
                 </div>
                     ';
-                }
-
-               
             }
         }
     }
-
    
 
 

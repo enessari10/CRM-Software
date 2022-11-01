@@ -11,7 +11,7 @@
     $message = $_POST['message'];
     $gorusmeId = $_GET['chat_id'];
     $aliciId =  $_GET['gonderen_id'];
-    $gonderenId = $_SESSION['userId'];
+    $gonderenId = $_SESSION['userid'];
     
     $processClass->sqlInsert($db,"Mesajlar","gorusme_id,gonderen_id,alici_id,mesaj", "'$gorusmeId', '$gonderenId','$aliciId', '$message'");
     if ($processClass == true) {
@@ -20,6 +20,7 @@
 
   
       } else {
+      $showAlert = $processClass->errorAlert('Bir hata oluştu.');
 
       }
 
@@ -368,11 +369,14 @@ button, input, optgroup, select, textarea {
         </nav>
         <!-- partial -->
         <div class="main-panel">
+			<?php 
+                    if(isset($showAlert)) { 
+                      }?>
           <div class="content-wrapper">
 			  
             <div class="card card-bordered">
               <div class="card-header">
-                <h4 class="card-title"><strong>Görüşme Detayı - eMAİL</strong></h4>
+                <h4 class="card-title"><strong>Görüşme Detayı -</strong></h4>
               </div>
 
 
@@ -380,7 +384,10 @@ button, input, optgroup, select, textarea {
                 
               <?php 
               $id = $_GET['chat_id'];
-              echo $processClass->getChatDetail($db, $id);
+			  $g_id = $_GET['gonderen_id'];
+			  $a_id = $_GET['alici_id'];
+		      echo $processClass->getUserChatDetailWithId($db, $id, $g_id);
+              echo $processClass->getAdminChatDetailWithId($db, $id, $a_id);
               
               ?> 
 
