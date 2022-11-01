@@ -6,6 +6,25 @@
   if($_SESSION['role'] != 'mikroes_admin') {
     header("location:/../error-404.html");
   }
+  if(isset($_POST['submit'])){
+
+    $message = $_POST['message'];
+    $gorusmeId = $_GET['chat_id'];
+    $aliciId =  $_GET['gonderen_id'];
+    $gonderenId = $_SESSION['userId'];
+    
+    $processClass->sqlInsert($db,"Mesajlar","gorusme_id,gonderen_id,alici_id,mesaj", "'$gorusmeId', '$gonderenId','$aliciId', '$message'");
+    if ($processClass == true) {
+
+        header("Refresh:0");
+
+  
+      } else {
+
+      }
+
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -317,6 +336,8 @@ button, input, optgroup, select, textarea {
     color: #48b0f7 !important;
 }
 		  </style>
+
+
   </head>
   <body>
     <div class="container-scroller">
@@ -359,7 +380,7 @@ button, input, optgroup, select, textarea {
                 
               <?php 
               $id = $_GET['chat_id'];
-              echo $processClass-getChatDetail($db, $id);
+              echo $processClass->getChatDetail($db, $id);
               
               ?> 
 
@@ -367,8 +388,11 @@ button, input, optgroup, select, textarea {
 
               <div class="publisher bt-1 border-light">
                 <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
-                <input class="publisher-input" type="text" placeholder="Mesajınızı yazın...">
-                <a class="publisher-btn" href="#" data-abc="true"><i class="mdi mdi-send"></i></a>
+                <form action="" method="POST">
+                <input class="publisher-input" type="text" name="message" id="message" placeholder="Mesajınızı yazın...">
+                <button class="publisher-btn" name="submit" id="submit" type="submit" data-abc="true"><i class="mdi mdi-send"></i></button>
+                </form>
+
               </div>
 
              </div>

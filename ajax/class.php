@@ -298,7 +298,7 @@ class Process {
                 <td> <div class="btn-group">
                 <button type="button" class="btn btn-gradient-primary btn-sm" data-bs-toggle="dropdown">İşlem Seç</button>
                 <div class="dropdown-menu">
-                  <a href="chat-detail.php?chat_id='.$row['gorusme_id'].'" class="dropdown-item">Görüntüle</a>
+                  <a href="chat-detail.php?chat_id='.$row['gorusme_id'].'?gonderen_id='.$row['gonderen_id'].'" class="dropdown-item">Görüntüle</a>
                   <a href="" class="dropdown-item">Sil</a>
                 </div>
                 </td>
@@ -336,10 +336,9 @@ class Process {
                
             }
         }
-       
-
-    
     }
+
+   
 
 
     public function getCustomerAllServiceRequests($db, $user_email) {
